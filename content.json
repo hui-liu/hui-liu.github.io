@@ -1,1 +1,1 @@
-[{"title":"test","date":"2017-03-02T05:01:44.000Z","path":"2017/03/02/test/","text":"这是一篇测试文章","tags":[{"name":"测试","slug":"测试","permalink":"//https://hui-liu.github.io/tags/测试/"}]}]
+[{"title":"creat a blog","date":"2017-03-02T05:01:44.000Z","path":"2017/03/02/creat a blog/","text":"12341. hexo new \"new blog title\"2. edit your text using Typora3. hexo generate4. hexo deploy","tags":[{"name":"notes","slug":"notes","permalink":"//https://hui-liu.github.io/tags/notes/"}]}]
