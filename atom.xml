@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="//https://hui-liu.github.io/"/>
-  <updated>2017-03-02T11:48:12.046Z</updated>
+  <updated>2017-03-02T12:51:05.376Z</updated>
   <id>//https://hui-liu.github.io/</id>
   
   <author>
@@ -17,12 +17,13 @@
   
   <entry>
     <title>Detecting pervasive positive selection step by step</title>
-    <link href="//https://hui-liu.github.io/2017/03/02/Detecting-pervasive-positive-selection/"/>
-    <id>//https://hui-liu.github.io/2017/03/02/Detecting-pervasive-positive-selection/</id>
+    <link href="//https://hui-liu.github.io/posts/uncategorized/2017-03-02-Detecting-pervasive-positive-selection.html"/>
+    <id>//https://hui-liu.github.io/posts/uncategorized/2017-03-02-Detecting-pervasive-positive-selection.html</id>
     <published>2017-03-02T09:01:33.000Z</published>
-    <updated>2017-03-02T11:48:12.046Z</updated>
+    <updated>2017-03-02T12:51:05.376Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Site-model-assumsing-that-the-dn-ds-rato-is-the-same-across-branches-but-different-between-sites"><a href="#Site-model-assumsing-that-the-dn-ds-rato-is-the-same-across-branches-but-different-between-sites" class="headerlink" title="Site-model: assumsing that the dn/ds rato is the same across branches, but different between sites"></a>Site-model: assumsing that the dn/ds rato is the same across branches, but different between sites</h3><h4 id="1-multiple-sequence-alignment"><a href="#1-multiple-sequence-alignment" class="headerlink" title="(1) multiple sequence alignment"></a>(1) multiple sequence alignment</h4><ul>
+    <content type="html"><![CDATA[<h3 id="Site-model-assumsing-that-the-dn-ds-rato-is-the-same-across-branches-but-different-between-sites"><a href="#Site-model-assumsing-that-the-dn-ds-rato-is-the-same-across-branches-but-different-between-sites" class="headerlink" title="Site-model: assumsing that the dn/ds rato is the same across branches, but different between sites"></a>Site-model: assumsing that the dn/ds rato is the same across branches, but different between sites</h3><p>[TOC]</p>
+<h4 id="1-multiple-sequence-alignment"><a href="#1-multiple-sequence-alignment" class="headerlink" title="(1) multiple sequence alignment"></a>(1) multiple sequence alignment</h4><ul>
 <li>speed: muscle &gt; mafft &gt; clustalW &gt; T-Coffee</li>
 <li>accuracy: mafft &gt; muscle &gt; T-Coffee &gt; clustalW</li>
 </ul>
@@ -53,7 +54,6 @@
 <p>Bayes Empirical Bayes (BEB) analysis (Yang, Wong &amp; Nielsen 2005. Mol. Biol. Evol. 22:1107-1118)<br>Positively selected sites (<em>: P&gt;95%; *</em>: P&gt;99%)<br>(amino acids refer to 1st sequence: ENSP00000364080)</p>
 </blockquote>
 <figure class="highlight r"><table><tr><td class="code"><pre><div class="line">         Pr(w&gt;<span class="number">1</span>)     post mean +- SE <span class="keyword">for</span> w</div><div class="line"> <span class="number">14</span> <span class="literal">T</span>      <span class="number">0.539</span>         <span class="number">1.770</span> +- <span class="number">1.006</span></div><div class="line"> <span class="number">38</span> <span class="literal">F</span>      <span class="number">0.985</span>*        <span class="number">2.688</span> +- <span class="number">0.473</span></div><div class="line"> <span class="number">42</span> G      <span class="number">0.649</span>         <span class="number">1.992</span> +- <span class="number">0.956</span></div><div class="line"> <span class="number">55</span> L      <span class="number">1.000</span>**       <span class="number">2.715</span> +- <span class="number">0.417</span></div><div class="line"> <span class="number">66</span> Y      <span class="number">0.962</span>*        <span class="number">2.641</span> +- <span class="number">0.547</span></div><div class="line"> <span class="number">86</span> D      <span class="number">0.999</span>**       <span class="number">2.714</span> +- <span class="number">0.419</span></div><div class="line"> <span class="number">99</span> G      <span class="number">0.996</span>**       <span class="number">2.709</span> +- <span class="number">0.431</span></div><div class="line"><span class="number">113</span> E      <span class="number">0.518</span>         <span class="number">1.714</span> +- <span class="number">0.948</span></div><div class="line"><span class="number">116</span> <span class="literal">F</span>      <span class="number">0.989</span>*        <span class="number">2.694</span> +- <span class="number">0.459</span></div><div class="line"><span class="number">117</span> R      <span class="number">0.585</span>         <span class="number">1.855</span> +- <span class="number">0.957</span></div><div class="line"><span class="number">118</span> G      <span class="number">0.927</span>         <span class="number">2.564</span> +- <span class="number">0.632</span></div><div class="line"><span class="number">123</span> R      <span class="number">0.837</span>         <span class="number">2.393</span> +- <span class="number">0.822</span></div><div class="line"><span class="number">256</span> P      <span class="number">1.000</span>**       <span class="number">2.715</span> +- <span class="number">0.418</span></div><div class="line"><span class="number">257</span> Q      <span class="number">0.956</span>*        <span class="number">2.630</span> +- <span class="number">0.569</span></div><div class="line"><span class="number">258</span> G      <span class="number">0.992</span>**       <span class="number">2.700</span> +- <span class="number">0.451</span></div><div class="line"><span class="number">259</span> P      <span class="number">0.947</span>         <span class="number">2.609</span> +- <span class="number">0.588</span></div><div class="line"><span class="number">260</span> P      <span class="number">0.993</span>**       <span class="number">2.703</span> +- <span class="number">0.443</span></div></pre></td></tr></table></figure>
-<p>[TOC]</p>
 ]]></content>
     
     <summary type="html">
@@ -69,16 +69,16 @@
   
   <entry>
     <title>creat a blog</title>
-    <link href="//https://hui-liu.github.io/2017/03/02/creat%20a%20blog/"/>
-    <id>//https://hui-liu.github.io/2017/03/02/creat a blog/</id>
+    <link href="//https://hui-liu.github.io/posts/uncategorized/2017-03-02-creat%20a%20blog.html"/>
+    <id>//https://hui-liu.github.io/posts/uncategorized/2017-03-02-creat a blog.html</id>
     <published>2017-03-02T05:01:44.000Z</published>
-    <updated>2017-03-02T11:46:14.256Z</updated>
+    <updated>2017-03-02T12:45:44.609Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight verilog"><table><tr><td class="code"><pre><div class="line">hexo <span class="keyword">new</span> <span class="string">"new blog title"</span></div><div class="line">edit your text using Typora</div><div class="line">hexo <span class="keyword">generate</span></div><div class="line">hexo deploy</div></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight verilog"><table><tr><td class="code"><pre><div class="line"><span class="number">1</span>. hexo <span class="keyword">new</span> <span class="string">"new blog title"</span></div><div class="line"><span class="number">2</span>. edit your text using Typora</div><div class="line"><span class="number">3</span>. hexo <span class="keyword">generate</span></div><div class="line"><span class="number">4</span>. hexo deploy</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;figure class=&quot;highlight verilog&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;stri
+      &lt;figure class=&quot;highlight verilog&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;. hexo &lt;span class=&quot;keywor
     
     </summary>
     
