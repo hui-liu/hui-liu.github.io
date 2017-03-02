@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-03-02T12:51:05.376Z</updated>
+  <updated>2017-03-02T14:36:04.511Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://hui-liu.github.io/2017-03-02-Detecting-pervasive-positive-selection.html"/>
     <id>https://hui-liu.github.io/2017-03-02-Detecting-pervasive-positive-selection.html</id>
     <published>2017-03-02T09:01:33.000Z</published>
-    <updated>2017-03-02T12:51:05.376Z</updated>
+    <updated>2017-03-02T14:36:04.511Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Site-model-assumsing-that-the-dn-ds-rato-is-the-same-across-branches-but-different-between-sites"><a href="#Site-model-assumsing-that-the-dn-ds-rato-is-the-same-across-branches-but-different-between-sites" class="headerlink" title="Site-model: assumsing that the dn/ds rato is the same across branches, but different between sites"></a>Site-model: assumsing that the dn/ds rato is the same across branches, but different between sites</h3><p>[TOC]</p>
 <h4 id="1-multiple-sequence-alignment"><a href="#1-multiple-sequence-alignment" class="headerlink" title="(1) multiple sequence alignment"></a>(1) multiple sequence alignment</h4><ul>
@@ -62,8 +62,10 @@
     
     </summary>
     
+      <category term="Evolution" scheme="https://hui-liu.github.io/categories/Evolution/"/>
     
-      <category term="Evolution" scheme="https://hui-liu.github.io/tags/Evolution/"/>
+    
+      <category term="positive selection" scheme="https://hui-liu.github.io/tags/positive-selection/"/>
     
   </entry>
   
@@ -72,7 +74,7 @@
     <link href="https://hui-liu.github.io/2017-03-02-creat%20a%20blog.html"/>
     <id>https://hui-liu.github.io/2017-03-02-creat a blog.html</id>
     <published>2017-03-02T05:01:44.000Z</published>
-    <updated>2017-03-02T12:45:44.609Z</updated>
+    <updated>2017-03-02T14:35:25.913Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. hexo new &quot;new blog title&quot;</div><div class="line">2. edit your text using Typora</div><div class="line">3. hexo generate</div><div class="line">4. hexo deploy</div></pre></td></tr></table></figure>]]></content>
     
@@ -81,6 +83,8 @@
       &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
     
     </summary>
+    
+      <category term="blog" scheme="https://hui-liu.github.io/categories/blog/"/>
     
     
       <category term="notes" scheme="https://hui-liu.github.io/tags/notes/"/>
