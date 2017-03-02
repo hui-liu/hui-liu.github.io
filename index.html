@@ -140,6 +140,126 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Detecting-pervasive-positive-selection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/02/Detecting-pervasive-positive-selection/">Detecting pervasive positive selection step by step</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/02/Detecting-pervasive-positive-selection/" class="archive-article-date">
+  	<time datetime="2017-03-02T09:01:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Site-model-assumsing-that-the-dn-ds-rato-is-the-same-across-branches-but-different-between-sites"><a href="#Site-model-assumsing-that-the-dn-ds-rato-is-the-same-across-branches-but-different-between-sites" class="headerlink" title="Site-model: assumsing that the dn/ds rato is the same across branches, but different between sites"></a>Site-model: assumsing that the dn/ds rato is the same across branches, but different between sites</h3><h4 id="1-multiple-sequence-alignment"><a href="#1-multiple-sequence-alignment" class="headerlink" title="(1) multiple sequence alignment"></a>(1) multiple sequence alignment</h4><blockquote>
+<p>speed: muscle &gt; mafft &gt; clustalW &gt; T-Coffee</p>
+<p>accuracy: mafft &gt; muscle &gt; T-Coffee &gt; clustalW</p>
+</blockquote>
+<p><code>cd /home/liuhui/nature_selection/exemple/data_for_codeml</code><br><code>mafft-linsi ../input/HLA_DQB1.aa.fasta &gt; HLA_DQB1.aa.mafft.fasta</code></p>
+<h4 id="2-convert-protein-alignment-to-cds-alignment"><a href="#2-convert-protein-alignment-to-cds-alignment" class="headerlink" title="(2) convert protein alignment to cds alignment"></a>(2) convert protein alignment to cds alignment</h4><p><code>perl /home/liuhui/nature_selection/exemple/bin/pepMfa_to_cdsMfa.pl HLA_DQB1.aa.mafft.fasta ../input/HLA_DQB1.cds.fasta &gt; HLA_DQB1.cds.mafft.fasta</code> </p>
+<h4 id="3-Remove-spurious-sequences-and-columns"><a href="#3-Remove-spurious-sequences-and-columns" class="headerlink" title="(3) Remove spurious sequences and columns"></a>(3) Remove spurious sequences and columns</h4><h5 id="aa-sequences-construct-gene-tree"><a href="#aa-sequences-construct-gene-tree" class="headerlink" title="aa sequences  (construct gene tree)"></a>aa sequences  (construct gene tree)</h5><p><code>trimal -automated1 -in HLA_DQB1.aa.mafft.fasta -out HLA_DQB1.aa.mafft.trimal.fasta -htmlout HLA_DQB1.aa.mafft.trimal.html -colnumbering &gt; HLA_DQB1.aa.mafft.trimal.cols</code></p>
+<h5 id="cds-sequences-for-codeml"><a href="#cds-sequences-for-codeml" class="headerlink" title="cds sequences (for codeml)"></a>cds sequences (for codeml)</h5><p> <code>python /home/liuhui/nature_selection/bin/MSA_triplets_gaps_removed.py HLA_DQB1.cds.mafft.fasta HLA_DQB1.cds.mafft_removed_trigaps.fasta</code></p>
+<h4 id="4-convert-fasta-to-phylip-format"><a href="#4-convert-fasta-to-phylip-format" class="headerlink" title="(4) convert fasta to phylip format"></a>(4) convert fasta to phylip format</h4><p><code>/home/liuhui/nature_selection/exemple/bin/convert_fasta2phylip.py HLA_DQB1.aa.mafft.trimal.fasta HLA_DQB1.aa.mafft.trimal.phy # construct tree</code><br><code>/home/liuhui/nature_selection/exemple/bin/convert_fasta2phylip.py HLA_DQB1.cds.mafft_removed_trigaps.fasta HLA_DQB1.cds.mafft_removed_trigaps.phy # for codeml</code></p>
+<h4 id="5-construct-tree"><a href="#5-construct-tree" class="headerlink" title="(5) construct tree"></a>(5) construct tree</h4><p><code>phyml -i HLA_DQB1.aa.mafft.trimal.phy -q -d aa -m JTT -c 4 -a e</code></p>
+<p><code>sed &#39;s/\()\)[0-9]\.[^:]*:/\1:/g&#39; HLA_DQB1.aa.mafft.trimal.phy_phyml_tree.txt &gt; HLA_DQB1.aa.mafft.trimal.tree</code></p>
+<p>################################</p>
+<h4 id="6-codeml"><a href="#6-codeml" class="headerlink" title="(6) codeml"></a>(6) codeml</h4><p><code>cd /home/liuhui/nature_selection/exemple/output/</code><br><code>mkdir HLA_DQB1_M0M1M2M3M7M8</code><br><code>cd HLA_DQB1_M0M1M2M3M7M8</code><br><code>codeml HLA_DQB1_M0M1M2M3M7M8.ctl</code></p>
+<p><code>cd /home/liuhui/nature_selection/exemple/output/</code><br><code>mkdir HLA_DQB1_M8a</code><br><code>cd HLA_DQB1_M8a</code><br><code>codeml HLA_DQB1_M8a.ctl</code></p>
+<h4 id="7-significant-test"><a href="#7-significant-test" class="headerlink" title="(7) significant test"></a>(7) significant test</h4><blockquote>
+<p><code>np: the number of parameters</code></p>
+<p><code>lnL: log-likelihood value</code></p>
+<p><code>LRT: likelihood-ratio test</code></p>
+<p>Model_compared  Model0  np0     lnL0    Model1  np1     lnL1    df      LRT     pvalue<br>M7-M8   M7      44      -5047.785978    M8      46      -5011.936805    2       71.6983 2.69719269066922e-16<br>M0-M3   M0      43      -5214.976615    M3      47      -5011.542624    4       406.868 9.12618975872726e-87<br>M8-M8a  M8a     45      -5031.655392    M8      46      -5011.936805    1       39.4372 3.38781154892534e-10<br>M1a-M2a M1a     44      -5036.170805    M2a     46      -5014.302814    2       43.736  3.18308524710324e-10</p>
+</blockquote>
+<h4 id="8-identification-of-sites"><a href="#8-identification-of-sites" class="headerlink" title="(8) identification of sites"></a>(8) identification of sites</h4><h5 id="M2a"><a href="#M2a" class="headerlink" title="M2a"></a>M2a</h5><blockquote>
+<p>Bayes Empirical Bayes (BEB) analysis (Yang, Wong &amp; Nielsen 2005. Mol. Biol. Evol. 22:1107-1118)<br>Positively selected sites (<em>: P&gt;95%; *</em>: P&gt;99%)<br>(amino acids refer to 1st sequence: ENSP00000364080)</p>
+</blockquote>
+<pre><code>         Pr(w&gt;1)     post mean +- SE for w
+ 38 F      0.938         3.258 +- 0.761
+ 55 L      0.999**       3.408 +- 0.518
+ 66 Y      0.837         2.994 +- 0.991
+ 86 D      0.997**       3.404 +- 0.527
+ 99 G      0.978*        3.356 +- 0.615
+ 99 G      0.978*        3.356 +- 0.615
+116 F      0.935         3.243 +- 0.766
+118 G      0.662         2.542 +- 1.171
+123 R      0.690         2.646 +- 1.182
+256 P      0.998**       3.406 +- 0.523
+257 Q      0.864         3.073 +- 0.947
+258 G      0.968*        3.334 +- 0.659
+259 P      0.776         2.838 +- 1.079
+260 P      0.971*        3.342 +- 0.644
+</code></pre><h5 id="M8"><a href="#M8" class="headerlink" title="M8"></a>M8</h5><blockquote>
+<p>Bayes Empirical Bayes (BEB) analysis (Yang, Wong &amp; Nielsen 2005. Mol. Biol. Evol. 22:1107-1118)<br>Positively selected sites (<em>: P&gt;95%; *</em>: P&gt;99%)<br>(amino acids refer to 1st sequence: ENSP00000364080)</p>
+</blockquote>
+<pre><code>         Pr(w&gt;1)     post mean +- SE for w
+ 14 T      0.539         1.770 +- 1.006
+ 38 F      0.985*        2.688 +- 0.473
+ 42 G      0.649         1.992 +- 0.956
+ 55 L      1.000**       2.715 +- 0.417
+ 66 Y      0.962*        2.641 +- 0.547
+ 86 D      0.999**       2.714 +- 0.419
+ 99 G      0.996**       2.709 +- 0.431
+113 E      0.518         1.714 +- 0.948
+116 F      0.989*        2.694 +- 0.459
+117 R      0.585         1.855 +- 0.957
+118 G      0.927         2.564 +- 0.632
+123 R      0.837         2.393 +- 0.822
+256 P      1.000**       2.715 +- 0.418
+257 Q      0.956*        2.630 +- 0.569
+258 G      0.992**       2.700 +- 0.451
+259 P      0.947         2.609 +- 0.588
+260 P      0.993**       2.703 +- 0.443
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Evolution</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/02/Detecting-pervasive-positive-selection/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-creat a blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -280,6 +400,10 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Evolution</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">notes</a>
