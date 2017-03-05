@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Mocular evolution, Population genetic" />
+  <meta name="keywords" content="linux shell," />
 
 
 
@@ -89,16 +89,31 @@
 
 
 
-<meta name="description" content="北京林业大学在读硕士liuhui@bjfu.edu.cn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://hui-liu.github.io/tags/index.html">
+<meta name="description" content="假设有一个 list 如下：
+$cat aaabcd
+期望生成如下组合：
+a       ba       ca       db       cb       dc       d
+实现方法如下：
+#!/bin/bashset -- $(cat $1) # 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。for i in $* # $* 为所有位置变量的 lsit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="根据一个list文件生成一个组合">
+<meta property="og:url" content="https://hui-liu.github.io/2017-03-05-根据一个list文件生成一个组合.html">
 <meta property="og:site_name" content="liuhui | 刘辉">
-<meta property="og:description" content="北京林业大学在读硕士liuhui@bjfu.edu.cn">
-<meta property="og:updated_time" content="2017-03-02T14:32:50.317Z">
+<meta property="og:description" content="假设有一个 list 如下：
+$cat aaabcd
+期望生成如下组合：
+a       ba       ca       db       cb       dc       d
+实现方法如下：
+#!/bin/bashset -- $(cat $1) # 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。for i in $* # $* 为所有位置变量的 lsit">
+<meta property="og:updated_time" content="2017-03-05T08:47:33.584Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="北京林业大学在读硕士liuhui@bjfu.edu.cn">
+<meta name="twitter:title" content="根据一个list文件生成一个组合">
+<meta name="twitter:description" content="假设有一个 list 如下：
+$cat aaabcd
+期望生成如下组合：
+a       ba       ca       db       cb       dc       d
+实现方法如下：
+#!/bin/bashset -- $(cat $1) # 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。for i in $* # $* 为所有位置变量的 lsit">
 
 
 
@@ -126,19 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://hui-liu.github.io/tags/"/>
+  <link rel="canonical" href="https://hui-liu.github.io/2017-03-05-根据一个list文件生成一个组合.html"/>
 
 
 
 
 
-  <title>
-  
-
-  
-    tags | liuhui | 刘辉
-  
-</title>
+  <title> 根据一个list文件生成一个组合 | liuhui | 刘辉 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -163,7 +172,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -303,25 +312,175 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/2017-03-05-根据一个list文件生成一个组合.html">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hui Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/headportrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuhui | 刘辉">
+    </span>
 
     
-    
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            3 tags in total
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                根据一个list文件生成一个组合
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-05T16:35:07+08:00">
+                2017-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-        <div class="tag-cloud-tags">
-          <a href="/tags/linux-shell/" style="font-size: 12px; color: #ccc">linux shell</a> <a href="/tags/notes/" style="font-size: 12px; color: #ccc">notes</a> <a href="/tags/positive-selection/" style="font-size: 12px; color: #ccc">positive selection</a>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>假设有一个 list 如下：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="variable">$cat</span> aa</div><div class="line"><span class="selector-tag">a</span></div><div class="line"><span class="selector-tag">b</span></div><div class="line">c</div><div class="line">d</div></pre></td></tr></table></figure>
+<p>期望生成如下组合：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">a</span>       <span class="selector-tag">b</span></div><div class="line"><span class="selector-tag">a</span>       c</div><div class="line"><span class="selector-tag">a</span>       d</div><div class="line"><span class="selector-tag">b</span>       c</div><div class="line"><span class="selector-tag">b</span>       d</div><div class="line">c       d</div></pre></td></tr></table></figure>
+<p>实现方法如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">set</span> -- $(cat <span class="variable">$1</span>) <span class="comment"># 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $* <span class="comment"># $* 为所有位置变量的 lsit</span></div><div class="line"><span class="keyword">do</span></div><div class="line"><span class="built_in">shift</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> $*</div><div class="line">    <span class="keyword">do</span></div><div class="line">    <span class="built_in">printf</span> <span class="string">"%s\t%s\n"</span> <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$j</span>"</span></div><div class="line">    <span class="keyword">done</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">./pair_combination<span class="selector-class">.sh</span> aa</div><div class="line"><span class="selector-tag">a</span>       <span class="selector-tag">b</span></div><div class="line"><span class="selector-tag">a</span>       c</div><div class="line"><span class="selector-tag">a</span>       d</div><div class="line"><span class="selector-tag">b</span>       c</div><div class="line"><span class="selector-tag">b</span>       d</div><div class="line">c       d</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux-shell/" rel="tag"># linux shell</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017-03-02-Detecting-pervasive-positive-selection.html" rel="next" title="Detecting pervasive positive selection step by step">
+                <i class="fa fa-chevron-left"></i> Detecting pervasive positive selection step by step
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
           
@@ -528,6 +687,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
