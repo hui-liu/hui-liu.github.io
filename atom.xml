@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-03-05T08:47:33.584Z</updated>
+  <updated>2017-03-05T08:49:33.308Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -20,20 +20,20 @@
     <link href="https://hui-liu.github.io/2017-03-05-%E6%A0%B9%E6%8D%AE%E4%B8%80%E4%B8%AAlist%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E7%BB%84%E5%90%88.html"/>
     <id>https://hui-liu.github.io/2017-03-05-根据一个list文件生成一个组合.html</id>
     <published>2017-03-05T08:35:07.000Z</published>
-    <updated>2017-03-05T08:47:33.584Z</updated>
+    <updated>2017-03-05T08:49:33.308Z</updated>
     
     <content type="html"><![CDATA[<p>假设有一个 list 如下：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="variable">$cat</span> aa</div><div class="line"><span class="selector-tag">a</span></div><div class="line"><span class="selector-tag">b</span></div><div class="line">c</div><div class="line">d</div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">$ cat aa</div><div class="line"><span class="selector-tag">a</span></div><div class="line"><span class="selector-tag">b</span></div><div class="line">c</div><div class="line">d</div></pre></td></tr></table></figure>
 <p>期望生成如下组合：</p>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">a</span>       <span class="selector-tag">b</span></div><div class="line"><span class="selector-tag">a</span>       c</div><div class="line"><span class="selector-tag">a</span>       d</div><div class="line"><span class="selector-tag">b</span>       c</div><div class="line"><span class="selector-tag">b</span>       d</div><div class="line">c       d</div></pre></td></tr></table></figure>
 <p>实现方法如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">set</span> -- $(cat <span class="variable">$1</span>) <span class="comment"># 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $* <span class="comment"># $* 为所有位置变量的 lsit</span></div><div class="line"><span class="keyword">do</span></div><div class="line"><span class="built_in">shift</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> $*</div><div class="line">    <span class="keyword">do</span></div><div class="line">    <span class="built_in">printf</span> <span class="string">"%s\t%s\n"</span> <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$j</span>"</span></div><div class="line">    <span class="keyword">done</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">./pair_combination<span class="selector-class">.sh</span> aa</div><div class="line"><span class="selector-tag">a</span>       <span class="selector-tag">b</span></div><div class="line"><span class="selector-tag">a</span>       c</div><div class="line"><span class="selector-tag">a</span>       d</div><div class="line"><span class="selector-tag">b</span>       c</div><div class="line"><span class="selector-tag">b</span>       d</div><div class="line">c       d</div></pre></td></tr></table></figure>]]></content>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">$ ./pair_combination<span class="selector-class">.sh</span> aa</div><div class="line"><span class="selector-tag">a</span>       <span class="selector-tag">b</span></div><div class="line"><span class="selector-tag">a</span>       c</div><div class="line"><span class="selector-tag">a</span>       d</div><div class="line"><span class="selector-tag">b</span>       c</div><div class="line"><span class="selector-tag">b</span>       d</div><div class="line">c       d</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;假设有一个 list 如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$cat&lt;/span&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ cat aa&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;s
     
     </summary>
     
