@@ -94,7 +94,7 @@ $ cat aaabcd
 期望生成如下组合：
 a       ba       ca       db       cb       dc       d
 实现方法如下：
-#!/bin/bashset -- $(cat $1) # 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。for i in $* # $* 为所有位置变量的 lsi">
+#!/bin/bashset -- $(cat $1) # 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。for i in $* # $* 为所有位置变量的 lis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="根据一个list文件生成一个组合">
 <meta property="og:url" content="https://hui-liu.github.io/2017-03-05-根据一个list文件生成一个组合.html">
@@ -104,8 +104,8 @@ $ cat aaabcd
 期望生成如下组合：
 a       ba       ca       db       cb       dc       d
 实现方法如下：
-#!/bin/bashset -- $(cat $1) # 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。for i in $* # $* 为所有位置变量的 lsi">
-<meta property="og:updated_time" content="2017-03-05T08:49:33.308Z">
+#!/bin/bashset -- $(cat $1) # 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。for i in $* # $* 为所有位置变量的 lis">
+<meta property="og:updated_time" content="2017-03-05T08:50:52.091Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="根据一个list文件生成一个组合">
 <meta name="twitter:description" content="假设有一个 list 如下：
@@ -113,7 +113,7 @@ $ cat aaabcd
 期望生成如下组合：
 a       ba       ca       db       cb       dc       d
 实现方法如下：
-#!/bin/bashset -- $(cat $1) # 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。for i in $* # $* 为所有位置变量的 lsi">
+#!/bin/bashset -- $(cat $1) # 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。for i in $* # $* 为所有位置变量的 lis">
 
 
 
@@ -420,7 +420,7 @@ a       ba       ca       db       cb       dc       d
 <p>期望生成如下组合：</p>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">a</span>       <span class="selector-tag">b</span></div><div class="line"><span class="selector-tag">a</span>       c</div><div class="line"><span class="selector-tag">a</span>       d</div><div class="line"><span class="selector-tag">b</span>       c</div><div class="line"><span class="selector-tag">b</span>       d</div><div class="line">c       d</div></pre></td></tr></table></figure>
 <p>实现方法如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">set</span> -- $(cat <span class="variable">$1</span>) <span class="comment"># 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $* <span class="comment"># $* 为所有位置变量的 lsit</span></div><div class="line"><span class="keyword">do</span></div><div class="line"><span class="built_in">shift</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> $*</div><div class="line">    <span class="keyword">do</span></div><div class="line">    <span class="built_in">printf</span> <span class="string">"%s\t%s\n"</span> <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$j</span>"</span></div><div class="line">    <span class="keyword">done</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">set</span> -- $(cat <span class="variable">$1</span>) <span class="comment"># 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $* <span class="comment"># $* 为所有位置变量的 list</span></div><div class="line"><span class="keyword">do</span></div><div class="line"><span class="built_in">shift</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> $*</div><div class="line">    <span class="keyword">do</span></div><div class="line">    <span class="built_in">printf</span> <span class="string">"%s\t%s\n"</span> <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$j</span>"</span></div><div class="line">    <span class="keyword">done</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">$ ./pair_combination<span class="selector-class">.sh</span> aa</div><div class="line"><span class="selector-tag">a</span>       <span class="selector-tag">b</span></div><div class="line"><span class="selector-tag">a</span>       c</div><div class="line"><span class="selector-tag">a</span>       d</div><div class="line"><span class="selector-tag">b</span>       c</div><div class="line"><span class="selector-tag">b</span>       d</div><div class="line">c       d</div></pre></td></tr></table></figure>
       
     </div>
