@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Mocular evolution, Population genetic" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -89,16 +89,19 @@
 
 
 
-<meta name="description" content="北京林业大学在读硕士liuhui@bjfu.edu.cn">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://hui-liu.github.io/categories/index.html">
+<meta name="description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
+正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在遍历时，正确删除列表中的 items">
+<meta property="og:url" content="https://hui-liu.github.io/2017-03-08-如何在遍历时，正确删除列表中的-items.html">
 <meta property="og:site_name" content="liuhui | 刘辉">
-<meta property="og:description" content="北京林业大学在读硕士liuhui@bjfu.edu.cn">
-<meta property="og:updated_time" content="2017-03-02T14:34:54.101Z">
+<meta property="og:description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
+正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
+<meta property="og:updated_time" content="2017-03-08T09:22:48.197Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="北京林业大学在读硕士liuhui@bjfu.edu.cn">
+<meta name="twitter:title" content="如何在遍历时，正确删除列表中的 items">
+<meta name="twitter:description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
+正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
 
 
 
@@ -126,19 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://hui-liu.github.io/categories/"/>
+  <link rel="canonical" href="https://hui-liu.github.io/2017-03-08-如何在遍历时，正确删除列表中的-items.html"/>
 
 
 
 
 
-  <title>
-  
-
-  
-    categories | liuhui | 刘辉
-  
-</title>
+  <title> 如何在遍历时，正确删除列表中的 items | liuhui | 刘辉 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -163,7 +160,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -303,25 +300,172 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/2017-03-08-如何在遍历时，正确删除列表中的-items.html">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hui Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/headportrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuhui | 刘辉">
+    </span>
 
     
-    
-      <div class="category-all-page">
-        <div class="category-all-title">
-            4 categories in total
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何在遍历时，正确删除列表中的 items
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T17:21:23+08:00">
+                2017-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index">
+                    <span itemprop="name">code</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-        <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Evolution/">Evolution</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/code/">code</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li></ul>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="错误的代码"><a href="#错误的代码" class="headerlink" title="错误的代码"></a>错误的代码</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">x = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line">y = [<span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> x:</div><div class="line">    <span class="keyword">if</span> <span class="selector-tag">i</span> <span class="keyword">in</span> y:</div><div class="line">        x.remove(i)</div><div class="line">print x</div><div class="line">-----------------</div><div class="line"></div><div class="line">[<span class="string">'a'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
+<h3 id="正确的代码"><a href="#正确的代码" class="headerlink" title="正确的代码"></a>正确的代码</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">x = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line">y = [<span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> x[:]:</div><div class="line">    <span class="keyword">if</span> <span class="selector-tag">i</span> <span class="keyword">in</span> y:</div><div class="line">        x.remove(i)</div><div class="line">print x</div><div class="line">-----------------</div><div class="line"></div><div class="line">[<span class="string">'a'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
+<p>实际上，<code>id(x)</code>与<code>id(x[:])</code>是不同的，所以只有在<code>x</code>的副本（<code>x[:]</code>）中遍历，然后在<code>x</code>中删除，才不会造成错误。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017-03-05-根据一个list文件生成一个组合.html" rel="next" title="根据一个list文件生成一个组合">
+                <i class="fa fa-chevron-left"></i> 根据一个list文件生成一个组合
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
           
@@ -353,8 +497,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/headportrait.jpg"
@@ -443,6 +596,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误的代码"><span class="nav-text">错误的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正确的代码"><span class="nav-text">正确的代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -537,6 +706,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
