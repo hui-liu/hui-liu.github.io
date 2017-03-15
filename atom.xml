@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-03-15T14:19:23.003Z</updated>
+  <updated>2017-03-15T14:30:08.579Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://hui-liu.github.io/2017-03-15-networkx-%E7%AC%94%E8%AE%B0.html"/>
     <id>https://hui-liu.github.io/2017-03-15-networkx-笔记.html</id>
     <published>2017-03-15T14:12:24.000Z</published>
-    <updated>2017-03-15T14:19:23.003Z</updated>
+    <updated>2017-03-15T14:30:08.579Z</updated>
     
     <content type="html"><![CDATA[<h1 id="NetworkX-复杂网络分析笔记"><a href="#NetworkX-复杂网络分析笔记" class="headerlink" title="NetworkX 复杂网络分析笔记"></a>NetworkX 复杂网络分析笔记</h1><p>主要参考<a href="http://blog.sciencenet.cn/blog-404069-337442.html" target="_blank" rel="external">1</a>，<a href="http://glowingpython.blogspot.jp/2013/02/betweenness-centrality.html" target="_blank" rel="external">2</a>，<a href="https://blog.dominodatalab.com/social-network-analysis-with-networkx/" target="_blank" rel="external">3</a></p>
 <h2 id="1-建图"><a href="#1-建图" class="headerlink" title="1. 建图"></a>1. 建图</h2><p>networkx可以建立简单无向图graph，有向图digraph，可重复边的multi-graph。</p>
