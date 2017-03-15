@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-03-15T13:35:32.062Z</updated>
+  <updated>2017-03-15T13:41:57.460Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -16,15 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://hui-liu.github.io/2017-03-15-Networkx_notes.html"/>
-    <id>https://hui-liu.github.io/2017-03-15-Networkx_notes.html</id>
-    <published>2017-03-15T13:36:06.232Z</published>
-    <updated>2017-03-15T13:35:32.062Z</updated>
+    <title>Networkx_notes</title>
+    <link href="https://hui-liu.github.io/2017-03-15-Networkx-notes.html"/>
+    <id>https://hui-liu.github.io/2017-03-15-Networkx-notes.html</id>
+    <published>2017-03-15T13:40:12.000Z</published>
+    <updated>2017-03-15T13:41:57.460Z</updated>
     
-    <content type="html"><![CDATA[<hr>
-<p>title: python_notes<br>date: 2017-03-15 21:32:23<br>tags: python</p>
-<h2 id="categories-notes"><a href="#categories-notes" class="headerlink" title="categories: notes"></a>categories: notes</h2><h1 id="NetworkX-复杂网络分析笔记"><a href="#NetworkX-复杂网络分析笔记" class="headerlink" title="NetworkX 复杂网络分析笔记"></a>NetworkX 复杂网络分析笔记</h1><p>主要参考<a href="http://blog.sciencenet.cn/blog-404069-337442.html" target="_blank" rel="external">1</a>，<a href="http://glowingpython.blogspot.jp/2013/02/betweenness-centrality.html" target="_blank" rel="external">2</a>，<a href="https://blog.dominodatalab.com/social-network-analysis-with-networkx/" target="_blank" rel="external">3</a></p>
+    <content type="html"><![CDATA[<h1 id="NetworkX-复杂网络分析笔记"><a href="#NetworkX-复杂网络分析笔记" class="headerlink" title="NetworkX 复杂网络分析笔记"></a>NetworkX 复杂网络分析笔记</h1><p>主要参考<a href="http://blog.sciencenet.cn/blog-404069-337442.html" target="_blank" rel="external">1</a>，<a href="http://glowingpython.blogspot.jp/2013/02/betweenness-centrality.html" target="_blank" rel="external">2</a>，<a href="https://blog.dominodatalab.com/social-network-analysis-with-networkx/" target="_blank" rel="external">3</a></p>
 <h2 id="1-建图"><a href="#1-建图" class="headerlink" title="1. 建图"></a>1. 建图</h2><p>networkx可以建立简单无向图graph，有向图digraph，可重复边的multi-graph。</p>
 <h3 id="1-1-简单无向图-graph"><a href="#1-1-简单无向图-graph" class="headerlink" title="1.1 简单无向图 graph"></a>1.1 简单无向图 graph</h3><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> networkx <span class="keyword">as</span> nx</div><div class="line"><span class="comment">#建立一个空的无向图G</span></div><div class="line">G=nx.Graph()</div><div class="line"><span class="comment">#添加一个节点1</span></div><div class="line">G.add_node(<span class="number">1</span>)</div><div class="line"><span class="comment">#添加一条边2-3（隐含着添加了两个节点2、3）</span></div><div class="line">G.add_edge(<span class="number">2</span>,<span class="number">3</span>)</div><div class="line"><span class="comment">#对于无向图，边3-2与边2-3被认为是一条边</span></div><div class="line">G.add_edge(<span class="number">3</span>,<span class="number">2</span>)</div><div class="line"><span class="comment">#输出全部的节点： [1, 2, 3]</span></div><div class="line"><span class="keyword">print</span> G.nodes()</div><div class="line"><span class="comment">#输出全部的边：[(2, 3)]</span></div><div class="line"><span class="keyword">print</span> G.edges()</div><div class="line"><span class="comment">#输出边的数量：1</span></div><div class="line"><span class="keyword">print</span> G.number_of_edges()</div><div class="line"><span class="comment">#输出点数</span></div><div class="line"><span class="keyword">print</span> g.number_of_nodes()</div></pre></td></tr></table></figure>
 <h3 id="1-2-有向图-digraph"><a href="#1-2-有向图-digraph" class="headerlink" title="1.2 有向图 digraph"></a>1.2 有向图 digraph</h3><p>有向图的建立方式和无向图基本类似，只是在上述代码的第二行，将<code>G = nx.Graph()</code> 改为 <code>G = nx.DiGraph()</code> 。需要注意的是，此时再添加边<code>3-2</code>与边<code>2-3</code>，则被认为是两条不同的</p>
@@ -41,7 +39,7 @@
 <h3 id="1-5-点"><a href="#1-5-点" class="headerlink" title="1.5 点"></a>1.5 点</h3><p>这里的点可以是任意可区分的对象（hashable），比如数字，字符串，对象等。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line">G.add_node(<span class="number">1</span>)</div><div class="line">G.add_node(<span class="string">'first_node'</span>)</div><div class="line"><span class="comment">#这里用一个对象多为key来唯一区别一个点</span></div><div class="line"><span class="comment">#我们还能够用一个列表来批量加入点</span></div><div class="line">G.add_nodes_from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</div><div class="line"><span class="comment">#还可以用一个图对象作为点，嵌入到其他图中</span></div><div class="line">G.add_node(D) <span class="comment">#这里D作为一个点的key</span></div><div class="line"><span class="comment">#或者把一个图的所有点赋予另一个图</span></div><div class="line">G.add_nodes_from(D) <span class="comment">#这里返回D的所有点，赋予G</span></div><div class="line"><span class="comment">#与加入相同的传递方法，我们也可以删除点</span></div><div class="line">G.remove_node(<span class="number">1</span>)</div><div class="line">G.remove_nodes_from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</div></pre></td></tr></table></figure>
 <h3 id="1-6-边"><a href="#1-6-边" class="headerlink" title="1.6 边"></a>1.6 边</h3><p>这里的边可以使用两个单独的对象作为输入</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"></div><div class="line">G.add_edge(<span class="number">1</span>,<span class="number">2</span>) <span class="comment">#表示1，2之间有一条边。</span></div><div class="line"><span class="comment">#如果不存在点1，2，则会自动加入点集合。</span></div><div class="line"><span class="comment">#或者以元组的形式作为输入</span></div><div class="line">e=(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">G.add_edge(*e)</div><div class="line"><span class="comment">#这里的*代表吧元组解包（unpack），当作一个个的值扔到函数中去。</span></div><div class="line"><span class="comment">#如果不解包，等价于</span></div><div class="line"><span class="comment">#G.add_edge(e)=G.add_edge((1,2))与参数传递的方式不符。</span></div><div class="line"><span class="comment">#类似的，我们还可以使用包含元组的列表来传递参数</span></div><div class="line">G.add_edges_from([(<span class="number">1</span>,<span class="number">2</span>),(<span class="number">2</span>,<span class="number">3</span>)])</div><div class="line"><span class="comment">#我们还可以报一个图的边赋予另一个图</span></div><div class="line">G.add_edges_from(H)</div><div class="line"><span class="comment">#删除</span></div><div class="line">G.remove_edge(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">G.remove_edges_from([(<span class="number">1</span>,<span class="number">2</span>),(<span class="number">2</span>,<span class="number">3</span>)])</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">G.add_edge(<span class="number">1</span>,<span class="number">2</span>) <span class="comment">#表示1，2之间有一条边。</span></div><div class="line"><span class="comment">#如果不存在点1，2，则会自动加入点集合。</span></div><div class="line"><span class="comment">#或者以元组的形式作为输入</span></div><div class="line">e=(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">G.add_edge(*e)</div><div class="line"><span class="comment">#这里的*代表吧元组解包（unpack），当作一个个的值扔到函数中去。</span></div><div class="line"><span class="comment">#如果不解包，等价于</span></div><div class="line"><span class="comment">#G.add_edge(e)=G.add_edge((1,2))与参数传递的方式不符。</span></div><div class="line"><span class="comment">#类似的，我们还可以使用包含元组的列表来传递参数</span></div><div class="line">G.add_edges_from([(<span class="number">1</span>,<span class="number">2</span>),(<span class="number">2</span>,<span class="number">3</span>)])</div><div class="line"><span class="comment">#我们还可以报一个图的边赋予另一个图</span></div><div class="line">G.add_edges_from(H)</div><div class="line"><span class="comment">#删除</span></div><div class="line">G.remove_edge(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">G.remove_edges_from([(<span class="number">1</span>,<span class="number">2</span>),(<span class="number">2</span>,<span class="number">3</span>)])</div></pre></td></tr></table></figure>
 <h3 id="1-7-访问"><a href="#1-7-访问" class="headerlink" title="1.7 访问"></a>1.7 访问</h3><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">node_list = G.nodes()</div><div class="line">edge_list = G.edges()</div><div class="line"><span class="comment">#可以返回包含点与边的列表</span></div><div class="line">node = G.node[‘first_node’]</div><div class="line"><span class="comment">#如上根据key返回点</span></div><div class="line">edge = G.edge[<span class="string">'first_node'</span>][<span class="string">'second_node'</span>]</div><div class="line"><span class="comment">#同样的方法，返回两个key之间的边</span></div></pre></td></tr></table></figure>
 <h3 id="1-8-属性"><a href="#1-8-属性" class="headerlink" title="1.8 属性"></a>1.8 属性</h3><p>我们可以给图，点，边赋予各种属性，最简单的就是权值属性</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line">G.add_node(<span class="number">1</span>,time=<span class="string">'5pm'</span>)</div><div class="line"><span class="comment">#在添加时跟上属性</span></div><div class="line">G.add_nodes_from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],time=<span class="string">'5pm'</span>)</div><div class="line"><span class="comment">#批量添加点是，跟上统一的属性</span></div><div class="line">G.add_nodes_from([(<span class="number">3</span>,&#123;<span class="string">'time'</span>:<span class="string">'5pm'</span>&#125;), (<span class="number">4</span>,&#123;<span class="string">'time'</span>:<span class="string">'4pm'</span>&#125;)])</div><div class="line"><span class="comment">#或者写成元组列表[（key,dict），（key,dict）]的形式</span></div><div class="line">G.node[<span class="number">1</span>][<span class="string">'time'</span>]</div><div class="line"><span class="comment">#根据字典key访问属性值。</span></div><div class="line"></div><div class="line"><span class="comment">#给边添加属性也类似</span></div><div class="line">G.add_edge(<span class="number">1</span>,<span class="number">2</span>,time=<span class="string">'3am'</span>)</div><div class="line">G.add_edges_from([(<span class="number">1</span>,<span class="number">2</span>,&#123;<span class="string">'time'</span>=<span class="string">'5pm'</span>&#125;),(<span class="number">2</span>,<span class="number">3</span>,&#123;<span class="string">'time'</span>=<span class="number">3</span>am&#125;)])</div><div class="line"><span class="comment">#批量赋予属性</span></div><div class="line">G.edge[<span class="number">1</span>][<span class="number">2</span>][‘time’]</div><div class="line"><span class="comment">#访问</span></div><div class="line"></div><div class="line"><span class="comment">#我们还可以使用特定的函数批量返回属性，如</span></div><div class="line">time = nx.get_edge_attributes(G,<span class="string">'time'</span>)</div><div class="line"><span class="comment">#返回得到以元组为key,time属性为值得一个字典</span></div><div class="line">time[(<span class="number">1</span>,<span class="number">2</span>)]</div></pre></td></tr></table></figure>
@@ -108,26 +106,14 @@
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;title: python_notes&lt;br&gt;date: 2017-03-15 21:32:23&lt;br&gt;tags: python&lt;/p&gt;
-&lt;h2 id=&quot;categories-notes&quot;&gt;&lt;a href=&quot;#categories-notes&quot; class=&quot;he
+      &lt;h1 id=&quot;NetworkX-复杂网络分析笔记&quot;&gt;&lt;a href=&quot;#NetworkX-复杂网络分析笔记&quot; class=&quot;headerlink&quot; title=&quot;NetworkX 复杂网络分析笔记&quot;&gt;&lt;/a&gt;NetworkX 复杂网络分析笔记&lt;/h1&gt;&lt;p&gt;主要参考&lt;a hre
     
     </summary>
     
+      <category term="notes" scheme="https://hui-liu.github.io/categories/notes/"/>
     
-  </entry>
-  
-  <entry>
-    <title>python_notes</title>
-    <link href="https://hui-liu.github.io/2017-03-15-python-notes.html"/>
-    <id>https://hui-liu.github.io/2017-03-15-python-notes.html</id>
-    <published>2017-03-15T13:32:23.000Z</published>
-    <updated>2017-03-15T13:32:23.340Z</updated>
     
-    <summary type="html">
-    
-    </summary>
-    
+      <category term="python" scheme="https://hui-liu.github.io/tags/python/"/>
     
   </entry>
   
