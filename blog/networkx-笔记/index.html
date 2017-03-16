@@ -102,9 +102,10 @@
 1. 建图networkx可以建立简单无向图graph，有向图digraph，可重复边的multi-graph。
 1.1 简单无向图 graphimport networkx as nx#建立一个空的无向图GG=nx.Graph()#添加一个节">
 <meta property="og:image" content="https://hui-liu.github.io/blog/networkx-笔记/net_weight.jpg">
+<meta property="og:image" content="https://hui-liu.github.io/blog/networkx-笔记/规则图.png">
 <meta property="og:image" content="https://hui-liu.github.io/blog/networkx-笔记/dgree.jpg">
 <meta property="og:image" content="https://hui-liu.github.io/blog/networkx-笔记/betweenness_centrality.jpg">
-<meta property="og:updated_time" content="2017-03-16T01:51:21.760Z">
+<meta property="og:updated_time" content="2017-03-16T01:55:09.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="networkx 笔记">
 <meta name="twitter:description" content="NetworkX 复杂网络分析笔记主要参考1，2，3。
@@ -460,7 +461,7 @@
 <h3 id="2-1-规则图"><a href="#2-1-规则图" class="headerlink" title="2.1 规则图"></a>2.1 规则图</h3><p>规则图差不多是最没有复杂性的一类图，<code>random_graphs.random_regular_graph(d, n)</code>方法可以生成一个含有n个节点，每个节点有d个邻居节点的规则图。</p>
 <p>　　下面一段示例代码，生成了包含20个节点、每个节点有3个邻居的规则图：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> networkx <span class="keyword">as</span> nx</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"></div><div class="line"><span class="comment"># regular graphy</span></div><div class="line"><span class="comment"># generate a regular graph which has 20 nodes &amp; each node has 3 neghbour nodes.</span></div><div class="line">RG = nx.random_graphs.random_regular_graph(<span class="number">3</span>, <span class="number">20</span>)</div><div class="line"><span class="comment"># the spectral layout</span></div><div class="line">pos = nx.spectral_layout(RG)</div><div class="line"><span class="comment"># draw the regular graphy</span></div><div class="line">nx.draw(RG, pos, with_labels = <span class="keyword">False</span>, node_size = <span class="number">30</span>)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
-<p>(networkx-笔记/规则图.png)</p>
+<p><img src="/blog/networkx-笔记/规则图.png" alt="规则图"></p>
 <h3 id="2-2-ER随机图"><a href="#2-2-ER随机图" class="headerlink" title="2.2 ER随机图"></a>2.2 ER随机图</h3><p>ER随机图是早期研究得比较多的一类“复杂”网络，模型的基本思想是以概率p连接N个节点中的每一对节点。用<code>random_graphs.erdos_renyi_graph(n,p)</code>方法生成一个含有n个节点、以概率p连接的ER随机图：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> networkx <span class="keyword">as</span> nx</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"></div><div class="line"><span class="comment"># erdos renyi graph</span></div><div class="line"><span class="comment"># generate a graph which has n=20 nodes, probablity p = 0.2.</span></div><div class="line">ER = nx.random_graphs.erdos_renyi_graph(<span class="number">20</span>, <span class="number">0.2</span>)</div><div class="line"><span class="comment"># the shell layout</span></div><div class="line">pos = nx.shell_layout(ER)</div><div class="line">nx.draw(ER, pos, with_labels = <span class="keyword">False</span>, node_size = <span class="number">30</span>)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
 <p>(networkx-笔记/ER.png)</p>
