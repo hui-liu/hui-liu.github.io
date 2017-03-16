@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="notes," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -89,16 +89,19 @@
 
 
 
-<meta name="description" content="1. hexo new &quot;new blog title&quot;2. edit your text using Typora3. hexo generate4. hexo deploy">
+<meta name="description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
+正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="creat a blog">
-<meta property="og:url" content="https://hui-liu.github.io/blog/creat a blog/index.html">
+<meta property="og:title" content="如何在遍历时，正确删除列表中的 items">
+<meta property="og:url" content="https://hui-liu.github.io/blog/2017-03-08-如何在遍历时，正确删除列表中的-items/index.html">
 <meta property="og:site_name" content="liuhui | 刘辉">
-<meta property="og:description" content="1. hexo new &quot;new blog title&quot;2. edit your text using Typora3. hexo generate4. hexo deploy">
-<meta property="og:updated_time" content="2017-03-02T14:35:25.913Z">
+<meta property="og:description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
+正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
+<meta property="og:updated_time" content="2017-03-08T09:22:48.197Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="creat a blog">
-<meta name="twitter:description" content="1. hexo new &quot;new blog title&quot;2. edit your text using Typora3. hexo generate4. hexo deploy">
+<meta name="twitter:title" content="如何在遍历时，正确删除列表中的 items">
+<meta name="twitter:description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
+正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
 
 
 
@@ -126,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://hui-liu.github.io/blog/creat a blog/"/>
+  <link rel="canonical" href="https://hui-liu.github.io/blog/2017-03-08-如何在遍历时，正确删除列表中的-items/"/>
 
 
 
 
 
-  <title> creat a blog | liuhui | 刘辉 </title>
+  <title> 如何在遍历时，正确删除列表中的 items | liuhui | 刘辉 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -306,7 +309,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/creat a blog/">
+    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/2017-03-08-如何在遍历时，正确删除列表中的-items/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hui Liu">
@@ -327,7 +330,7 @@
             
             
               
-                creat a blog
+                如何在遍历时，正确删除列表中的 items
               
             
           </h1>
@@ -342,8 +345,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-02T13:01:44+08:00">
-                2017-03-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T17:21:23+08:00">
+                2017-03-08
               </time>
             
 
@@ -365,8 +368,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
+                  <a href="/categories/code/" itemprop="url" rel="index">
+                    <span itemprop="name">code</span>
                   </a>
                 </span>
 
@@ -400,7 +403,10 @@
       
 
       
-        <figure class="highlight verilog"><table><tr><td class="code"><pre><div class="line"><span class="number">1</span>. hexo <span class="keyword">new</span> <span class="string">"new blog title"</span></div><div class="line"><span class="number">2</span>. edit your text using Typora</div><div class="line"><span class="number">3</span>. hexo <span class="keyword">generate</span></div><div class="line"><span class="number">4</span>. hexo deploy</div></pre></td></tr></table></figure>
+        <h3 id="错误的代码"><a href="#错误的代码" class="headerlink" title="错误的代码"></a>错误的代码</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">x = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line">y = [<span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> x:</div><div class="line">    <span class="keyword">if</span> <span class="selector-tag">i</span> <span class="keyword">in</span> y:</div><div class="line">        x.remove(i)</div><div class="line">print x</div><div class="line">-----------------</div><div class="line"></div><div class="line">[<span class="string">'a'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
+<h3 id="正确的代码"><a href="#正确的代码" class="headerlink" title="正确的代码"></a>正确的代码</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">x = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line">y = [<span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> x[:]:</div><div class="line">    <span class="keyword">if</span> <span class="selector-tag">i</span> <span class="keyword">in</span> y:</div><div class="line">        x.remove(i)</div><div class="line">print x</div><div class="line">-----------------</div><div class="line"></div><div class="line">[<span class="string">'a'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
+<p>实际上，<code>id(x)</code>与<code>id(x[:])</code>是不同的，所以只有在<code>x</code>的副本（<code>x[:]</code>）中遍历，然后在<code>x</code>中删除，才不会造成错误。</p>
+
       
     </div>
 
@@ -423,7 +429,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/notes/" rel="tag"># notes</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
         </div>
       
@@ -436,14 +442,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/blog/2017-03-05-根据一个list文件生成一个组合/" rel="next" title="根据一个list文件生成一个组合">
+                <i class="fa fa-chevron-left"></i> 根据一个list文件生成一个组合
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/Detecting-pervasive-positive-selection/" rel="prev" title="Detecting pervasive positive selection step by step">
-                Detecting pervasive positive selection step by step <i class="fa fa-chevron-right"></i>
+              <a href="/blog/2017-03-16-networkx-笔记/" rel="prev" title="networkx 笔记">
+                networkx 笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -491,8 +501,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/headportrait.jpg"
@@ -590,6 +609,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误的代码"><span class="nav-text">错误的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正确的代码"><span class="nav-text">正确的代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
