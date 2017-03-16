@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-03-16T04:55:00.895Z</updated>
+  <updated>2017-03-16T05:01:13.162Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -20,9 +20,11 @@
     <link href="https://hui-liu.github.io/blog/networkx-%E7%AC%94%E8%AE%B0/"/>
     <id>https://hui-liu.github.io/blog/networkx-笔记/</id>
     <published>2017-03-16T01:25:24.000Z</published>
-    <updated>2017-03-16T04:55:00.895Z</updated>
+    <updated>2017-03-16T05:01:13.162Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="NetworkX-复杂网络分析笔记"><a href="#NetworkX-复杂网络分析笔记" class="headerlink" title="NetworkX 复杂网络分析笔记"></a>NetworkX 复杂网络分析笔记</h1><p>主要参考<a href="http://blog.sciencenet.cn/blog-404069-337442.html" target="_blank" rel="external">1</a>，<a href="http://glowingpython.blogspot.jp/2013/02/betweenness-centrality.html" target="_blank" rel="external">2</a>，<a href="https://blog.dominodatalab.com/social-network-analysis-with-networkx/" target="_blank" rel="external">3</a>。</p>
+    <content type="html"><![CDATA[<h1 id="NetworkX-复杂网络分析笔记"><a href="#NetworkX-复杂网络分析笔记" class="headerlink" title="NetworkX 复杂网络分析笔记"></a>NetworkX 复杂网络分析笔记</h1><p><img src="/blog/networkx-笔记/FB_BC_commu.png" alt="FB_BC_commu"></p>
+<a id="more"></a>
+<p>主要参考<a href="http://blog.sciencenet.cn/blog-404069-337442.html" target="_blank" rel="external">1</a>，<a href="http://glowingpython.blogspot.jp/2013/02/betweenness-centrality.html" target="_blank" rel="external">2</a>，<a href="https://blog.dominodatalab.com/social-network-analysis-with-networkx/" target="_blank" rel="external">3</a>。</p>
 <p>数据 <a href="https://github.com/hui-liu/Bioinformatics-Scripts/blob/master/data/facebook_combined.csv" target="_blank" rel="external">facebook_combined.csv</a>，<a href="https://github.com/hui-liu/Bioinformatics-Scripts/blob/master/data/relation_weight_sam.csv" target="_blank" rel="external">relation_weight_sam.csv</a>。</p>
 <h2 id="1-建图"><a href="#1-建图" class="headerlink" title="1. 建图"></a>1. 建图</h2><p>networkx可以建立简单无向图graph，有向图digraph，可重复边的multi-graph。</p>
 <h3 id="1-1-简单无向图-graph"><a href="#1-1-简单无向图-graph" class="headerlink" title="1.1 简单无向图 graph"></a>1.1 简单无向图 graph</h3><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> networkx <span class="keyword">as</span> nx</div><div class="line"><span class="comment">#建立一个空的无向图G</span></div><div class="line">G=nx.Graph()</div><div class="line"><span class="comment">#添加一个节点1</span></div><div class="line">G.add_node(<span class="number">1</span>)</div><div class="line"><span class="comment">#添加一条边2-3（隐含着添加了两个节点2、3）</span></div><div class="line">G.add_edge(<span class="number">2</span>,<span class="number">3</span>)</div><div class="line"><span class="comment">#对于无向图，边3-2与边2-3被认为是一条边</span></div><div class="line">G.add_edge(<span class="number">3</span>,<span class="number">2</span>)</div><div class="line"><span class="comment">#输出全部的节点： [1, 2, 3]</span></div><div class="line"><span class="keyword">print</span> G.nodes()</div><div class="line"><span class="comment">#输出全部的边：[(2, 3)]</span></div><div class="line"><span class="keyword">print</span> G.edges()</div><div class="line"><span class="comment">#输出边的数量：1</span></div><div class="line"><span class="keyword">print</span> G.number_of_edges()</div><div class="line"><span class="comment">#输出点数</span></div><div class="line"><span class="keyword">print</span> G.number_of_nodes()</div></pre></td></tr></table></figure>
@@ -113,7 +115,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;NetworkX-复杂网络分析笔记&quot;&gt;&lt;a href=&quot;#NetworkX-复杂网络分析笔记&quot; class=&quot;headerlink&quot; title=&quot;NetworkX 复杂网络分析笔记&quot;&gt;&lt;/a&gt;NetworkX 复杂网络分析笔记&lt;/h1&gt;&lt;p&gt;主要参考&lt;a hre
+      &lt;h1 id=&quot;NetworkX-复杂网络分析笔记&quot;&gt;&lt;a href=&quot;#NetworkX-复杂网络分析笔记&quot; class=&quot;headerlink&quot; title=&quot;NetworkX 复杂网络分析笔记&quot;&gt;&lt;/a&gt;NetworkX 复杂网络分析笔记&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/blog/networkx-笔记/FB_BC_commu.png&quot; alt=&quot;FB_BC_commu&quot;&gt;&lt;/p&gt;
     
     </summary>
     
