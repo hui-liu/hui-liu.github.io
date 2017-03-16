@@ -117,7 +117,7 @@
 <meta property="og:image" content="https://hui-liu.github.io/blog/networkx-笔记/FB_BetCen.png">
 <meta property="og:image" content="https://hui-liu.github.io/blog/networkx-笔记/FB_commu.png">
 <meta property="og:image" content="https://hui-liu.github.io/blog/networkx-笔记/FB_BC_commu.png">
-<meta property="og:updated_time" content="2017-03-16T03:28:19.035Z">
+<meta property="og:updated_time" content="2017-03-16T04:55:00.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="networkx 笔记">
 <meta name="twitter:description" content="NetworkX 复杂网络分析笔记主要参考1，2，3。
@@ -458,7 +458,9 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment">#调用多源最短路径算法，计算图G所有节点间的最短路径</span></div><div class="line">path=nx.all_pairs_shortest_path(G)</div><div class="line"><span class="comment">#输出节点0、2之间的最短路径序列： [0, 1, 2]</span></div><div class="line"><span class="keyword">print</span> path[<span class="number">0</span>][<span class="number">2</span>]</div></pre></td></tr></table></figure>
 <h3 id="1-10-画图"><a href="#1-10-画图" class="headerlink" title="1.10 画图"></a>1.10 画图</h3><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">nx.draw(G) <span class="comment"># 方法，至少接受一个参数：待绘制的网络G </span></div><div class="line">matplotlib.show() <span class="comment">#显示出来</span></div></pre></td></tr></table></figure>
 <h4 id="画图参数"><a href="#画图参数" class="headerlink" title="画图参数"></a>画图参数</h4><h5 id="运行样式"><a href="#运行样式" class="headerlink" title="运行样式"></a>运行样式</h5><ul>
-<li><code>node_size</code>:  指定节点的尺寸大小(默认是300)<ul>
+<li><code>node_size</code>:  指定节点的尺寸大小(默认是300)</li>
+</ul>
+<ul>
 <li><code>node_color</code>:  指定节点的颜色 (默认是红色，可以用字符串简单标识颜色，例如’r’为红色，’b’为绿色等)</li>
 <li><code>node_shape</code>:  节点的形状（默认是圆形，用字符串’o’标识）</li>
 <li><code>alpha</code>: 透明度 (默认是1.0，不透明，0为完全透明) </li>
@@ -468,8 +470,6 @@
 <li><code>with_labels</code>: 节点是否带标签（默认为True）</li>
 <li><code>font_size</code>: 节点标签字体大小 (默认为12)</li>
 <li><code>font_color</code>: 节点标签字体颜色（默认为黑色）</li>
-</ul>
-</li>
 </ul>
 <h5 id="运用布局"><a href="#运用布局" class="headerlink" title="运用布局"></a>运用布局</h5><p>　　<code>circular_layout</code>：节点在一个圆环上均匀分布<br>　　<code>random_layout</code>：节点随机分布<br>　　<code>shell_layout</code>：节点在同心圆上分布<br>　　<code>spring_layout</code>： 用Fruchterman-Reingold算法排列节点（样子类似多中心放射状）<br>　　<code>spectral_layout</code>：根据图的拉普拉斯特征向量排列节点</p>
 <h5 id="添加文本"><a href="#添加文本" class="headerlink" title="添加文本"></a>添加文本</h5><p>　　用plt.title()方法可以为图形添加一个标题，该方法接受一个字符串作为参数。</p>
