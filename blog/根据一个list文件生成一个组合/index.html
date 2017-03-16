@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="notes," />
+  <meta name="keywords" content="linux shell," />
 
 
 
@@ -89,16 +89,31 @@
 
 
 
-<meta name="description" content="1. hexo new &quot;new blog title&quot;2. edit your text using Typora3. hexo generate4. hexo deploy">
+<meta name="description" content="假设有一个 list 如下：
+$ cat aaabcd
+期望生成如下组合：
+a       ba       ca       db       cb       dc       d
+实现方法如下：
+#!/bin/bashset -- $(cat $1) # 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。for i in $* # $* 为所有位置变量的 lis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="creat a blog">
-<meta property="og:url" content="https://hui-liu.github.io/blog/2017-03-02-creat a blog/index.html">
+<meta property="og:title" content="根据一个list文件生成一个组合">
+<meta property="og:url" content="https://hui-liu.github.io/blog/根据一个list文件生成一个组合/index.html">
 <meta property="og:site_name" content="liuhui | 刘辉">
-<meta property="og:description" content="1. hexo new &quot;new blog title&quot;2. edit your text using Typora3. hexo generate4. hexo deploy">
-<meta property="og:updated_time" content="2017-03-02T14:35:25.913Z">
+<meta property="og:description" content="假设有一个 list 如下：
+$ cat aaabcd
+期望生成如下组合：
+a       ba       ca       db       cb       dc       d
+实现方法如下：
+#!/bin/bashset -- $(cat $1) # 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。for i in $* # $* 为所有位置变量的 lis">
+<meta property="og:updated_time" content="2017-03-05T08:50:52.091Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="creat a blog">
-<meta name="twitter:description" content="1. hexo new &quot;new blog title&quot;2. edit your text using Typora3. hexo generate4. hexo deploy">
+<meta name="twitter:title" content="根据一个list文件生成一个组合">
+<meta name="twitter:description" content="假设有一个 list 如下：
+$ cat aaabcd
+期望生成如下组合：
+a       ba       ca       db       cb       dc       d
+实现方法如下：
+#!/bin/bashset -- $(cat $1) # 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。for i in $* # $* 为所有位置变量的 lis">
 
 
 
@@ -126,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://hui-liu.github.io/blog/2017-03-02-creat a blog/"/>
+  <link rel="canonical" href="https://hui-liu.github.io/blog/根据一个list文件生成一个组合/"/>
 
 
 
 
 
-  <title> creat a blog | liuhui | 刘辉 </title>
+  <title> 根据一个list文件生成一个组合 | liuhui | 刘辉 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -306,7 +321,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/2017-03-02-creat a blog/">
+    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/根据一个list文件生成一个组合/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hui Liu">
@@ -327,7 +342,7 @@
             
             
               
-                creat a blog
+                根据一个list文件生成一个组合
               
             
           </h1>
@@ -342,8 +357,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-02T13:01:44+08:00">
-                2017-03-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-05T16:35:07+08:00">
+                2017-03-05
               </time>
             
 
@@ -365,8 +380,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/blog/" itemprop="url" rel="index">
-                    <span itemprop="name">blog</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -400,7 +415,13 @@
       
 
       
-        <figure class="highlight verilog"><table><tr><td class="code"><pre><div class="line"><span class="number">1</span>. hexo <span class="keyword">new</span> <span class="string">"new blog title"</span></div><div class="line"><span class="number">2</span>. edit your text using Typora</div><div class="line"><span class="number">3</span>. hexo <span class="keyword">generate</span></div><div class="line"><span class="number">4</span>. hexo deploy</div></pre></td></tr></table></figure>
+        <p>假设有一个 list 如下：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">$ cat aa</div><div class="line"><span class="selector-tag">a</span></div><div class="line"><span class="selector-tag">b</span></div><div class="line">c</div><div class="line">d</div></pre></td></tr></table></figure>
+<p>期望生成如下组合：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">a</span>       <span class="selector-tag">b</span></div><div class="line"><span class="selector-tag">a</span>       c</div><div class="line"><span class="selector-tag">a</span>       d</div><div class="line"><span class="selector-tag">b</span>       c</div><div class="line"><span class="selector-tag">b</span>       d</div><div class="line">c       d</div></pre></td></tr></table></figure>
+<p>实现方法如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">set</span> -- $(cat <span class="variable">$1</span>) <span class="comment"># 将输入文件的每一行依次赋值给位置变量，如第一行赋值给 $1，第二行给 $2。。。</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $* <span class="comment"># $* 为所有位置变量的 list</span></div><div class="line"><span class="keyword">do</span></div><div class="line"><span class="built_in">shift</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> $*</div><div class="line">    <span class="keyword">do</span></div><div class="line">    <span class="built_in">printf</span> <span class="string">"%s\t%s\n"</span> <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$j</span>"</span></div><div class="line">    <span class="keyword">done</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">$ ./pair_combination<span class="selector-class">.sh</span> aa</div><div class="line"><span class="selector-tag">a</span>       <span class="selector-tag">b</span></div><div class="line"><span class="selector-tag">a</span>       c</div><div class="line"><span class="selector-tag">a</span>       d</div><div class="line"><span class="selector-tag">b</span>       c</div><div class="line"><span class="selector-tag">b</span>       d</div><div class="line">c       d</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -423,7 +444,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/notes/" rel="tag"># notes</a>
+            <a href="/tags/linux-shell/" rel="tag"># linux shell</a>
           
         </div>
       
@@ -436,14 +457,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/blog/Detecting-pervasive-positive-selection/" rel="next" title="Detecting pervasive positive selection step by step">
+                <i class="fa fa-chevron-left"></i> Detecting pervasive positive selection step by step
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2017-03-02-Detecting-pervasive-positive-selection/" rel="prev" title="Detecting pervasive positive selection step by step">
-                Detecting pervasive positive selection step by step <i class="fa fa-chevron-right"></i>
+              <a href="/blog/如何在遍历时，正确删除列表中的-items/" rel="prev" title="如何在遍历时，正确删除列表中的 items">
+                如何在遍历时，正确删除列表中的 items <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
