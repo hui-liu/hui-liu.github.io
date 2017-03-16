@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hui-liu.github.io/blog/creat%20a%20blog/</loc>
+    
+    <lastmod>2017-03-16T07:20:20.716Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hui-liu.github.io/blog/python-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2017-03-16T05:18:34.926Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://hui-liu.github.io/blog/Detecting-pervasive-positive-selection/</loc>
     
     <lastmod>2017-03-03T14:03:45.599Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hui-liu.github.io/blog/creat%20a%20blog/</loc>
-    
-    <lastmod>2017-03-02T14:35:25.913Z</lastmod>
     
   </url>
   
