@@ -17,8 +17,8 @@
   
   <entry>
     <title>networkx 笔记</title>
-    <link href="https://hui-liu.github.io/blog/2017-03-16-networkx-%E7%AC%94%E8%AE%B0/"/>
-    <id>https://hui-liu.github.io/blog/2017-03-16-networkx-笔记/</id>
+    <link href="https://hui-liu.github.io/blog/networkx-%E7%AC%94%E8%AE%B0/"/>
+    <id>https://hui-liu.github.io/blog/networkx-笔记/</id>
     <published>2017-03-16T01:25:24.000Z</published>
     <updated>2017-03-16T01:26:59.818Z</updated>
     
@@ -85,14 +85,14 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment">#定义一个方法，它有两个参数：n - 网络节点数量；m - 每步演化加入的边数量</span></div><div class="line">def barabasi_albert_graph(n, m):</div><div class="line">    <span class="comment"># 生成一个包含m个节点的空图 (即BA模型中t=0时的m0个节点) </span></div><div class="line">    G=empty_graph(m)  </div><div class="line">    <span class="comment"># 定义新加入边要连接的m个目标节点</span></div><div class="line">    targets=range(m)  </div><div class="line">    <span class="comment"># 将现有节点按正比于其度的次数加入到一个数组中，初始化时的m个节点度均为0，所以数组为空 </span></div><div class="line">    repeated_nodes=[]     </div><div class="line">    <span class="comment"># 添加其余的 n-m 个节点，第一个节点编号为m（Python的数组编号从0开始）</span></div><div class="line">    <span class="built_in">source</span>=m </div><div class="line">    <span class="comment"># 循环添加节点</span></div><div class="line">    <span class="keyword">while</span> <span class="built_in">source</span>&lt;n: </div><div class="line">        <span class="comment"># 从源节点连接m条边到选定的m个节点targets上（注意targets是上一步生成的）</span></div><div class="line">        G.add_edges_from(zip([<span class="built_in">source</span>]*m,targets)) </div><div class="line">        <span class="comment"># 对于每个被选择的节点，将它们加入到repeated_nodes数组中（它们的度增加了1）</span></div><div class="line">        repeated_nodes.extend(targets)</div><div class="line">        <span class="comment"># 将源点m次加入到repeated_nodes数组中（它的度增加了m）</span></div><div class="line">        repeated_nodes.extend([<span class="built_in">source</span>]*m) </div><div class="line">        <span class="comment"># 从现有节点中选取m个节点 ，按正比于度的概率（即度优先连接）</span></div><div class="line">        targets=<span class="built_in">set</span>()</div><div class="line">        <span class="keyword">while</span> len(targets)&lt;m:</div><div class="line">            <span class="comment">#按正比于度的概率随机选择一个节点，见注释1</span></div><div class="line">            x=random.choice(repeated_nodes) </div><div class="line">            <span class="comment">#将其添加到目标节点数组targets中</span></div><div class="line">            targets.add(x)        </div><div class="line">        <span class="comment">#挑选下一个源点，转到循环开始，直到达到给定的节点数n</span></div><div class="line">        <span class="built_in">source</span> += 1 </div><div class="line">    <span class="comment">#返回所得的图G</span></div><div class="line">    <span class="built_in">return</span> G</div></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">from matplotlib import <span class="keyword">use</span></div><div class="line"><span class="keyword">use</span>(<span class="string">"Agg"</span>)</div><div class="line"><span class="keyword">import</span> random</div><div class="line"><span class="keyword">import</span> networkx <span class="keyword">as</span> nx</div><div class="line"><span class="keyword">from</span> networkx.generators.classic <span class="keyword">import</span> empty_graph</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"></div><div class="line"><span class="keyword">def</span> barabasi_albert_graph(n, m):</div><div class="line">    G=empty_graph(m)  </div><div class="line">    targets=<span class="keyword">range</span>(m)  </div><div class="line">    repeated_nodes=[]     </div><div class="line">    <span class="keyword">source</span>=m </div><div class="line">    <span class="keyword">while</span> <span class="keyword">source</span>&lt;n: </div><div class="line">        G.add_edges_from(zip([<span class="keyword">source</span>]*m,targets)) </div><div class="line">        repeated_nodes.extend(targets)</div><div class="line">        repeated_nodes.extend([<span class="keyword">source</span>]*m) </div><div class="line">        targets=<span class="keyword">set</span>()</div><div class="line">        <span class="keyword">while</span> <span class="keyword">len</span>(targets)&lt;m:</div><div class="line">            x=random.choice(repeated_nodes) </div><div class="line">            targets.add(x)        </div><div class="line">        <span class="keyword">source</span> += <span class="number">1</span> </div><div class="line">    <span class="keyword">return</span> G</div><div class="line">	</div><div class="line">#</div><div class="line">#G=nx.Graph()</div><div class="line">G = barabasi_albert_graph(<span class="number">400</span>,<span class="number">6</span>)</div><div class="line">pos = nx.spring_layout(G)</div><div class="line">nx.draw(G, pos, with_labels = <span class="literal">False</span>, node_size = <span class="number">30</span>)</div><div class="line">plt.savefig(<span class="string">"../output/BA_400_6.png"</span>)</div></pre></td></tr></table></figure>
 <p>(networkx-笔记/BA_400_6.png)</p>
-<h2 id="3-统计指标计算"><a href="#3-统计指标计算" class="headerlink" title="3. 统计指标计算"></a>3. 统计指标计算</h2><h3 id="3-1-度、度分布"><a href="#3-1-度、度分布" class="headerlink" title="3.1 度、度分布"></a>3.1 度、度分布</h3><p><img src="/blog/2017-03-16-networkx-笔记/networkx-笔记/dgree.jpg" alt="dgree"></p>
+<h2 id="3-统计指标计算"><a href="#3-统计指标计算" class="headerlink" title="3. 统计指标计算"></a>3. 统计指标计算</h2><h3 id="3-1-度、度分布"><a href="#3-1-度、度分布" class="headerlink" title="3.1 度、度分布"></a>3.1 度、度分布</h3><p><img src="/blog/networkx-笔记/dgree.jpg" alt="dgree"></p>
 <p>NetworkX可以用来统计图中每个节点的度，并生成度分布序列。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> networkx <span class="keyword">as</span> nx</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"> <span class="comment">#生成一个n=1000，m=3的BA无标度网络</span></div><div class="line">G = nx.random_graphs.barabasi_albert_graph(<span class="number">1000</span>,<span class="number">3</span>)</div><div class="line"><span class="comment">#返回某个节点的度</span></div><div class="line"><span class="keyword">print</span> G.degree(<span class="number">0</span>)</div><div class="line"><span class="comment">#返回所有节点的度</span></div><div class="line"><span class="keyword">print</span> G.degree()</div><div class="line"><span class="comment">#返回图中所有节点的度分布序列（从1至最大度的出现频次）</span></div><div class="line"><span class="keyword">print</span> nx.degree_histogram(G)</div><div class="line"><span class="comment">#返回图中所有节点的度分布序列</span></div><div class="line">degree =  nx.degree_histogram(G)</div><div class="line"><span class="comment">#生成x轴序列，从1到最大度</span></div><div class="line">x = range(len(degree))</div><div class="line"><span class="comment">#将频次转换为频率</span></div><div class="line">y = [z / float(sum(degree)) <span class="keyword">for</span> z <span class="keyword">in</span> degree]</div><div class="line"><span class="comment">#在双对数坐标轴上绘制度分布曲线</span></div><div class="line">plt.loglog(x,y,color=<span class="string">"blue"</span>,linewidth=<span class="number">2</span>)</div><div class="line"><span class="comment">#显示图表</span></div><div class="line">plt.show()</div></pre></td></tr></table></figure>
 <p>(networkx-笔记/degree_dis.png)</p>
 <h3 id="3-2-群聚系数"><a href="#3-2-群聚系数" class="headerlink" title="3.2 群聚系数"></a>3.2 群聚系数</h3><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment"># 平均群聚系数</span></div><div class="line">nx.average_clustering(G)</div><div class="line"><span class="comment"># 各个节点的群聚系数</span></div><div class="line">nx.clustering(G)</div></pre></td></tr></table></figure>
 <h3 id="3-3-直径和平均距离"><a href="#3-3-直径和平均距离" class="headerlink" title="3.3 直径和平均距离"></a>3.3 直径和平均距离</h3><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment"># 图G的直径（最长最短路径的长度）</span></div><div class="line">nx.diameter(G)</div><div class="line"><span class="comment"># 图G所有节点间平均最短路径长度</span></div><div class="line">nx.average_shortest_path_length(G)</div></pre></td></tr></table></figure>
 <h3 id="3-4-中心性"><a href="#3-4-中心性" class="headerlink" title="3.4 中心性"></a>3.4 <a href="https://en.wikipedia.org/wiki/Centrality" target="_blank" rel="external">中心性</a></h3><p>一个图的直径是所有点之间最长的最短路径。<br>在连接中心度，我们需要寻找一个点，这个点出现在很多点的最短路径中。出现的次数越多，连接中心性越高。这样的点，可以作为一个桥梁作用。<br>意义：分析该节点对网络信息流动的影响，如：考察此人的社交能力或对于社会网络中信息流动的影响力。</p>
-<p><img src="/blog/2017-03-16-networkx-笔记/networkx-笔记/betweenness_centrality.jpg" alt="betweenness centrality"></p>
+<p><img src="/blog/networkx-笔记/betweenness_centrality.jpg" alt="betweenness centrality"></p>
 <h4 id="betweenness-centrality"><a href="#betweenness-centrality" class="headerlink" title="betweenness centrality"></a>betweenness centrality</h4><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> networkx <span class="keyword">as</span> nx</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"></div><div class="line">G=nx.Graph()</div><div class="line"><span class="keyword">print</span> G.edges() <span class="comment"># []</span></div><div class="line">G.add_edges_from([(<span class="number">1</span>,<span class="number">2</span>),(<span class="number">2</span>,<span class="number">3</span>),(<span class="number">2</span>,<span class="number">4</span>),(<span class="number">2</span>,<span class="number">5</span>),(<span class="number">1</span>,<span class="number">3</span>),(<span class="number">1</span>,<span class="number">4</span>),(<span class="number">3</span>,<span class="number">5</span>),(<span class="number">4</span>,<span class="number">6</span>)])</div><div class="line"><span class="keyword">print</span> G.edges()</div><div class="line"><span class="comment">#[(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (2, 5), (3, 5), (4, 6)]</span></div><div class="line"><span class="comment"># betweenness centrality</span></div><div class="line">bc = nx.betweenness_centrality(G)</div><div class="line"><span class="keyword">print</span> sorted(bc.items(), key=<span class="keyword">lambda</span> k: k[<span class="number">1</span>], reverse=<span class="keyword">True</span>)</div><div class="line"><span class="comment"># [(4, 0.4), (2, 0.35000000000000003), (1, 0.1), (3, 0.05), (5, 0.0), (6, 0.0)]</span></div><div class="line"><span class="comment"># spring layout</span></div><div class="line">pos = nx.spring_layout(G)</div><div class="line">nx.draw(G, pos, with_labels = <span class="keyword">True</span>, node_size = <span class="number">100</span>,font_size=<span class="number">6</span>,font_color=<span class="string">'b'</span>)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
 <p>(networkx-笔记/BC.png)</p>
 <p>另一个复杂的例子</p>
@@ -118,8 +118,8 @@
   
   <entry>
     <title>如何在遍历时，正确删除列表中的 items</title>
-    <link href="https://hui-liu.github.io/blog/2017-03-08-%E5%A6%82%E4%BD%95%E5%9C%A8%E9%81%8D%E5%8E%86%E6%97%B6%EF%BC%8C%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84-items/"/>
-    <id>https://hui-liu.github.io/blog/2017-03-08-如何在遍历时，正确删除列表中的-items/</id>
+    <link href="https://hui-liu.github.io/blog/%E5%A6%82%E4%BD%95%E5%9C%A8%E9%81%8D%E5%8E%86%E6%97%B6%EF%BC%8C%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84-items/"/>
+    <id>https://hui-liu.github.io/blog/如何在遍历时，正确删除列表中的-items/</id>
     <published>2017-03-08T09:21:23.000Z</published>
     <updated>2017-03-08T09:22:48.197Z</updated>
     
@@ -143,8 +143,8 @@
   
   <entry>
     <title>根据一个list文件生成一个组合</title>
-    <link href="https://hui-liu.github.io/blog/2017-03-05-%E6%A0%B9%E6%8D%AE%E4%B8%80%E4%B8%AAlist%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E7%BB%84%E5%90%88/"/>
-    <id>https://hui-liu.github.io/blog/2017-03-05-根据一个list文件生成一个组合/</id>
+    <link href="https://hui-liu.github.io/blog/%E6%A0%B9%E6%8D%AE%E4%B8%80%E4%B8%AAlist%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E7%BB%84%E5%90%88/"/>
+    <id>https://hui-liu.github.io/blog/根据一个list文件生成一个组合/</id>
     <published>2017-03-05T08:35:07.000Z</published>
     <updated>2017-03-05T08:50:52.091Z</updated>
     
@@ -172,8 +172,8 @@
   
   <entry>
     <title>Detecting pervasive positive selection step by step</title>
-    <link href="https://hui-liu.github.io/blog/2017-03-02-Detecting-pervasive-positive-selection/"/>
-    <id>https://hui-liu.github.io/blog/2017-03-02-Detecting-pervasive-positive-selection/</id>
+    <link href="https://hui-liu.github.io/blog/Detecting-pervasive-positive-selection/"/>
+    <id>https://hui-liu.github.io/blog/Detecting-pervasive-positive-selection/</id>
     <published>2017-03-02T09:01:33.000Z</published>
     <updated>2017-03-03T14:03:45.599Z</updated>
     
@@ -225,8 +225,8 @@
   
   <entry>
     <title>creat a blog</title>
-    <link href="https://hui-liu.github.io/blog/2017-03-02-creat%20a%20blog/"/>
-    <id>https://hui-liu.github.io/blog/2017-03-02-creat a blog/</id>
+    <link href="https://hui-liu.github.io/blog/creat%20a%20blog/"/>
+    <id>https://hui-liu.github.io/blog/creat a blog/</id>
     <published>2017-03-02T05:01:44.000Z</published>
     <updated>2017-03-02T14:35:25.913Z</updated>
     
