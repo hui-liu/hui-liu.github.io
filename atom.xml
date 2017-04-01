@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-03-16T05:18:34.926Z</updated>
+  <updated>2017-04-01T15:14:22.367Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -14,6 +14,87 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux 入门（一）：初识 linux 系统</title>
+    <link href="https://hui-liu.github.io/blog/linux-%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%88%9D%E8%AF%86-linux-%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://hui-liu.github.io/blog/linux-入门（一）：初识-linux-系统/</id>
+    <published>2017-04-01T15:08:56.000Z</published>
+    <updated>2017-04-01T15:14:22.367Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="生信入门系列之-linux-入门（一）：初识-linux-系统"><a href="#生信入门系列之-linux-入门（一）：初识-linux-系统" class="headerlink" title="生信入门系列之 linux 入门（一）：初识 linux 系统"></a>生信入门系列之 linux 入门（一）：初识 linux 系统</h2><p>​        <a href="http://www.linux.org/" target="_blank" rel="external">Linux</a> 是一个免费的操作系统，是生物信息分析中必不可少的工具。再 linux 系统中，所有的管理任务均可以在一个叫终端<code>（terminal）</code>的控制面板里完成，包括文件处理，软件安装以及用户管理。这个终端是交互的，即你运行特定的命令，相应的结果会在这个终端上显示出来。运行命令的方式是：在终端上输入你希望运行的命令，然后按回车键<code>（Enter）</code>。如果你想终止正在运行的命令，可以按 <code>Chrl  + C</code>。</p>
+<p>​        不同于 windows 系统，linux 的文件系统是一个目录树（directory tree）；如<a href="https://en.wikipedia.org/wiki/Unix_filesystem" target="_blank" rel="external">图</a> 所示，其文件系统为一个树状结构。最顶端 “root”，用斜杠 “<code>/</code>” 表示。一般来说，普通用户，无论是直接打开终端还是远程登陆，所在的位置一般是在 <code>/home/foo</code> 下，其中的 <code>foo</code> 在这里指代用户名。</p>
+<p><img src="/blog/linux-入门（一）：初识-linux-系统/Standard-unix-filesystem-hierarchy.png" alt="img"></p>
+<p>​                                                     linux 的树状文件系统（图片来自<a href="https://en.wikipedia.org/wiki/Unix_filesystem" target="_blank" rel="external">维基百科</a>）</p>
+<p>​        如果你想查看当前所在的位置，可以在终端输入如下命令，并按回车键：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pwd</div></pre></td></tr></table></figure>
+<p>​        这个 linux 命令意思是“打印当前工作目录”，是 “print working directory” 的英文缩写；其返回结果是一个<strong>绝对路径</strong>（就是从根目录开始，依次将各级子目录的名字组合起来），应该类似这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/home/foo</div></pre></td></tr></table></figure>
+<p>​        与上述的树状文件系统相互比照，是不是立马清楚自己到底在哪里了？就好像 windows 下，到底在哪个盘的哪个文件夹里一样。这个<strong>绝对路径</strong>很有用，它不经让我们知道自己在哪儿，同时还可以告诉系统某个软件在哪儿，以及告诉软件要操作的文件在哪儿。举个例子吧，比如说我想调用一个软件，叫 <a href="http://vcftools.sourceforge.net/documentation.html" target="_blank" rel="external"><strong>vcftools</strong></a>，那么，我要运行它，只需要在终端输入如下命令并回车：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vcftools --vcf input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        就可以轻轻松松算出  <strong>variants</strong>  的数目和 <strong>individuals</strong> 的数目。但很不幸的是，你也有可能得到如下结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">bash: vcftools: command not found</div></pre></td></tr></table></figure>
+<p>​        大概意思就是，系统找不到这个命令在哪儿。可能有人会问了，既然是一个命令，为什么系统会找不到呢？其实，在linux 系统中，有一个非常核心的概念：<a href="http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/lsof.html" target="_blank" rel="external"><strong>一切皆文件</strong></a>！即在linux环境下，任何事物都以文件的形式存在。所以，如果你的从 <code>vcftools</code> 安装在 <code>/home/foo/biosoft/vcftool-0.1.13/bin</code> 这个<strong>绝对路径</strong>下，那么，你就可以这样运行它：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/home/foo/biosoft/vcftool-0.1.13/bin/vcftools --vcf input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        就可以的结果啦。但也有可能得到如下结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">VCFtools - v0.1.13</div><div class="line">(C) Adam Auton and Anthony Marcketta 2009</div><div class="line"></div><div class="line">Parameters as interpreted:</div><div class="line">        --vcf input_data.vcf</div><div class="line"></div><div class="line">stat error: No such file or directory</div><div class="line">Error: Can&apos;t determine file type of input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        这时也不要慌，只要在输入文件前加上绝对路径即可。加入 <code>input_data.vcf</code> 文件在 <code>/home/foo/vcffile</code> 下，可以这样运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/home/foo/biosoft/vcftool-0.1.13/bin/vcftools --vcf /home/foo/vcffile/input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        这时，如无意外，就可以得到如下结果了：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">VCFtools - v0.1.13</div><div class="line">(C) Adam Auton and Anthony Marcketta 2009</div><div class="line"></div><div class="line">Parameters as interpreted:</div><div class="line">        --vcf /home/foo/vcffile/input_data.vcf</div><div class="line"></div><div class="line">Using zlib version: 1.2.3.4</div><div class="line">Versions of zlib &gt;= 1.2.4 will be *much* faster when reading zipped VCF files.</div><div class="line">After filtering, kept 16 out of 16 Individuals</div><div class="line">After filtering, kept 1116595 out of a possible 1116595 Sites</div><div class="line">Run Time = 5.00 seconds</div></pre></td></tr></table></figure>
+<p>​        如果还报出一些奇奇怪怪的错误提示，那就首先检查一下您的输入法中是否为纯英文状态，中文和全角状态下的输入的空格都是会报错的。同时，linux 里，软件对字母大小写是敏感的，即 linux 认为 <strong>A</strong> 和 <strong>a</strong> 是两个不同的事物；大小写也是会造成错误的。</p>
+<p>​       前面，我多次提到了<strong>绝对路径</strong>这个概念，不少心思敏捷的童鞋就会想了，有没有<strong>相对路径</strong>？有的。</p>
+<p>​        举例说明，假如我们在 <code>/home/foo</code> 这个路径下，并且我们知道该路径下有 <code>vcffile</code> 和 <code>biosoft</code> 这两个目录；那么，我们可以这样运行上述的命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">biosoft/vcftool-0.1.13/bin/vcftools --vcf vcffile/input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        可以看到，<code>biosoft/vcftool-0.1.13/bin</code> 和 <code>vcffile</code> 这两个路径都不是以斜杠 <strong><code>/</code> </strong> 开头的，所以这两个路径都是相对路径。当然了，你也可也这样运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">biosoft/vcftool-0.1.13/bin/vcftools --vcf /home/foo/vcffile/input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        亦或这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">biosoft/vcftool-0.1.13/bin/vcftools --vcf vcffile/input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        也可以进到 <code>vcffile</code> 这个目录里，这样运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/home/foo/biosoft/vcftool-0.1.13/bin/vcftools --vcf input_data.vcf</div></pre></td></tr></table></figure>
+<p>​         或者这样（ “<strong>..</strong>” 在这里代表上级目录）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">../biosoft/vcftool-0.1.13/bin/vcftools --vcf input_data.vcf</div></pre></td></tr></table></figure>
+<p>​       总之，一句话，看心情！</p>
+<p>​        相信看到这里，会有记忆力超好的童鞋会问了，我该如何像运行 <code>pwd</code> 那样运行 <code>vcftools</code> 呢？而不是在它前面加上一大串绝对路径或是相对路径！</p>
+<p>​        要回答这个问题，小编先给大家展示两个命令（不深入讲解）：</p>
+<p>​        第一个是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">which pwd</div></pre></td></tr></table></figure>
+<p>​        返回的应该是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/bin/pwd</div></pre></td></tr></table></figure>
+<p>​        第二个是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">echo $PATH</div></pre></td></tr></table></figure>
+<p>​        会返回类似下面的结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/foo/biosoft/vcftool-0.1.13/bin</div></pre></td></tr></table></figure>
+<p>​        眼尖的童鞋会发现，上面一串结果其实就是许多结对路径通过 “<strong>:</strong>” 连接在一起的，其中有一个路径 “<strong>/bin</strong>” ；而 <code>which pwd</code> 返回的结果是 <code>/bin/pwd</code>。这两个有什么关系呢？其实不必深究，我们只需要知道，linux 把 <code>pwd</code> 看作一个文件（还记得前面说的“一切皆文件”吗），linux 系统会在上述的那一串路径路径从左往右<strong>依次</strong>查找，看某个路径下是否有 <code>pwd</code> 这个文件，然后执行这个命令。同理，如果我们的 <code>vcftools</code> 软件（其实就是个文件）的路径也在上述的路径中，就可以在终端直接输入  <code>vcftools</code>  就可以运行了。</p>
+<p>​        那么问题来了，我们该如何将特定软件的路径发到上述的 “<strong>PATH</strong>” 中呢？</p>
+<p>​        其实不难，在每个用户的家目录下，即上述的 <code>/home/foo</code> 下，都有一个非常重要的隐藏文件 “<strong>.bashrc</strong>”，里面有许多我们每次启动或登陆终端时，linux 系统都会默认自动运行的命令。所以，我们只要按这个格式，将 <code>vcftools</code> 的安装路径添加到 “<strong>.bashrc</strong>” 文件的最好一行即可：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">export PATH=$PATH:&apos;/home/foo/biosoft/vcftool-0.1.13/bin&apos;</div></pre></td></tr></table></figure>
+<p>​       然后执行这个命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">source .bashrc</div></pre></td></tr></table></figure>
+<p>​        就可以不加绝对路径运行  <code>vcftools</code> 了。像这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vcftools --vcf input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        怎么加呢？可以在家目录下，运行一个文本编辑器 <code>vim</code> 或 <code>nano</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vim .bashrc</div></pre></td></tr></table></figure>
+<p>​        对于 vim 怎么使用，可以自行百度，有详细教程，这里不做赘诉（使用起来比较复杂）。</p>
+<p>​       或</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">nano .bashrc</div></pre></td></tr></table></figure>
+<p>​       这个比较简单，回车后 =&gt; 按向下箭头（一直到文件底部） =&gt;  黏贴<code>export PATH=$PATH:&#39;/home/foo/biosoft/vcftool-0.1.13/bin&#39;</code> =&gt; 依次按 <code>ctrl + x</code>，<code>y</code>，<code>Enter</code>。注意：<code>/home/foo/biosoft/vcftool-0.1.13/bin</code> 要做相应地改动。</p>
+<p>​      这样就可以了。</p>
+<p>​       下期预告：linux 基础命令</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;生信入门系列之-linux-入门（一）：初识-linux-系统&quot;&gt;&lt;a href=&quot;#生信入门系列之-linux-入门（一）：初识-linux-系统&quot; class=&quot;headerlink&quot; title=&quot;生信入门系列之 linux 入门（一）：初识 linux 系
+    
+    </summary>
+    
+      <category term="生信" scheme="https://hui-liu.github.io/categories/%E7%94%9F%E4%BF%A1/"/>
+    
+    
+      <category term="linux" scheme="https://hui-liu.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>python 学习笔记</title>
