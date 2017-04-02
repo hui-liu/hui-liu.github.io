@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-04-02T03:28:32.946Z</updated>
+  <updated>2017-04-02T03:42:00.955Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://hui-liu.github.io/blog/linux-%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%88%9D%E8%AF%86-linux-%E7%B3%BB%E7%BB%9F/"/>
     <id>https://hui-liu.github.io/blog/linux-入门（一）：初识-linux-系统/</id>
     <published>2017-04-01T15:08:56.000Z</published>
-    <updated>2017-04-02T03:28:32.946Z</updated>
+    <updated>2017-04-02T03:42:00.955Z</updated>
     
     <content type="html"><![CDATA[<h2 id="生信入门系列之-linux-入门（一）：初识-linux-系统"><a href="#生信入门系列之-linux-入门（一）：初识-linux-系统" class="headerlink" title="生信入门系列之 linux 入门（一）：初识 linux 系统"></a>生信入门系列之 linux 入门（一）：初识 linux 系统</h2><p>​        <a href="http://www.linux.org/" target="_blank" rel="external">Linux</a> 是一个免费的操作系统，是生物信息分析中必不可少的工具。在 linux 系统中，所有的管理任务均可以在一个叫终端<code>（terminal）</code>的控制面板里完成，包括文件处理，软件安装以及用户管理。这个终端是交互的，即你运行特定的命令，相应的结果会在这个终端上显示出来。运行命令的方式是：在终端上输入你希望运行的命令，然后按回车键<code>（Enter）</code>。如果你想终止正在运行的命令，可以按 <code>Chrl  + C</code>。</p>
 <p>​        不同于 windows 系统，linux 的文件系统是一个目录树（directory tree）；如<a href="https://en.wikipedia.org/wiki/Unix_filesystem" target="_blank" rel="external">图</a> 所示，其文件系统为一个树状结构。最顶端 “root”，用斜杠 “<code>/</code>” 表示。一般来说，普通用户，无论是直接打开终端还是远程登陆，所在的位置一般是在 <code>/home/foo</code> 下，其中的 <code>foo</code> 在这里指代用户名。</p>
@@ -94,8 +94,16 @@
 <li>依次按 <code>ctrl + x</code>，<code>y</code>，<code>Enter</code>（即保存退出）</li>
 </ol>
 <p>注意：<code>/home/foo/biosoft/vcftool-0.1.13/bin</code> 要做根据自己的实际路径做相应地改动。</p>
-<p>​       下期预告：linux 基础命令</p>
-]]></content>
+<h5 id="重要知识点回顾："><a href="#重要知识点回顾：" class="headerlink" title="重要知识点回顾："></a>重要知识点回顾：</h5><ol>
+<li>终端</li>
+<li>目录树</li>
+<li>家目录</li>
+<li>大小写敏感</li>
+<li>绝对路径和相对路径</li>
+<li>一切皆文件</li>
+<li>环境变量及其编辑</li>
+</ol>
+<h5 id="​下期预告：linux-基础命令"><a href="#​下期预告：linux-基础命令" class="headerlink" title="​下期预告：linux 基础命令"></a>​下期预告：linux 基础命令</h5>]]></content>
     
     <summary type="html">
     
