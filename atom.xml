@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-04-02T05:20:51.758Z</updated>
+  <updated>2017-04-02T06:33:35.731Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -20,13 +20,20 @@
     <link href="https://hui-liu.github.io/blog/linux-%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%88%9D%E8%AF%86-linux-%E7%B3%BB%E7%BB%9F/"/>
     <id>https://hui-liu.github.io/blog/linux-入门（一）：初识-linux-系统/</id>
     <published>2017-04-01T15:08:56.000Z</published>
-    <updated>2017-04-02T05:20:51.758Z</updated>
+    <updated>2017-04-02T06:33:35.731Z</updated>
     
     <content type="html"><![CDATA[<h2 id="生信入门系列之-linux-入门（一）：初识-linux-系统"><a href="#生信入门系列之-linux-入门（一）：初识-linux-系统" class="headerlink" title="生信入门系列之 linux 入门（一）：初识 linux 系统"></a>生信入门系列之 linux 入门（一）：初识 linux 系统</h2><p>​        <a href="http://www.linux.org/" target="_blank" rel="external">Linux</a> 是一个免费的操作系统，是生物信息分析中必不可少的工具。在 linux 系统中，所有的管理任务均可以在一个叫终端<code>（terminal）</code>的控制面板里完成，包括文件处理，软件安装以及用户管理。这个终端是交互的，即你运行特定的命令，相应的结果会在这个终端上显示出来。运行命令的方式是：在终端上输入你希望运行的命令，然后按回车键<code>（Enter）</code>。如果你想终止正在运行的命令，可以按 <code>Chrl  + C</code>。</p>
-<p>​        不同于 windows 系统，linux 的文件系统是一个目录树（directory tree）；如<a href="https://en.wikipedia.org/wiki/Unix_filesystem" target="_blank" rel="external">图</a> 所示，其文件系统为一个树状结构。最顶端 “root”，用斜杠 “<code>/</code>” 表示。一般来说，普通用户，无论是直接打开终端还是远程登陆，所在的位置一般是在 <code>/home/foo</code> 下，其中的 <code>foo</code> 在这里指代用户名。</p>
+<p>​        不同于 windows 系统，linux 的文件系统是一个目录树（directory tree）；如<a href="https://en.wikipedia.org/wiki/Unix_filesystem" target="_blank" rel="external">下图</a> 所示，其文件系统为一个树状结构。最顶端 “root”，用斜杠 “<code>/</code>” 表示。一般来说，普通用户，无论是直接打开终端还是远程登陆服务器，所在的位置一般是在 <code>/home/foo</code> 下，其中的 <code>foo</code> 在这里指代用户名。</p>
 <p><img src="/blog/linux-入门（一）：初识-linux-系统/Standard-unix-filesystem-hierarchy.png" alt="img"></p>
 <p>​                                                     linux 的树状文件系统（图片来自<a href="https://en.wikipedia.org/wiki/Unix_filesystem" target="_blank" rel="external">维基百科</a>）</p>
-<p>​        如果你想查看当前所在的位置，可以在终端输入如下命令，并按回车键：</p>
+<p>​       对于 windows 用户来说，可以通过一个轻量级的软件 <strong>putty</strong> （约 500 kb；百度可下载；双击软件即可使用，无需安装）来登陆远程登陆服务器，登陆方法如下图，图中的序号为操作顺序：</p>
+<ol>
+<li>首先在 Host Name（or IP address）下方的框框中输入服务器的的 ID 地址，并单击 “Open” 选项；</li>
+<li>putty 会弹出一个警告框，点击否；</li>
+<li>最后最出现下图 3 中的界面，在 “login as：“ 后输入你的用户名，回车后输入登陆密码（直接输入就行了，是看不到显示的）。</li>
+</ol>
+<p><img src="/blog/linux-入门（一）：初识-linux-系统/putty.png" alt="putty"></p>
+<p>​       打开终端或是远程登陆服务器时，如果你想查看当前所在的位置，可以在终端输入如下命令，并按回车键：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pwd</div></pre></td></tr></table></figure>
 <p>​        这个 linux 命令意思是“打印当前工作目录”，是 “print working directory” 的英文缩写；其返回结果是一个<strong>绝对路径</strong>（就是从根目录开始，依次将各级子目录的名字组合起来），应该类似这样：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/home/foo</div></pre></td></tr></table></figure>
