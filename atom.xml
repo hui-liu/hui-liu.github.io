@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-04-02T05:06:04.706Z</updated>
+  <updated>2017-04-02T05:20:51.758Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://hui-liu.github.io/blog/linux-%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%88%9D%E8%AF%86-linux-%E7%B3%BB%E7%BB%9F/"/>
     <id>https://hui-liu.github.io/blog/linux-入门（一）：初识-linux-系统/</id>
     <published>2017-04-01T15:08:56.000Z</published>
-    <updated>2017-04-02T05:06:04.706Z</updated>
+    <updated>2017-04-02T05:20:51.758Z</updated>
     
     <content type="html"><![CDATA[<h2 id="生信入门系列之-linux-入门（一）：初识-linux-系统"><a href="#生信入门系列之-linux-入门（一）：初识-linux-系统" class="headerlink" title="生信入门系列之 linux 入门（一）：初识 linux 系统"></a>生信入门系列之 linux 入门（一）：初识 linux 系统</h2><p>​        <a href="http://www.linux.org/" target="_blank" rel="external">Linux</a> 是一个免费的操作系统，是生物信息分析中必不可少的工具。在 linux 系统中，所有的管理任务均可以在一个叫终端<code>（terminal）</code>的控制面板里完成，包括文件处理，软件安装以及用户管理。这个终端是交互的，即你运行特定的命令，相应的结果会在这个终端上显示出来。运行命令的方式是：在终端上输入你希望运行的命令，然后按回车键<code>（Enter）</code>。如果你想终止正在运行的命令，可以按 <code>Chrl  + C</code>。</p>
 <p>​        不同于 windows 系统，linux 的文件系统是一个目录树（directory tree）；如<a href="https://en.wikipedia.org/wiki/Unix_filesystem" target="_blank" rel="external">图</a> 所示，其文件系统为一个树状结构。最顶端 “root”，用斜杠 “<code>/</code>” 表示。一般来说，普通用户，无论是直接打开终端还是远程登陆，所在的位置一般是在 <code>/home/foo</code> 下，其中的 <code>foo</code> 在这里指代用户名。</p>
@@ -68,7 +68,7 @@
 <p>​        眼尖的童鞋会发现，上面一串结果其实就是许多绝对路径通过 “<strong>:</strong>” 连接在一起的（叫做<strong>环境变量</strong>），其中有一个路径 “<strong>/bin</strong>” ；而 <code>which pwd</code> 返回的结果是 <code>/bin/pwd</code>。这两个有什么关系呢？其实不必深究，我们只需要知道，linux 把 <code>pwd</code> 看作一个文件（还记得前面说的“一切皆文件”吗），linux 系统会在上述的<strong>环境变量</strong>中从左往右<strong>依次</strong>查找，看某个路径下是否有 <code>pwd</code> 这个文件，然后执行这个命令。并且，<strong>环境变量</strong>是可以编辑的， 即可在环境变量  “<strong>PATH</strong>” 中添加特定的路径。同理，如果我们的 <code>vcftools</code> 软件（其实就是个文件）的路径也在上述的路径中，就可以在终端直接输入  <code>vcftools</code>  就可以运行了。</p>
 <p>​        那么问题来了，我们该如何将特定软件的路径发到上述的环境变量 “<strong>PATH</strong>” 中呢？</p>
 <p>​        只需要通过 <code>export</code> 命令，在终端中输入以下内容，回车后，就可以将  <code>vcftools</code> 的路径导入到上述的环境变量中：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">export PATH=$PATH:&apos;/home/foo/biosoft/vcftool-0.1.13/bin&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># vcftools （井号后的内容 linux 系统不会读取，可以做注释）</div><div class="line">export PATH=$PATH:&apos;/home/foo/biosoft/vcftool-0.1.13/bin&apos; # 添加这一行就行了，export 后要加空格，不要换行。</div></pre></td></tr></table></figure>
 <p>​        就会得到类似这样的结果：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/foo/biosoft/vcftool-0.1.13/bin</div></pre></td></tr></table></figure>
 <p>​        当然，如果你是这样输入的，</p>
