@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-04-03T04:50:55.320Z</updated>
+  <updated>2017-04-05T12:18:51.856Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -14,6 +14,198 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>生信入门系列之 linux 入门（一）：基础命令（上）</title>
+    <link href="https://hui-liu.github.io/blog/%E7%94%9F%E4%BF%A1%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97%E4%B9%8B-linux-%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4%EF%BC%88%E4%B8%8A%EF%BC%89/"/>
+    <id>https://hui-liu.github.io/blog/生信入门系列之-linux-入门（一）：基础命令（上）/</id>
+    <published>2017-04-05T12:11:58.000Z</published>
+    <updated>2017-04-05T12:18:51.856Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="生信入门系列之-linux-入门（一）：基础命令（上）"><a href="#生信入门系列之-linux-入门（一）：基础命令（上）" class="headerlink" title="生信入门系列之 linux 入门（一）：基础命令（上）"></a>生信入门系列之 linux 入门（一）：基础命令（上）</h2><p>我们在启动终端时，会显示类似这样的内容：<code>liuhui@ginkgo:~$</code> ，如图所示：</p>
+<p>​                                                                  <img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/1.png" alt="图一"></p>
+<p>其中，<code>liuhui</code>   表示用户名，<code>gingko</code> 表示计算机名称，<code>~</code>   代表家目录，表示我当前的位置是 <code>/home/liuhui</code>，<code>$</code>  为命令输入提示符（root 用户，为 <code>#</code>），表示在其后的光标提示符中输入命令。比如在家目录下有一个的 <code>sample_data</code> 目录，那我输入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd sample_data</div></pre></td></tr></table></figure>
+<p>就可以进到 <code>sample_data</code> 这个目录里面了，其中 <code>cd</code>  是英文 “change directory” 的缩写，用于切换工作目录，如图所示：</p>
+<p>​                                                                 <img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/2.png" alt="2"></p>
+<p>命令 <code>cd</code> 对<strong>目录</strong>进行操作，可接<strong>相对路径</strong>或<strong>绝对路径</strong>。上述的 <code>sample_data</code> 其实就是一个相对路径；接绝对路径可以这样做：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd /home/liuhui/sample_data</div></pre></td></tr></table></figure>
+<p>结果是一样的。</p>
+<p><strong>注意：</strong>不要混淆了目录和相对路径这两个概念；目录就是一个文件夹，而相对路径，从字面上理解就是一个<strong>“路径”</strong>，可以从<strong>A</strong>到 <strong>B</strong>的路径，路径有一个个目录连接而成，<strong>单个目录是最简单的路径</strong>；就上述的例子而言，如果家目录下没有 <code>sample_data</code> 这个目录的话，那就会报错：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">-bash: cd: sample_data: No such file or directory</div></pre></td></tr></table></figure>
+<p>如果家目录下没有 <code>sample_data</code> 这个目录，而有一个叫 <code>test</code> 的目录，这个目录里有一个叫 <code>sample_data</code>  的目录，那么就应该这样做：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd test/sample_data</div></pre></td></tr></table></figure>
+<p>如图所示：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/3.png" alt="3"></p>
+<p>如果这样：<code>cd test/sample_data</code>，就会报错。</p>
+<p>好的，回到正题，我们通过 <code>cd</code> 命令进入了 <code>sample_data</code> 这个目录中，我们首先想要知道的就是这个目录里有没有文件，如果有，有那些文件，而这些文件的内容又是什么？这时，可以用命令 <code>ls</code>（是 <code>list directory contents</code> 的缩写）结果如下图：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/4.png" alt="4"></p>
+<p>可以看出 <code>sample_data</code> 目录下有两个文件 / 目录，但其具体的属性，即详细信息我们却不知道。可以给命令 <code>ls</code> 加一个参数 <code>-l</code>，如图：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/5.png" alt="5"></p>
+<p>这就详细多了，比如我知道了文件的大小，文件最后修改的时间，知道除了文件之外，还有一个目录，说的不是太清楚，看图：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/6.jpg" alt="6"></p>
+<p>文件或目录的权限及链接数下次再讲，这次有个映像即可。但是还有一点问题，就是我们比较关心的文件大小似乎没有单位，有点看不懂啊。所以，还可以加个参数 <code>-h</code>（官方解释：human-readable），显示如下，不用说相信大家都清楚文件的大小是多少了：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/7.png" alt="7"></p>
+<p>当然还可以以时间排序或逆序：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data$ ls -lht</div><div class="line">total 212K</div><div class="line">drwxrwxr-x 2 liuhui liuhui 4.0K Apr  5 16:24 transcriptome</div><div class="line">-rw-rw-r-- 1 liuhui liuhui 206K Apr  5 12:38 Trinity.fasta</div><div class="line">liuhui@ginkgo:~/sample_data$ ls -lhtr</div><div class="line">total 212K</div><div class="line">-rw-rw-r-- 1 liuhui liuhui 206K Apr  5 12:38 Trinity.fasta</div><div class="line">drwxrwxr-x 2 liuhui liuhui 4.0K Apr  5 16:24 transcriptome</div></pre></td></tr></table></figure>
+<p>所以，我们到这就明白了，<code>ls</code> 是查看某个目录里面有什么文件或子目录，但如果我想查看一个文件里有什么内容，该怎么办呢，这时有几种办法：</p>
+<ol>
+<li>查看文件的头几行，用 <code>head</code> 命令（默认前 10 行）：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data$ head Trinity.fasta</div><div class="line">&gt;TRINITY_DN63_c0_g1_i1 len=484 path=[663:0-65 669:66-161 667:162-216 660:217-233 661:234-257 666:258-332 642:333-356 670:357-368 668:369-395 665:396-419 647:420-423 648:424-483] [-1, 663, 669, 667, 660, 661, 666, 642, 670, 668, 665, 647, 648, -2]</div><div class="line">CCAGCGTGGGGCCGGGGGCCGGTGAGTGGCTACCCAGCACCGCGGACAGAGGGGCACCCC</div><div class="line">AAGACCTGTACTCTCTGCCTCTAGGAGGAAGGAGAGTGAAGGGGATAGGATATGAAGTGG</div><div class="line">GTGCCAGACAAGGTGTGGGGATGCTACCACCGATTTGTTCTCCCTACGGCACCAGCTGTA</div><div class="line">GCTTTGGAAGCCGCGCAGCCCCATCTTCCCTAATCTTAGCCCATCCCGTTACTATTTCCA</div><div class="line">GGATAGCCCATCATGCATAGAAAGAAAACAGAGCCCTAGGCAGAGGGAGCCATAACCCAC</div><div class="line">AAGGCATTTGTAGAGAAATGGAAAAAGAGTCGCCCTAGGGTAGCAGCGCAGGGAGCAGGA</div><div class="line">GTCTCCTGTGTCCTGGTGAAGATGCACAGAACAGAAAGCTGGGCCTGCAAGCTGCCTGGC</div><div class="line">TTGTTTGCTTTGGCTTCCTCTCTCCAAAGCCTGACTGTCCTTGGAGTATTCTGGTCCTCT</div><div class="line">GTGG</div></pre></td></tr></table></figure>
+<ol>
+<li>当然也可以查看文件的最末尾的几行，用<code>tail</code> 命令（默认最后 10 行）： </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"> liuhui@ginkgo:~/sample_data$ tail Trinity.fasta</div><div class="line">ATCAGATCTAATTCTTACATTTTGAGATAACTGTAAAAAGAGTGAAATTATGAAATGGCC</div><div class="line">AATATCTTTTATCAGTCTATTCTTTTGGAAGCTGTCATGCACTATACATTGTGTACAGTT</div><div class="line">AAAAGTATATATATATATATATTCTTACTGAGTGAACGCCTCCTCTCCCCACGCCTGTAT</div><div class="line">GTCACTAGCATCTAAGGAGAATGCTCAAGGCCCAGTGCTGCTGCTGCTGTGGTTTATATG</div><div class="line">GGTTTTGTTCTGTTTTGTTTTTGTGTGGTAAATTGATATTTAAAAACAACAAAAACCACG</div><div class="line">ACTACTGTTTACAGACTGAAAAAAAACAATCACTGCTTTTTATACTACTGAGATCCTAAG</div><div class="line">TCAAGACTTTGCAAAGCAGGAATCGGGTTCAAGTTACTTCTTTGCTGTGGACGGATAGTC</div><div class="line">CTCTGTAGTATCTCCACATGATGGAGAGTGCACAAACCTAGGTGTGCTGCCATCAATTTT</div><div class="line">GTATATTTTCATAATTTTAATTGTTCGAAATTGCATTATATTTTGCAATCACCACATTCA</div><div class="line">ATCTGTATATGTCTTTCATTTCAACTTTTTCAATACAAAAAGGGG</div></pre></td></tr></table></figure>
+<ol>
+<li>查看整个文件中的内容，用 <code>cat</code> 命令（对于几 kb 以上的文件，不建议用这个）：</li>
+</ol>
+<p>cat Trinity.fasta</p>
+<ol>
+<li>分页浏览文件内容，用 <code>less</code> 命令（输入 <code>q</code> 退出）：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">less Trinity.fasta</div></pre></td></tr></table></figure>
+<p>显示如下：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/8.png" alt="8"></p>
+<p>但有个问题，就是太长的行，如上图中的那些数字，会折成两行或以上（即折行），这个文件还好，但对于其它文件，如 vcf 文件，就有可能看起来很费眼神，这是可以给 <code>less</code> 加个参数 <code>-S</code>（大写的），效果如下：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/9.png" alt="9"></p>
+<p>这样就好很多了。</p>
+<p>有时我们想创建一个文件，可以通过以下方法：</p>
+<ol>
+<li>touch 命令：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">touch new_file</div></pre></td></tr></table></figure>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/10.png" alt="10"></p>
+<ol>
+<li>还可以用<strong>重定向</strong>操作符，<code>&gt;</code>，创建一个文件：</li>
+</ol>
+<figure class="highlight ceylon"><table><tr><td class="code"><pre><div class="line">&gt; <span class="keyword">new</span><span class="number">_f</span>ile<span class="number">2</span></div></pre></td></tr></table></figure>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/11.png" alt="11"></p>
+<ol>
+<li>文件编辑命令，<code>nano</code>，这样还可以直接在里面添加内容了（相当于 windows 的记事本），操作如下所示：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">nano new_file3</div></pre></td></tr></table></figure>
+<p>输入内容如图所示：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/12.png" alt="12"></p>
+<p>保存（<code>y</code>），然后回车：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/13.png" alt="13"></p>
+<p><code>ls</code>  查看一下：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/14.png" alt="14"></p>
+<p>对于小文件，可以用 <code>cat</code> 命令查看内容：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/15.png" alt="15"></p>
+<p>前面提到的重定向操作符 <code>&gt;</code>，还可以这样用，相当于将 <code>new_file3</code> 的内容拷贝给了 <code>new_file2</code>：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/16.png" alt="16"></p>
+<p>另外，<code>cat</code> 命令也可以同时查看两个或两个以上文件的内容：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/17.png" alt="17"></p>
+<p>这时，再通过重定向操作符 <code>&gt;</code> 就可以把两个或两个以上的内容合并到一个文件里了：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/18.png" alt="18"></p>
+<p>这几个命令颠来倒去的重合在一起用是不是很有趣，也很强大；其实这也是 linux 命令的强大之处：<strong>通过几个不同的命令组合在一起，往往会发挥出强大的功能。</strong>这个概念很重要，上面演示的只不过时冰山一角罢了。</p>
+<p>有时我们想删除一个文件，这时可以用命令 <code>rm</code>来操作：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/19.png" alt="19"></p>
+<p><strong>注意：这是永久性删除。</strong></p>
+<p>通过 linux 命令，可以很方便地对文件进行复制操作，命令是 <code>cp</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cp old_file new_copy_file</div></pre></td></tr></table></figure>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/20.png" alt="20"></p>
+<p>修改文件名同样很简单，通过 <code>mv</code> 命令实现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mv old_file_name new_file_name</div></pre></td></tr></table></figure>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/21.png" alt="21"></p>
+<p>当然，还可以通过 <code>mv</code> 命令将一个文件移到另一个文件夹里（相当于在 windows 里将一个文件剪切，然后粘贴到另一个文件夹里），下图就演示了将文件 <code>Trinity.fasta</code> 移到了目录 <code>transcriptome</code> 里：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/22.png" alt="22"></p>
+<p><strong>注意：这里的 <code>transcriptome</code> 实际上就是一个相对路径；如果 sample_data 里没有这个目录，那当然会不会报错，只不过就相当于修改文件名了。</strong></p>
+<p>之前提到了怎么创建一个文件，这里当然要说一下怎么创建一个目录：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mkdir directory_name</div></pre></td></tr></table></figure>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/23.png" alt="23"></p>
+<p>也可以优雅地删除一个目录，只比删除文件多了一个参数，<code>-r</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rm -r directory_name</div></pre></td></tr></table></figure>
+<p><img src="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/24.png" alt="24"></p>
+<p>好了，这次先讲到这里。</p>
+<p><strong>浓缩及提升版：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># (1) 切换工作目录 (最好一个斜杠可有可无，命令与路径之间要有空格)</div><div class="line">cd ~/sample_data/transcriptome/</div><div class="line"># 大家试下以下的三个用法，看看效果</div><div class="line">cd</div><div class="line">cd -</div><div class="line">cd ~</div><div class="line"># (2) 显示当前工作目录</div><div class="line">pwd</div><div class="line"></div><div class="line"># (3) 创建文件夹</div><div class="line">mkdir folder_name</div><div class="line"></div><div class="line"># (4) 创建文件</div><div class="line">touch file_name1</div><div class="line">&gt; file_name2</div><div class="line">nano file_name3</div><div class="line"></div><div class="line"># (5) 打印文件内容及合并另个两个或以上文件的内容</div><div class="line"># 打印文件内容</div><div class="line">cat file_name</div><div class="line"># 同时打印两个文件的内容，第二个文件的内容会紧跟在第一个文件内容的最后面</div><div class="line">cat file_name1 file_name2</div><div class="line"># 利用上一个用法并结合从定向操作符“&gt;”，可以合并两个文件的内容</div><div class="line">cat file_name1 file_name2 &gt; combined_file</div><div class="line"></div><div class="line"># (6) 分页浏览较大文件的内容</div><div class="line">less file_name</div><div class="line"># 不折行</div><div class="line">less -S file_name</div><div class="line"># 显示行号</div><div class="line">less -SN file_name</div><div class="line"></div><div class="line"># (7) 查看文件头几行</div><div class="line">head file_name</div><div class="line"># 查看前 20 行</div><div class="line">head -n 20 file_name</div><div class="line"></div><div class="line"># (8) 查看文件末尾几行</div><div class="line">tail file_name</div><div class="line"># 查看前 20 行</div><div class="line">tail -n 20 file_name</div><div class="line"></div><div class="line"># (9) 查看文件及目录属性</div><div class="line">ls</div><div class="line">ls -lh</div><div class="line"># 只查看某个文件或目录</div><div class="line">ls -lh file_name</div><div class="line">ls -lh directory_name</div><div class="line"></div><div class="line"># (10) 删除文件及目录</div><div class="line"># 删除文件</div><div class="line">rm file_name</div><div class="line"># 删除目录</div><div class="line">rm -r directory_name</div><div class="line"></div><div class="line"># (11) 移动文件目录或修改文件目录的名称</div><div class="line"># 移动文件到目录“directory_name” 里的子目录“directory_name” 里（前提是这个路径存在）</div><div class="line">mv file_name directory_name/sub_directory_name</div><div class="line"># 修改文件名</div><div class="line">mv old_file_name new_file_name</div><div class="line"># 移动目录，将“directory_name” 移到目录“directory_name” 里的子目录“directory_name” 里（前提是这个路径存在）</div><div class="line">mv directory_name1 directory_name/sub_directory_name</div><div class="line"># 修改目录名，将“directory_name1” 的名称改为“directory_name2”（directory_name2不存在，否则就将“directory_name1” 移动到“directory_name2”里了）</div><div class="line">mv directory_name1 directory_name2</div><div class="line"></div><div class="line"># (12) 复制文件或目录</div><div class="line"># 复制文件到当前目录下，并重命名成 “file_name2”（必须重命名）</div><div class="line">cp file_name1 file_name2</div><div class="line"># 复制文件到另外一个目录里</div><div class="line">cp file_name1 directory_name/</div><div class="line"># 复制文件到另外一个目录里并重命名</div><div class="line">cp file_name1 directory_name/file_name2</div><div class="line"># 复制目录</div><div class="line">cp -r directory_name1 directory_name2</div></pre></td></tr></table></figure>
+<p><strong>命令及简单描述</strong></p>
+<table>
+<thead>
+<tr>
+<th>目录操作</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cd</td>
+<td>切换工作目录</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td>显示当前工作目录</td>
+</tr>
+<tr>
+<td>mkdir</td>
+<td>创建目录</td>
+</tr>
+<tr>
+<td>文件操作</td>
+<td></td>
+</tr>
+<tr>
+<td>touch、&gt;</td>
+<td>创建文件</td>
+</tr>
+<tr>
+<td>nano</td>
+<td>编辑文件</td>
+</tr>
+<tr>
+<td>cat</td>
+<td>打印文件内容及合并另个两个或以上文件的内容</td>
+</tr>
+<tr>
+<td>less</td>
+<td>分页浏览文件内容</td>
+</tr>
+<tr>
+<td>head</td>
+<td>查看文件头几行</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>查看文件末尾几行</td>
+</tr>
+<tr>
+<td>文件及目录操作</td>
+<td></td>
+</tr>
+<tr>
+<td>ls</td>
+<td>查看文件及目录属性</td>
+</tr>
+<tr>
+<td>rm</td>
+<td>删除文件及目录</td>
+</tr>
+<tr>
+<td>mv</td>
+<td>移动文件目录或修改文件目录的名称</td>
+</tr>
+<tr>
+<td>cp</td>
+<td>复制文件或目录</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;生信入门系列之-linux-入门（一）：基础命令（上）&quot;&gt;&lt;a href=&quot;#生信入门系列之-linux-入门（一）：基础命令（上）&quot; class=&quot;headerlink&quot; title=&quot;生信入门系列之 linux 入门（一）：基础命令（上）&quot;&gt;&lt;/a&gt;生信入门系
+    
+    </summary>
+    
+      <category term="生信" scheme="https://hui-liu.github.io/categories/%E7%94%9F%E4%BF%A1/"/>
+    
+    
+      <category term="linux" scheme="https://hui-liu.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>linux 入门（一）：初识 linux 系统</title>
