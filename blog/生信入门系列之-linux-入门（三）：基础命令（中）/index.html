@@ -117,7 +117,7 @@
 <meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/16.png">
 <meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/17.png">
 <meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/18.png">
-<meta property="og:updated_time" content="2017-04-09T03:16:38.433Z">
+<meta property="og:updated_time" content="2017-04-09T03:28:28.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="生信入门系列之 linux 入门（三）：基础命令（中）">
 <meta name="twitter:description" content="这次接着讲 linux 基础命令。上次讲到了一些文件及目录操作相关的命令，这次接着讲。
@@ -531,9 +531,8 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ grep &quot;&gt;&quot; Trinity.fasta | cut -d &quot; &quot; -f 1,2 | head</div><div class="line">&gt;TRINITY_DN63_c0_g1_i1 len=484</div><div class="line">&gt;TRINITY_DN66_c0_g1_i1 len=709</div><div class="line">&gt;TRINITY_DN66_c0_g2_i1 len=316</div><div class="line">&gt;TRINITY_DN66_c0_g2_i2 len=292</div><div class="line">&gt;TRINITY_DN68_c0_g1_i1 len=7194</div><div class="line">&gt;TRINITY_DN68_c0_g1_i2 len=7076</div><div class="line">&gt;TRINITY_DN68_c0_g2_i1 len=520</div><div class="line">&gt;TRINITY_DN68_c0_g3_i1 len=508</div><div class="line">&gt;TRINITY_DN68_c0_g4_i1 len=542</div><div class="line">&gt;TRINITY_DN42_c0_g1_i1 len=280</div><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ grep &quot;&gt;&quot; Trinity.fasta | cut -d &quot; &quot; -f 1-2 | head</div><div class="line">&gt;TRINITY_DN63_c0_g1_i1 len=484</div><div class="line">&gt;TRINITY_DN66_c0_g1_i1 len=709</div><div class="line">&gt;TRINITY_DN66_c0_g2_i1 len=316</div><div class="line">&gt;TRINITY_DN66_c0_g2_i2 len=292</div><div class="line">&gt;TRINITY_DN68_c0_g1_i1 len=7194</div><div class="line">&gt;TRINITY_DN68_c0_g1_i2 len=7076</div><div class="line">&gt;TRINITY_DN68_c0_g2_i1 len=520</div><div class="line">&gt;TRINITY_DN68_c0_g3_i1 len=508</div><div class="line">&gt;TRINITY_DN68_c0_g4_i1 len=542</div><div class="line">&gt;TRINITY_DN42_c0_g1_i1 len=280</div></pre></td></tr></table></figure>
 <p>则取出第一和第二列，这里用逗号或横杠连接 ”1“ 和 ”2“，其中横杠用于链接连续的列，而逗号都行：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 横杠</div><div class="line">cut -f 1-10</div><div class="line"># 逗号</div><div class="line">cut -f 1,2,3,4,5,6,7,8,9,10</div><div class="line"># 当然逗号也有优势</div><div class="line">cut -f 1,3,5,8,10</div><div class="line"># 逗号与横杠混用</div><div class="line">cut -f 1,3,5,8-10</div><div class="line"># 这样不行哈</div><div class="line">cut -f 1-3-5-8-10</div></pre></td></tr></table></figure>
-<p>可能由同学想问，<code>grep &quot;&gt;&quot; Trinity.fasta | cut -d &quot; &quot; -f 1 | head</code> 的输出结果还有 ”&gt;” 啊，什么去除呢？其实命令你学过啦。哪个？就是 <code>cut</code>：</p>
+<p>可能由同学想问，<code>grep &quot;&gt;&quot; Trinity.fasta | cut -d &quot; &quot; -f 1 | head</code> 的输出结果还有 ”&gt;” 啊，怎么去除呢？其实命令你学过啦，就是 <code>cut</code>：</p>
 <p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/8.png" alt="8"></p>
-<p>这里想说一个道理，其实在生信分析中，能用到的 linux 命令不多，基本达不到 100 个，而常用的也就几十个；而当你能熟练地并巧妙地运用这几十个命令时，就差不多啦。怎么能熟练，多用；怎么巧用，”买油翁“早就说过：熟能生巧。</p>
 <p>这时，你这样操作：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">grep &quot;&gt;&quot; Trinity.fasta | cut -d &quot; &quot; -f 1 | cut -d &quot;&gt;&quot; -f 2 &gt; Trinity_ID</div></pre></td></tr></table></figure>
 <p>就得到你想要地序列号了。</p>
@@ -615,11 +614,6 @@
 <tr>
 <td>grep</td>
 <td>利用关键字符进行文本搜索</td>
-</tr>
-<tr>
-<td>`</td>
-<td>`</td>
-<td>管道</td>
 </tr>
 <tr>
 <td>cut</td>
