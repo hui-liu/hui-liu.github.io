@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -89,19 +89,41 @@
 
 
 
-<meta name="description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
-正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
+<meta name="description" content="在实际的 linux 服务器中运行软件时，经常会为一些长时间运行的任务而头疼。当关掉连接终端或者其它原因，如网络不稳定等，运行中的程序也会自动被中断。那么怎么去解决上述问题呢？可以用命令 nohup，像这样运行:
+nohup script.sh &amp;amp;
+其中 script.sh 是一个shell 脚本，当然也可以替换成其它的软件或命令。如下图所示：
+
+其中的“13632”是PID，PID 是进">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在遍历时，正确删除列表中的 items">
-<meta property="og:url" content="https://hui-liu.github.io/blog/如何在遍历时，正确删除列表中的-items/index.html">
+<meta property="og:title" content="生信入门系列之-linux-入门（四）：基础命令（下）">
+<meta property="og:url" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/index.html">
 <meta property="og:site_name" content="liuhui | 刘辉">
-<meta property="og:description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
-正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
-<meta property="og:updated_time" content="2017-03-08T09:22:48.197Z">
+<meta property="og:description" content="在实际的 linux 服务器中运行软件时，经常会为一些长时间运行的任务而头疼。当关掉连接终端或者其它原因，如网络不稳定等，运行中的程序也会自动被中断。那么怎么去解决上述问题呢？可以用命令 nohup，像这样运行:
+nohup script.sh &amp;amp;
+其中 script.sh 是一个shell 脚本，当然也可以替换成其它的软件或命令。如下图所示：
+
+其中的“13632”是PID，PID 是进">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/1.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/2.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/5.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/10.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/9.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/7.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/6.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/8.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/11.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/12.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/14.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/15.png">
+<meta property="og:updated_time" content="2017-04-13T06:31:54.200Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何在遍历时，正确删除列表中的 items">
-<meta name="twitter:description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
-正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
+<meta name="twitter:title" content="生信入门系列之-linux-入门（四）：基础命令（下）">
+<meta name="twitter:description" content="在实际的 linux 服务器中运行软件时，经常会为一些长时间运行的任务而头疼。当关掉连接终端或者其它原因，如网络不稳定等，运行中的程序也会自动被中断。那么怎么去解决上述问题呢？可以用命令 nohup，像这样运行:
+nohup script.sh &amp;amp;
+其中 script.sh 是一个shell 脚本，当然也可以替换成其它的软件或命令。如下图所示：
+
+其中的“13632”是PID，PID 是进">
+<meta name="twitter:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/1.png">
 
 
 
@@ -129,13 +151,13 @@
 
 
 
-  <link rel="canonical" href="https://hui-liu.github.io/blog/如何在遍历时，正确删除列表中的-items/"/>
+  <link rel="canonical" href="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/"/>
 
 
 
 
 
-  <title> 如何在遍历时，正确删除列表中的 items | liuhui | 刘辉 </title>
+  <title> 生信入门系列之-linux-入门（四）：基础命令（下） | liuhui | 刘辉 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -309,7 +331,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/如何在遍历时，正确删除列表中的-items/">
+    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（四）：基础命令（下）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hui Liu">
@@ -330,7 +352,7 @@
             
             
               
-                如何在遍历时，正确删除列表中的 items
+                生信入门系列之-linux-入门（四）：基础命令（下）
               
             
           </h1>
@@ -345,8 +367,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T17:21:23+08:00">
-                2017-03-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-12T21:49:42+08:00">
+                2017-04-12
               </time>
             
 
@@ -368,8 +390,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/code/" itemprop="url" rel="index">
-                    <span itemprop="name">code</span>
+                  <a href="/categories/生信/" itemprop="url" rel="index">
+                    <span itemprop="name">生信</span>
                   </a>
                 </span>
 
@@ -403,9 +425,129 @@
       
 
       
-        <h3 id="错误的代码"><a href="#错误的代码" class="headerlink" title="错误的代码"></a>错误的代码</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">x = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line">y = [<span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> x:</div><div class="line">    <span class="keyword">if</span> <span class="selector-tag">i</span> <span class="keyword">in</span> y:</div><div class="line">        x.remove(i)</div><div class="line">print x</div><div class="line">-----------------</div><div class="line"></div><div class="line">[<span class="string">'a'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
-<h3 id="正确的代码"><a href="#正确的代码" class="headerlink" title="正确的代码"></a>正确的代码</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">x = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line">y = [<span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> x[:]:</div><div class="line">    <span class="keyword">if</span> <span class="selector-tag">i</span> <span class="keyword">in</span> y:</div><div class="line">        x.remove(i)</div><div class="line">print x</div><div class="line">-----------------</div><div class="line"></div><div class="line">[<span class="string">'a'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
-<p>实际上，<code>id(x)</code>与<code>id(x[:])</code>是不同的，所以只有在<code>x</code>的副本（<code>x[:]</code>）中遍历，然后在<code>x</code>中删除，才不会造成错误。</p>
+        <p>在实际的 linux 服务器中运行软件时，经常会为一些长时间运行的任务而头疼。当关掉连接终端或者其它原因，如网络不稳定等，运行中的程序也会自动被中断。那么怎么去解决上述问题呢？可以用命令 <code>nohup</code>，像这样运行:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">nohup script.sh &amp;</div></pre></td></tr></table></figure>
+<p>其中 <code>script.sh</code> 是一个shell 脚本，当然也可以替换成其它的软件或命令。如下图所示：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（四）：基础命令（下）/1.png" alt="1"></p>
+<p>其中的<strong>“13632”</strong>是<strong>PID</strong>，PID 是进程的代号，每个进程有唯一的 PID 编号。每个命令或程序运行后都会产生一个 PID。</p>
+<p>可以用命令 <code>ps</code> 或 <code>top</code> 命令查看某个程序的 PID：</p>
+<p>ps 查看：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（四）：基础命令（下）/2.png" alt="2"></p>
+<p>top 查看：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（四）：基础命令（下）/5.png" alt="5"></p>
+<p><code>top</code> 命令来实时监测系统正在运行什么程序以及系统现在的存储内存消耗等，其中有 PID 信息。</p>
+<p>如果想中断某个程序，可以用 <code>kill</code> 命令：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="built_in">kill</span> PID</div></pre></td></tr></table></figure>
+<p>有时需要在 Linux 下进行远程拷贝文件的命令，可以用命令 <code>scp</code>（本地有 linux 终端）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">scp [参数] [原路径] [目标路径]</div></pre></td></tr></table></figure>
+<p>如果拷贝文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 将文件从本电脑上传到远程服务器 data 目录里</div><div class="line"># xxx.xxx.xxx.xxx 代表 ip 地址</div><div class="line">scp file1 liuhui@xxx.xxx.xxx.xxx:/home/liuhui/data</div><div class="line"></div><div class="line"># 将文件从远程服务器拷贝到本地电脑，并保存到 sample_data 目录里</div><div class="line">scp liuhui@xxx.xxx.xxx.xxx:/home/liuhui/data/file1 /home/liuhui/sample_data</div></pre></td></tr></table></figure>
+<p><code>/home/liuhui/data/file1</code> 的路径如果很长，可以用 readlink 命令获得（在这里不是必须的，但这个命令在 shell 脚本中用比较方便）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">readlink -f filename</div></pre></td></tr></table></figure>
+<p><img src="/blog/生信入门系列之-linux-入门（四）：基础命令（下）/10.png" alt="10"></p>
+<p>ip 地址可以用 <code>ifconfig</code> 命令查看：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（四）：基础命令（下）/9.png" alt="9"></p>
+<p>如果要拷贝目录， 则加一个参数 <code>-r</code>，和命令 <code>cp</code> 类似。</p>
+<p>有时需要从网上下载软件，可以用 <code>wget</code> 命令（在 windows 也有同名软件）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">wget url</div></pre></td></tr></table></figure>
+<p>“url” 是文件的下载地址，鼠标右键可以获取：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（四）：基础命令（下）/7.png" alt="7"></p>
+<p>运行 <code>wget</code> 命令：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（四）：基础命令（下）/6.png" alt="6"></p>
+<p>如果文件很大，可以尝试用命令 <code>axel</code> 多线程下载（有些网站上的文件不支持这个命令，这是就用 wget）：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（四）：基础命令（下）/8.png" alt="8"></p>
+<p>下载速度明显提升很多，因为我用参数 <code>-n</code> 指定适用 8 个线程（普通笔记本  4 个线程）。</p>
+<p>在 shell 脚本（以后会有一个系列讲 shell 脚本）中经常会用到两个命令，<code>basename</code> 和 <code>dirname</code>。下面举例说明。</p>
+<p>假如我有这个信息：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/home/shengwu004/example/longReads.fa</div></pre></td></tr></table></figure>
+<p>通过 <code>basename</code>，可以得到：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[shengwu004@fatnode example]$ basename /home/shengwu004/example/longReads.fa</div><div class="line">longReads.fa</div></pre></td></tr></table></figure>
+<p>也可以去掉后缀：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">basename /home/shengwu004/example/longReads.fa .fa</div><div class="line">longReads</div></pre></td></tr></table></figure>
+<p><code>dirname</code> 则相反：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[shengwu004@fatnode example]$ dirname /home/shengwu004/example/longReads.fa</div><div class="line">/home/shengwu004/example</div></pre></td></tr></table></figure>
+<p>服务器的磁盘大小和使用情况是我们比较关心的，可以用 <code>df</code> 查看：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（四）：基础命令（下）/11.png" alt="11"></p>
+<p>命令 <code>du</code> 可以查看某个目录中所有文件的大小，：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（四）：基础命令（下）/12.png" alt="12"></p>
+<p>如果想了解某个命令的所有参数，可以用 <code>man</code> 查看，如：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">man du</div></pre></td></tr></table></figure>
+<p><img src="/blog/生信入门系列之-linux-入门（四）：基础命令（下）/14.png" alt="14"></p>
+<p>按上下键翻页，按 <strong>q</strong> 退出。</p>
+<p>用命令 <code>history</code> 可以查看所有用过命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">history</div></pre></td></tr></table></figure>
+<p><img src="/blog/生信入门系列之-linux-入门（四）：基础命令（下）/15.png" alt="15"></p>
+<p><strong>命令及简单描述</strong></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nohup  script.sh &amp;</td>
+<td>后台运行命令或程序</td>
+</tr>
+<tr>
+<td>top</td>
+<td>显示当前系统正在执行的进程的相关信息，包括进程ID、内存占用率、CPU占用率等</td>
+</tr>
+<tr>
+<td>ps</td>
+<td>列出当前进程的快照，就是执行ps命令的那个时刻的那些进程</td>
+</tr>
+<tr>
+<td>kill</td>
+<td>根据PID，强制终止后台运行的命令或程序</td>
+</tr>
+<tr>
+<td>scp</td>
+<td>远程拷贝文件或目录</td>
+</tr>
+<tr>
+<td>ifconfig</td>
+<td>查看和配置网络设备</td>
+</tr>
+<tr>
+<td>wget</td>
+<td>下载文件</td>
+</tr>
+<tr>
+<td>axel</td>
+<td>多线程加速下载文件</td>
+</tr>
+<tr>
+<td>readlink</td>
+<td>获取文件的绝对路径和文件名的组合</td>
+</tr>
+<tr>
+<td>basename</td>
+<td>去掉路径信息</td>
+</tr>
+<tr>
+<td>dirname</td>
+<td>获得路径信息</td>
+</tr>
+<tr>
+<td>df</td>
+<td>查看磁盘空间占用情况</td>
+</tr>
+<tr>
+<td>du</td>
+<td>显示每个文件和目录的磁盘使用空间</td>
+</tr>
+<tr>
+<td>man</td>
+<td>查看命令帮助文档</td>
+</tr>
+<tr>
+<td>history</td>
+<td>查看历史命令</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -429,7 +571,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
         </div>
       
@@ -442,8 +584,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/根据一个list文件生成一个组合/" rel="next" title="根据一个list文件生成一个组合">
-                <i class="fa fa-chevron-left"></i> 根据一个list文件生成一个组合
+              <a href="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/" rel="next" title="生信入门系列之 linux 入门（三）：基础命令（中）">
+                <i class="fa fa-chevron-left"></i> 生信入门系列之 linux 入门（三）：基础命令（中）
               </a>
             
           </div>
@@ -451,10 +593,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/networkx-笔记/" rel="prev" title="networkx 笔记">
-                networkx 笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,17 +639,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/headportrait.jpg"
@@ -609,22 +738,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误的代码"><span class="nav-text">错误的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正确的代码"><span class="nav-text">正确的代码</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
