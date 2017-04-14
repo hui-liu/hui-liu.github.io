@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-04-14T14:01:42.452Z</updated>
+  <updated>2017-04-14T15:01:51.930Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -20,14 +20,14 @@
     <link href="https://hui-liu.github.io/blog/R-%E6%8A%93%E5%8F%96-plantrgdb-%E4%BF%A1%E6%81%AF/"/>
     <id>https://hui-liu.github.io/blog/R-抓取-plantrgdb-信息/</id>
     <published>2017-04-14T13:51:21.000Z</published>
-    <updated>2017-04-14T14:01:42.452Z</updated>
+    <updated>2017-04-14T15:01:51.930Z</updated>
     
-    <content type="html"><![CDATA[<p>尚未理解 <code>htmlTreeParse</code> 和 <code>xpathSApply</code> 的用法，有机会在研究。</p>
+    <content type="html"><![CDATA[<p>尚未理解 <code>htmlTreeParse</code> 和 <code>xpathSApply</code> 的用法，有机会再研究。</p>
 <figure class="highlight r"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># 载入包</span></div><div class="line"><span class="keyword">library</span>(XML)</div><div class="line"></div><div class="line">species &lt;- <span class="string">"http://aegilops.wheat.ucdavis.edu/plantrgdb/download.php"</span></div><div class="line"><span class="comment"># 解析网页</span></div><div class="line">doc &lt;- htmlTreeParse(species, useInternal=<span class="literal">TRUE</span>, encoding=<span class="string">"UTF-8"</span>)</div><div class="line"><span class="comment"># 抓取有用信息</span></div><div class="line">species &lt;- xpathSApply(doc, <span class="string">"//a"</span>, xmlGetAttr, <span class="string">'href'</span>)</div><div class="line"><span class="comment"># 物种的数量</span></div><div class="line">sp_num &lt;- length(species[grep(<span class="string">"download"</span>,species)][-<span class="number">1</span>])</div><div class="line"></div><div class="line"><span class="comment"># 对所有的物种进行循环</span></div><div class="line"><span class="keyword">for</span> (sp <span class="keyword">in</span> <span class="number">1</span>:sp_num)&#123;</div><div class="line">    <span class="comment"># 获取物种名</span></div><div class="line">    sp_name &lt;- strsplit(species[grep(<span class="string">"download"</span>,species)][-<span class="number">1</span>], <span class="string">"/"</span>)[[sp]][<span class="number">2</span>]</div><div class="line">	print(sp_name)</div><div class="line">    <span class="comment"># 需要的信息有 9 列，先创建一个 9 列的空数组</span></div><div class="line">	sp_array &lt;- array(<span class="literal">NA</span>, c(<span class="number">0</span>, <span class="number">9</span>))</div><div class="line">    <span class="comment"># 为空数组列名重命名</span></div><div class="line">	colnames(sp_array) &lt;- c(<span class="string">"Species"</span>, <span class="string">"Coordinates"</span>, <span class="string">"Strand"</span>, <span class="string">"Lost intron"</span>, <span class="string">"Parent coverage"</span>, <span class="string">"Parent identity"</span>, <span class="string">"Ka"</span>, <span class="string">"Ks"</span>, <span class="string">"Ka/Ks"</span>)</div><div class="line">	sp_url &lt;- paste(<span class="string">"http://aegilops.wheat.ucdavis.edu/plantrgdb/browse_result.php?type=total&amp;species="</span>, sp_name, sep=<span class="string">""</span>)</div><div class="line">    <span class="comment"># 对每一物种的网页进行解析</span></div><div class="line">	sp_doc &lt;- htmlTreeParse(sp_url, useInternal=<span class="literal">TRUE</span>, encoding=<span class="string">"UTF-8"</span>)</div><div class="line">	temp &lt;- xpathSApply(sp_doc, <span class="string">"//a"</span>, xmlGetAttr, <span class="string">'href'</span>)</div><div class="line">    <span class="comment"># 获取 retrocopies 数量</span></div><div class="line">	retro_num &lt;- length(grep(<span class="string">"="</span>,temp))</div><div class="line">    <span class="comment"># 对每一个 retrocopy 依次进行解析，并将结果写进 sp_array 这个数组里</span></div><div class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:retro_num)&#123;</div><div class="line">	    retro_id &lt;- strsplit(temp[grep(<span class="string">"="</span>,temp)],<span class="string">"="</span>)[[i]][<span class="number">2</span>]</div><div class="line">		print(retro_id)</div><div class="line">		retro_id_url &lt;- paste(<span class="string">"http://aegilops.wheat.ucdavis.edu/plantrgdb/retrocopy_info.php?retrocopyID="</span>, retro_id, sep = <span class="string">""</span>)</div><div class="line">		sp_array &lt;- rbind(sp_array, t(readHTMLTable(retro_id_url, which = <span class="number">1</span>)[retro_id]))</div><div class="line">    &#125;</div><div class="line">    <span class="comment"># 将 sp_array 中的信息写出到 csv 文件中</span></div><div class="line">    write.csv(sp_array, paste(sp_name, <span class="string">".csv"</span>, sep = <span class="string">""</span>))</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;尚未理解 &lt;code&gt;htmlTreeParse&lt;/code&gt; 和 &lt;code&gt;xpathSApply&lt;/code&gt; 的用法，有机会在研究。&lt;/p&gt;
+      &lt;p&gt;尚未理解 &lt;code&gt;htmlTreeParse&lt;/code&gt; 和 &lt;code&gt;xpathSApply&lt;/code&gt; 的用法，有机会再研究。&lt;/p&gt;
 &lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;
     
     </summary>
