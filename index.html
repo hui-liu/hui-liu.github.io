@@ -406,7 +406,7 @@
       
         
           
-          用 FASTA 比对产生的protein-basedalignment中，会引入 frame shift，“/R” 表示在 R 对应的密码子中有一个碱基缺失，“\R” 则表示在 R 对应的密码子中有一个碱基插入。这些 indel 的存在使得序列无法按 codon alignment 对齐。以下脚本从
+          用 FASTA 比对产生的protein-basedalignment中，会引入 frame shift，“/R” 表示在 R 对应的密码子中有一个碱基缺失，“\R” 则表示在 R 对应的密码子中有一个碱基插入（可能插入或缺失两个或以上，不确定；以下程序认为只有一个插入或缺失一个碱基）。这些 ind
           ...
           <!--noindex-->
           <div class="post-button text-center">
