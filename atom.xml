@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-04-22T14:29:01.754Z</updated>
+  <updated>2017-04-22T14:35:00.095Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://hui-liu.github.io/blog/Linux%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/"/>
     <id>https://hui-liu.github.io/blog/Linux文本处理三剑客之grep/</id>
     <published>2017-04-22T04:48:47.000Z</published>
-    <updated>2017-04-22T14:29:01.754Z</updated>
+    <updated>2017-04-22T14:35:00.095Z</updated>
     
     <content type="html"><![CDATA[<p>在 linux 中，有三种非常强大的文本处理命令，awk、sed 与 grep，号称 linux 三剑客。它们之间有不少相似点，但同样各具特色；三者均可以进行文本匹配，而 awk 和 sed 还可以进行文本编辑。</p>
 <p>由于之前已经在<a href="http://mp.weixin.qq.com/s?__biz=MzI4NjMxOTA3OA==&amp;mid=2247483773&amp;idx=1&amp;sn=c6ed5562d1c9daa5d89eda606c43de2a&amp;chksm=ebdf89f4dca800e281754392a818d7dcf5b3939185a67753d2559a6b534d19aac00c29023935&amp;scene=21#wechat_redirect" target="_blank" rel="external">生信入门系列之 linux 入门（三）：基础命令（中）</a>文章中对 grep 命令进行了简单的讲解，所以今天主要给大家介绍一下三剑客中的第一剑：grep。</p>
@@ -72,9 +72,8 @@
 <p><code>[2-6]</code> 表示 <code>2</code> 到 <code>6</code> 中的任意一个。 相应地 <code>[a-z]</code> 表示小写字母 <code>a</code> 到小写字母 <code>z</code> 中地任意一个，等。</p>
 <p>而</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ grep &quot;chr[^2-6]&quot; Chrs.txt</div><div class="line">chr1</div><div class="line">chr7</div><div class="line">chr8</div><div class="line">chr9</div><div class="line">chr10</div></pre></td></tr></table></figure>
-<p> 则表示把不含有 <code>chr2</code> 到 <code>chr6</code> 关键字其他行取出来，其中的 <code>^</code> 表示 <code>非</code>，而不是表示匹配行首。和 <code>grep -v</code> 作用一样：</p>
+<p> 则表示把不含有 <code>chr2</code> 到 <code>chr6</code> 关键字其他行取出来，其中的 <code>^</code> 表示 <code>非</code>，而不是表示匹配行首。这时和 <code>grep -v</code> 作用一样：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ grep -v &quot;chr[2-6]&quot; Chrs.txt</div><div class="line">chr1</div><div class="line">chr7</div><div class="line">chr8</div><div class="line">chr9</div><div class="line">chr10</div></pre></td></tr></table></figure>
-<p>当然有时只能 <code>chr[^2-6]</code> 。</p>
 ]]></content>
     
     <summary type="html">
