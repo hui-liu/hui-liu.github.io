@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -89,19 +89,31 @@
 
 
 
-<meta name="description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
-正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
+<meta name="description" content="在 linux 中，有三种非常强大的文本处理命令，awk、sed 与 grep，号称 linux 三剑客。它们之间有不少相似点，但同样各具特色；三者均可以进行文本匹配，而 awk 和 sed 还可以进行文本编辑。
+由于之前已经在生信入门系列之 linux 入门（三）：基础命令（中）文章中对 grep 命令进行了简单的讲解，所以今天主要给大家介绍一下三剑客中的第一剑：grep。
+以拟南芥的 gff3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在遍历时，正确删除列表中的 items">
-<meta property="og:url" content="https://hui-liu.github.io/blog/如何在遍历时，正确删除列表中的-items/index.html">
+<meta property="og:title" content="Linux文本处理三剑客之grep">
+<meta property="og:url" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之grep/index.html">
 <meta property="og:site_name" content="liuhui | 刘辉">
-<meta property="og:description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
-正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
-<meta property="og:updated_time" content="2017-03-08T09:22:48.197Z">
+<meta property="og:description" content="在 linux 中，有三种非常强大的文本处理命令，awk、sed 与 grep，号称 linux 三剑客。它们之间有不少相似点，但同样各具特色；三者均可以进行文本匹配，而 awk 和 sed 还可以进行文本编辑。
+由于之前已经在生信入门系列之 linux 入门（三）：基础命令（中）文章中对 grep 命令进行了简单的讲解，所以今天主要给大家介绍一下三剑客中的第一剑：grep。
+以拟南芥的 gff3">
+<meta property="og:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之grep/1.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之grep/3.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之grep/2.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之grep/4.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之grep/5.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之grep/6.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之grep/7.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之grep/8.png">
+<meta property="og:updated_time" content="2017-04-22T14:29:01.754Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何在遍历时，正确删除列表中的 items">
-<meta name="twitter:description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
-正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
+<meta name="twitter:title" content="Linux文本处理三剑客之grep">
+<meta name="twitter:description" content="在 linux 中，有三种非常强大的文本处理命令，awk、sed 与 grep，号称 linux 三剑客。它们之间有不少相似点，但同样各具特色；三者均可以进行文本匹配，而 awk 和 sed 还可以进行文本编辑。
+由于之前已经在生信入门系列之 linux 入门（三）：基础命令（中）文章中对 grep 命令进行了简单的讲解，所以今天主要给大家介绍一下三剑客中的第一剑：grep。
+以拟南芥的 gff3">
+<meta name="twitter:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之grep/1.png">
 
 
 
@@ -129,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://hui-liu.github.io/blog/如何在遍历时，正确删除列表中的-items/"/>
+  <link rel="canonical" href="https://hui-liu.github.io/blog/Linux文本处理三剑客之grep/"/>
 
 
 
 
 
-  <title> 如何在遍历时，正确删除列表中的 items | liuhui | 刘辉 </title>
+  <title> Linux文本处理三剑客之grep | liuhui | 刘辉 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -309,7 +321,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/如何在遍历时，正确删除列表中的-items/">
+    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/Linux文本处理三剑客之grep/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hui Liu">
@@ -330,7 +342,7 @@
             
             
               
-                如何在遍历时，正确删除列表中的 items
+                Linux文本处理三剑客之grep
               
             
           </h1>
@@ -345,8 +357,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T17:21:23+08:00">
-                2017-03-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-22T12:48:47+08:00">
+                2017-04-22
               </time>
             
 
@@ -368,8 +380,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/code/" itemprop="url" rel="index">
-                    <span itemprop="name">code</span>
+                  <a href="/categories/生信/" itemprop="url" rel="index">
+                    <span itemprop="name">生信</span>
                   </a>
                 </span>
 
@@ -403,9 +415,59 @@
       
 
       
-        <h3 id="错误的代码"><a href="#错误的代码" class="headerlink" title="错误的代码"></a>错误的代码</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">x = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line">y = [<span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> x:</div><div class="line">    <span class="keyword">if</span> <span class="selector-tag">i</span> <span class="keyword">in</span> y:</div><div class="line">        x.remove(i)</div><div class="line">print x</div><div class="line">-----------------</div><div class="line"></div><div class="line">[<span class="string">'a'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
-<h3 id="正确的代码"><a href="#正确的代码" class="headerlink" title="正确的代码"></a>正确的代码</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">x = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line">y = [<span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> x[:]:</div><div class="line">    <span class="keyword">if</span> <span class="selector-tag">i</span> <span class="keyword">in</span> y:</div><div class="line">        x.remove(i)</div><div class="line">print x</div><div class="line">-----------------</div><div class="line"></div><div class="line">[<span class="string">'a'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
-<p>实际上，<code>id(x)</code>与<code>id(x[:])</code>是不同的，所以只有在<code>x</code>的副本（<code>x[:]</code>）中遍历，然后在<code>x</code>中删除，才不会造成错误。</p>
+        <p>在 linux 中，有三种非常强大的文本处理命令，awk、sed 与 grep，号称 linux 三剑客。它们之间有不少相似点，但同样各具特色；三者均可以进行文本匹配，而 awk 和 sed 还可以进行文本编辑。</p>
+<p>由于之前已经在<a href="http://mp.weixin.qq.com/s?__biz=MzI4NjMxOTA3OA==&amp;mid=2247483773&amp;idx=1&amp;sn=c6ed5562d1c9daa5d89eda606c43de2a&amp;chksm=ebdf89f4dca800e281754392a818d7dcf5b3939185a67753d2559a6b534d19aac00c29023935&amp;scene=21#wechat_redirect" target="_blank" rel="external">生信入门系列之 linux 入门（三）：基础命令（中）</a>文章中对 grep 命令进行了简单的讲解，所以今天主要给大家介绍一下三剑客中的第一剑：grep。</p>
+<p>以拟南芥的 gff3 文件为例，进行讲解。 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ wget ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/TAIR10_gff3/TAIR10_GFF3_genes.gff</div></pre></td></tr></table></figure>
+<p>一般来说，对于一个文本文件，可以都要先用 less 简单看一下文件的内容：</p>
+<p><img src="/blog/Linux文本处理三剑客之grep/1.png" alt="1"></p>
+<p>利用之前学过的命令，并且可以很简单的统计出拟南芥有多少条染色体：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cut -f 1 TAIR10_GFF3_genes.gff | uniq</div><div class="line">Chr1</div><div class="line">Chr2</div><div class="line">Chr3</div><div class="line">Chr4</div><div class="line">Chr5</div><div class="line">ChrC</div><div class="line">ChrM</div></pre></td></tr></table></figure>
+<p>查看各个染色体的基因数：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ grep &quot;^Chr1&quot; TAIR10_GFF3_genes.gff | grep -c &quot;gene&quot;</div><div class="line">9117</div><div class="line">$ grep &quot;^Chr2&quot; TAIR10_GFF3_genes.gff | grep -c &quot;gene&quot;</div><div class="line">6343</div><div class="line">$ grep &quot;^Chr3&quot; TAIR10_GFF3_genes.gff | grep -c &quot;gene&quot;</div><div class="line">7610</div><div class="line">$ grep &quot;^Chr4&quot; TAIR10_GFF3_genes.gff | grep -c &quot;gene&quot;</div><div class="line">5851</div><div class="line">$ grep &quot;^Chr5&quot; TAIR10_GFF3_genes.gff | grep -c &quot;gene&quot;</div><div class="line">8313</div><div class="line">$ grep &quot;ChrC&quot; TAIR10_GFF3_genes.gff | grep -c &quot;gene&quot;</div><div class="line">133</div><div class="line">$ grep &quot;^ChrM&quot; TAIR10_GFF3_genes.gff | grep -c &quot;gene&quot;</div><div class="line">146</div></pre></td></tr></table></figure>
+<p>其中，</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">grep &quot;^Chr1&quot; TAIR10_GFF3_genes.gff</div></pre></td></tr></table></figure>
+<p>是将 <code>TAIR10_GFF3_genes.gff</code> 文件中所有含有以 <code>Chr1</code> 开头的行提取出来，</p>
+<p><img src="/blog/Linux文本处理三剑客之grep/3.png" alt="3"></p>
+<p>然后将这些信息通过管道传给 <code>grep -c &quot;gene&quot;</code>，统计其中含有 <code>gene</code> 的<strong>行数</strong>。</p>
+<p>可以发现，上面的几个命令中，基本相同，只有“Chr”在变。所以可以通过一个简单的 <code>for</code> 循环，完成上面的操作。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">for i in Chr1 Chr2 Chr3 Chr4 Chr5 ChrC ChrM</div><div class="line">do</div><div class="line">grep &quot;^$i&quot; TAIR10_GFF3_genes.gff | grep -c &quot;gene&quot;</div><div class="line">done</div></pre></td></tr></table></figure>
+<p>如图所示：</p>
+<p><img src="/blog/Linux文本处理三剑客之grep/2.png" alt="2"></p>
+<p>其中的 <code>$i</code> 依次代表 <code>Chr1</code>、<code>Chr2</code>、<code>Chr3</code>、<code>Chr4</code>、<code>Chr5</code>、<code>ChrC</code> 和 <code>ChrM</code>。</p>
+<p>下面继续讲解 <code>grep</code> 中的其他参数。</p>
+<p>如下图所示，参数 <code>-l</code> 的作用是：如果文件中含有以 <code>Chr1</code> 开头的行（至少一行），则将文件名打印出来。我们之前已经知道，<code>TAIR10_GFF3_genes.gff</code> 文件中不含有以 <code>chr1</code> 开头的行（区分大小写），故没有结果。</p>
+<p><img src="/blog/Linux文本处理三剑客之grep/4.png" alt="4"></p>
+<p>试想，如果有成千上万个文件，我们想知道哪些文件含有某个特定的关键字（如上述的 <code>Chr1</code>），就可以结合 <code>for</code> 循环，将这些文件找出来。假如目录 <code>test_dir</code> 中含有几万个文件，则可以这样做：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">for i in $(ls test_dir)</div><div class="line">do</div><div class="line">grep -l &quot;关键字&quot; $i</div><div class="line">done &gt; check_result.txt</div></pre></td></tr></table></figure>
+<p>把含有关键字的文件名存到 <code>check_result.txt</code> 中。这个 <code>$(ls test_dir)</code> 是什么意思呢？请看<a href="https://mp.weixin.qq.com/s?__biz=MzI4NjMxOTA3OA==&amp;mid=2247483817&amp;idx=1&amp;sn=6640180aeadc74b5207937ae5ec7693d&amp;chksm=ebdf8920dca80036f7d482bbc0ece9ab1feb6eab835049b1a98b5a8fc197a0f4bcee1e6f98b2#rd" target="_blank" rel="external">生信入门系列之——Shell 脚本编程（一）</a>。</p>
+<p>如果刚好相反，把不含某个关键字的文件名找出来，则用 <code>-L</code> 代替 <code>-l</code>。</p>
+<p>也可以使用参数 <code>-i</code> 来忽略大小写：</p>
+<p><img src="/blog/Linux文本处理三剑客之grep/5.png" alt="5"></p>
+<p>在一些文件中，有时会有空白行，这时，用 <code>grep</code> 可以去掉：</p>
+<p><img src="/blog/Linux文本处理三剑客之grep/6.png" alt="6"></p>
+<p>其中的 <code>^$</code> 表示空白行，<code>-v</code> 则表示反向匹配，即将非空白行取出来。</p>
+<p>如果你要问，<code>^$</code> 为什么表示空白行，则可以理解：<code>^</code> 表示<strong>匹配行首</strong>，<code>$</code> 则表示匹配行尾，它们这样组合则表示行首和行为之间什么都没有，那就是空白行了。</p>
+<p>其实，前面提到的  <code>^Chr1</code> 和 <code>^$</code>，都是<strong>正则表达式</strong>的用法（类似我们熟知的通配符 <code>*</code> 和 <code>?</code>），<code>sed</code>、<code>awk</code> 和 <code>grep</code> 都支持正则表达式。</p>
+<p>如果有文件  <code>Chrs.txt</code>，内容是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cat Chrs.txt</div><div class="line">chr1</div><div class="line">chr2</div><div class="line">chr3</div><div class="line">chr4</div><div class="line">chr5</div><div class="line">chr6</div><div class="line">chr7</div><div class="line">chr8</div><div class="line">chr9</div><div class="line">chr10</div></pre></td></tr></table></figure>
+<p>如果要匹配 <code>chr1</code>，按之前的做法：</p>
+<p><img src="/blog/Linux文本处理三剑客之grep/7.png" alt="7"></p>
+<p>显然，<code>chr10</code> 也含有 <code>chr1</code>，不是我们期望得到的，但可以这样做：</p>
+<p><img src="/blog/Linux文本处理三剑客之grep/8.png" alt="8"></p>
+<p><code>\&gt;</code> 表示“词尾锚定”，即限定右边的边界。</p>
+<p>如果想一次将 <code>chr2</code>  和 <code>chr3</code> 匹配出来，可以这样做：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ grep &quot;chr[23]&quot; Chrs.txt</div><div class="line">chr2</div><div class="line">chr3</div></pre></td></tr></table></figure>
+<p> <code>[23]</code> 表示 <code>2</code> 或 <code>3</code> 中的任意一个，当然可以不止两个：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ grep &quot;chr[23456]&quot; Chrs.txt</div><div class="line">chr2</div><div class="line">chr3</div><div class="line">chr4</div><div class="line">chr5</div><div class="line">chr6</div></pre></td></tr></table></figure>
+<p>但这样不是好办法，可以这样做：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">grep &quot;chr[2-6]&quot; Chrs.txt</div><div class="line">chr2</div><div class="line">chr3</div><div class="line">chr4</div><div class="line">chr5</div><div class="line">chr6</div></pre></td></tr></table></figure>
+<p><code>[2-6]</code> 表示 <code>2</code> 到 <code>6</code> 中的任意一个。 相应地 <code>[a-z]</code> 表示小写字母 <code>a</code> 到小写字母 <code>z</code> 中地任意一个，等。</p>
+<p>而</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ grep &quot;chr[^2-6]&quot; Chrs.txt</div><div class="line">chr1</div><div class="line">chr7</div><div class="line">chr8</div><div class="line">chr9</div><div class="line">chr10</div></pre></td></tr></table></figure>
+<p> 则表示把不含有 <code>chr2</code> 到 <code>chr6</code> 关键字其他行取出来，其中的 <code>^</code> 表示 <code>非</code>，而不是表示匹配行首。和 <code>grep -v</code> 作用一样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ grep -v &quot;chr[2-6]&quot; Chrs.txt</div><div class="line">chr1</div><div class="line">chr7</div><div class="line">chr8</div><div class="line">chr9</div><div class="line">chr10</div></pre></td></tr></table></figure>
+<p>当然有时只能 <code>chr[^2-6]</code> 。</p>
 
       
     </div>
@@ -429,7 +491,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"># python</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
         </div>
       
@@ -442,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/根据一个list文件生成一个组合/" rel="next" title="根据一个list文件生成一个组合">
-                <i class="fa fa-chevron-left"></i> 根据一个list文件生成一个组合
+              <a href="/blog/外业-影集/" rel="next" title="外业-影集">
+                <i class="fa fa-chevron-left"></i> 外业-影集
               </a>
             
           </div>
@@ -451,10 +513,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/networkx-笔记/" rel="prev" title="networkx 笔记">
-                networkx 笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,17 +559,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/headportrait.jpg"
@@ -609,22 +658,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误的代码"><span class="nav-text">错误的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正确的代码"><span class="nav-text">正确的代码</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
