@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hui-liu.github.io/blog/Linux%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/</loc>
+    
+    <lastmod>2017-04-29T11:43:26.826Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hui-liu.github.io/blog/Linux%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bgrep/</loc>
     
     <lastmod>2017-04-22T14:35:00.095Z</lastmod>
