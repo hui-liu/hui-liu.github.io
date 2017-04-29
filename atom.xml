@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-04-29T11:43:26.826Z</updated>
+  <updated>2017-04-29T11:59:27.379Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://hui-liu.github.io/blog/Linux%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/"/>
     <id>https://hui-liu.github.io/blog/Linux文本处理三剑客之awk/</id>
     <published>2017-04-29T05:55:14.000Z</published>
-    <updated>2017-04-29T11:43:26.826Z</updated>
+    <updated>2017-04-29T11:59:27.379Z</updated>
     
     <content type="html"><![CDATA[<p>awk 的名称源自其创始人  Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母，拥有强大的文本编辑能力。</p>
 <p>awk 基本语法：</p>
@@ -43,15 +43,15 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ awk &apos;NR!=1&#123;print $0&#125;&apos; sampledata.txt  | head</div><div class="line">gene1   708     45      112     795</div><div class="line">gene2   341     617     304     556</div><div class="line">gene3   756     500     67      217</div><div class="line">gene4   685     100     57      400</div><div class="line">gene5   233     526     308     658</div><div class="line">gene6   190     78      258     141</div><div class="line">gene7   548     761     80      661</div><div class="line">gene8   152     331     677     511</div><div class="line">gene9   217     408     219     407</div><div class="line">gene10  313     731     265     108</div></pre></td></tr></table></figure>
 <p>awk 可以很方便地对不同列之间地值进行加减乘除等运算：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 加</div><div class="line">$ awk &apos;NR==1&#123;print $1,$2,$3,$4&#125;NR!=1&#123;print $1,$2+$5,$3+$5,$4+$5&#125;&apos; sampledata.txt | head</div><div class="line">genename Cold Heat Drought</div><div class="line">gene1 1503 840 907</div><div class="line">gene2 897 1173 860</div><div class="line">gene3 973 717 284</div><div class="line">gene4 1085 500 457</div><div class="line">gene5 891 1184 966</div><div class="line">gene6 331 219 399</div><div class="line">gene7 1209 1422 741</div><div class="line">gene8 663 842 1188</div><div class="line">gene9 624 815 626</div><div class="line"></div><div class="line"># 减</div><div class="line">$ awk &apos;NR==1&#123;print $1,$2,$3,$4&#125;NR!=1&#123;print $1,$2-$5,$3-$5,$4-$5&#125;&apos; sampledata.txt | head</div><div class="line">genename Cold Heat Drought</div><div class="line">gene1 -87 -750 -683</div><div class="line">gene2 -215 61 -252</div><div class="line">gene3 539 283 -150</div><div class="line">gene4 285 -300 -343</div><div class="line">gene5 -425 -132 -350</div><div class="line">gene6 49 -63 117</div><div class="line">gene7 -113 100 -581</div><div class="line">gene8 -359 -180 166</div><div class="line">gene9 -190 1 -188</div><div class="line"></div><div class="line"># 乘</div><div class="line">$ awk &apos;NR==1&#123;print $1,$2,$3,$4&#125;NR!=1&#123;print $1,$2*$5,$3*$5,$4*$5&#125;&apos; sampledata.txt | head</div><div class="line">genename Cold Heat Drought</div><div class="line">gene1 562860 35775 89040</div><div class="line">gene2 189596 343052 169024</div><div class="line">gene3 164052 108500 14539</div><div class="line">gene4 274000 40000 22800</div><div class="line">gene5 153314 346108 202664</div><div class="line">gene6 26790 10998 36378</div><div class="line">gene7 362228 503021 52880</div><div class="line">gene8 77672 169141 345947</div><div class="line">gene9 88319 166056 89133</div><div class="line"></div><div class="line"># 除（在这里是 试验组 vs 对照组 的 fold change）</div><div class="line">$ awk &apos;NR==1&#123;print $1,$2,$3,$4&#125;NR!=1&#123;print $1,$2/$5,$3/$5,$4/$5&#125;&apos; sampledata.txt | head</div><div class="line">genename Cold Heat Drought</div><div class="line">gene1 0.890566 0.0566038 0.140881</div><div class="line">gene2 0.613309 1.10971 0.546763</div><div class="line">gene3 3.48387 2.30415 0.308756</div><div class="line">gene4 1.7125 0.25 0.1425</div><div class="line">gene5 0.354103 0.799392 0.468085</div><div class="line">gene6 1.34752 0.553191 1.82979</div><div class="line">gene7 0.829047 1.15129 0.121029</div><div class="line">gene8 0.297456 0.64775 1.32485</div><div class="line">gene9 0.53317 1.00246 0.538084</div></pre></td></tr></table></figure>
-<p>求 log （$e$ 为底）也不在话下：</p>
+<p>求 log （e 为底）也不在话下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ awk &apos;NR==1&#123;print $1,$2,$3,$4&#125;NR!=1&#123;print $1,log($2/$5),log($3/$5),log($4/$5)&#125;&apos; sampledata.txt | head</div><div class="line">genename Cold Heat Drought</div><div class="line">gene1 -0.115898 -2.87168 -1.95984</div><div class="line">gene2 -0.488886 0.104101 -0.603741</div><div class="line">gene3 1.24814 0.834711 -1.1752</div><div class="line">gene4 0.537954 -1.38629 -1.94841</div><div class="line">gene5 -1.03817 -0.223904 -0.759105</div><div class="line">gene6 0.298264 -0.592051 0.6042</div><div class="line">gene7 -0.187479 0.14088 -2.11173</div><div class="line">gene8 -1.21249 -0.434251 0.281302</div><div class="line">gene9 -0.628916 0.00245399 -0.619741</div></pre></td></tr></table></figure>
 <p>awk 中支持以下数学函数（还有补充吗）：</p>
 <ul>
 <li><code>atan2(y,x)</code>：余切；</li>
 <li><code>cos(x)</code>：余弦；</li>
 <li><code>sin(x)</code>：正弦；</li>
-<li><code>exp(x)</code>：以自然对数 $e$ 为底指数幂；</li>
-<li><code>log(x)</code>：计算以 $e$ 为底的对数值；</li>
+<li>​<code>exp(x)</code>：以自然对数 e 为底指数幂；</li>
+<li><code>log(x)</code>：计算以 e​ 为底的对数值；</li>
 <li><code>sqrt(x)</code>：开方；</li>
 <li><code>int(x)</code>：将数值转换成整数；</li>
 <li><code>rand()</code>：返回 0 到 1 的一个随机数值，不包含 1；</li>
@@ -100,7 +100,7 @@
 <tbody>
 <tr>
 <td>$n</td>
-<td>当前记录的第 n 个字段，字段间由 FS 分隔，如 \$1、\$2 等</td>
+<td>当前记录的第 n 个字段，字段间由 FS 分隔，如 <code>$1</code>、<code>$2</code> 等</td>
 </tr>
 <tr>
 <td>$0</td>
