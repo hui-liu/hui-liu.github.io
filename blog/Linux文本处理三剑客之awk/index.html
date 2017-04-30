@@ -92,7 +92,7 @@
 <meta name="description" content="awk 的名称源自其创始人  Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母，拥有强大的文本编辑能力。
 awk 基本语法：
 awk &amp;apos;BEGIN&amp;#123;&amp;#125; &amp;#123;command&amp;#125; END&amp;#123;&amp;#125;&amp;apos; filename
-BEGIN{} 和 END{} 都不是必须的，所以，往往">
+awk 是逐行处理文本内容的；BEGIN{} 是初识化代">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux文本处理三剑客之awk">
 <meta property="og:url" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之awk/index.html">
@@ -100,19 +100,19 @@ BEGIN{} 和 END{} 都不是必须的，所以，往往">
 <meta property="og:description" content="awk 的名称源自其创始人  Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母，拥有强大的文本编辑能力。
 awk 基本语法：
 awk &amp;apos;BEGIN&amp;#123;&amp;#125; &amp;#123;command&amp;#125; END&amp;#123;&amp;#125;&amp;apos; filename
-BEGIN{} 和 END{} 都不是必须的，所以，往往">
+awk 是逐行处理文本内容的；BEGIN{} 是初识化代">
 <meta property="og:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之awk/1.png">
 <meta property="og:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之awk/2.png">
 <meta property="og:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之awk/3.png">
 <meta property="og:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之awk/4.png">
 <meta property="og:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之awk/5.png">
-<meta property="og:updated_time" content="2017-04-29T15:02:03.375Z">
+<meta property="og:updated_time" content="2017-04-30T06:23:22.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux文本处理三剑客之awk">
 <meta name="twitter:description" content="awk 的名称源自其创始人  Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母，拥有强大的文本编辑能力。
 awk 基本语法：
 awk &amp;apos;BEGIN&amp;#123;&amp;#125; &amp;#123;command&amp;#125; END&amp;#123;&amp;#125;&amp;apos; filename
-BEGIN{} 和 END{} 都不是必须的，所以，往往">
+awk 是逐行处理文本内容的；BEGIN{} 是初识化代">
 <meta name="twitter:image" content="https://hui-liu.github.io/blog/Linux文本处理三剑客之awk/1.png">
 
 
@@ -418,6 +418,7 @@ BEGIN{} 和 END{} 都不是必须的，所以，往往">
         <p>awk 的名称源自其创始人  Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母，拥有强大的文本编辑能力。</p>
 <p>awk 基本语法：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">awk &apos;BEGIN&#123;&#125; &#123;command&#125; END&#123;&#125;&apos; filename</div></pre></td></tr></table></figure>
+<p><strong>awk 是逐行处理文本内容的；<code>BEGIN{}</code> 是初识化代码块，在处理文件第一行内容之前，定义一些变量；<code>{command}</code> 为一些命令，对文件内容的每一行进行相应地处理； <code>END{}</code> 为结束代码块，在<code>{command}</code>  运行结束后执行。</strong></p>
 <p><code>BEGIN{}</code> 和 <code>END{}</code> 都不是必须的，所以，往往可以这样写：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">awk &apos;&#123;command&#125;&apos; filename</div></pre></td></tr></table></figure>
 <p>数据前十行如下：</p>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-04-29T15:02:03.375Z</updated>
+  <updated>2017-04-30T06:23:22.288Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -20,11 +20,12 @@
     <link href="https://hui-liu.github.io/blog/Linux%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bawk/"/>
     <id>https://hui-liu.github.io/blog/Linux文本处理三剑客之awk/</id>
     <published>2017-04-29T05:55:14.000Z</published>
-    <updated>2017-04-29T15:02:03.375Z</updated>
+    <updated>2017-04-30T06:23:22.288Z</updated>
     
     <content type="html"><![CDATA[<p>awk 的名称源自其创始人  Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母，拥有强大的文本编辑能力。</p>
 <p>awk 基本语法：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">awk &apos;BEGIN&#123;&#125; &#123;command&#125; END&#123;&#125;&apos; filename</div></pre></td></tr></table></figure>
+<p><strong>awk 是逐行处理文本内容的；<code>BEGIN{}</code> 是初识化代码块，在处理文件第一行内容之前，定义一些变量；<code>{command}</code> 为一些命令，对文件内容的每一行进行相应地处理； <code>END{}</code> 为结束代码块，在<code>{command}</code>  运行结束后执行。</strong></p>
 <p><code>BEGIN{}</code> 和 <code>END{}</code> 都不是必须的，所以，往往可以这样写：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">awk &apos;&#123;command&#125;&apos; filename</div></pre></td></tr></table></figure>
 <p>数据前十行如下：</p>
