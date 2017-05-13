@@ -1,0 +1,949 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="liuhui | 刘辉" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="基因组染色体大小
+拟南芥基因组各个染色体（或叶绿体基因组、线粒体基因组）大小
+
+$ python bin/chr_size.py TAIR10_chr_all.faschloroplast 154478mitochondria 3669241 304276713 234598302 196982895 269755024 18585056
+python程序代码如下：
+import sysdef p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基因组大小和GC含量(二)">
+<meta property="og:url" content="https://hui-liu.github.io/blog/基因组大小和GC含量-二/index.html">
+<meta property="og:site_name" content="liuhui | 刘辉">
+<meta property="og:description" content="基因组染色体大小
+拟南芥基因组各个染色体（或叶绿体基因组、线粒体基因组）大小
+
+$ python bin/chr_size.py TAIR10_chr_all.faschloroplast 154478mitochondria 3669241 304276713 234598302 196982895 269755024 18585056
+python程序代码如下：
+import sysdef p">
+<meta property="og:image" content="https://hui-liu.github.io/blog/基因组大小和GC含量-二/hg38_chr_gc.png">
+<meta property="og:updated_time" content="2017-05-13T15:06:22.944Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基因组大小和GC含量(二)">
+<meta name="twitter:description" content="基因组染色体大小
+拟南芥基因组各个染色体（或叶绿体基因组、线粒体基因组）大小
+
+$ python bin/chr_size.py TAIR10_chr_all.faschloroplast 154478mitochondria 3669241 304276713 234598302 196982895 269755024 18585056
+python程序代码如下：
+import sysdef p">
+<meta name="twitter:image" content="https://hui-liu.github.io/blog/基因组大小和GC含量-二/hg38_chr_gc.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hui-liu.github.io/blog/基因组大小和GC含量-二/"/>
+
+
+
+
+
+  <title> 基因组大小和GC含量(二) | liuhui | 刘辉 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">liuhui | 刘辉</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不忘初心</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/基因组大小和GC含量-二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hui Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/headportrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuhui | 刘辉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                基因组大小和GC含量(二)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-13T21:15:49+08:00">
+                2017-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/生信/" itemprop="url" rel="index">
+                    <span itemprop="name">生信</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="基因组染色体大小"><a href="#基因组染色体大小" class="headerlink" title="基因组染色体大小"></a>基因组染色体大小</h4><ul>
+<li>拟南芥基因组各个染色体（或叶绿体基因组、线粒体基因组）大小</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ python bin/chr_size.py TAIR10_chr_all.fas</div><div class="line">chloroplast 154478</div><div class="line">mitochondria 366924</div><div class="line">1 30427671</div><div class="line">3 23459830</div><div class="line">2 19698289</div><div class="line">5 26975502</div><div class="line">4 18585056</div></pre></td></tr></table></figure>
+<p>python程序代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">parseFasta</span><span class="params">(filename)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    这个函数的作用是解析 FASTA 格式的文件，</div><div class="line">    形成一个字典（即 perl 中的哈希），使得</div><div class="line">    一个序列的 id 对应一条序列。</div><div class="line">    """</div><div class="line">    fas = &#123;&#125;</div><div class="line">    id = <span class="keyword">None</span></div><div class="line">    <span class="keyword">with</span> open(filename, <span class="string">'r'</span>) <span class="keyword">as</span> fh:</div><div class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fh:</div><div class="line">            <span class="keyword">if</span> line[<span class="number">0</span>] == <span class="string">'&gt;'</span>:</div><div class="line">                header = line[<span class="number">1</span>:].rstrip()</div><div class="line">                id = header.split()[<span class="number">0</span>]</div><div class="line">                fas[id] = []</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                fas[id].append(line.rstrip())</div><div class="line">        <span class="keyword">for</span> id, seq <span class="keyword">in</span> fas.iteritems():</div><div class="line">            fas[id] = <span class="string">''</span>.join(seq)</div><div class="line">        <span class="keyword">return</span> fas</div><div class="line"></div><div class="line">genome = parseFasta(sys.argv[<span class="number">1</span>])</div><div class="line"></div><div class="line"><span class="keyword">for</span> chr, seq <span class="keyword">in</span> genome.iteritems():</div><div class="line">    <span class="keyword">print</span> chr, len(seq)</div></pre></td></tr></table></figure>
+<ul>
+<li>人类基因组各个染色体（或线粒体及其它片段）大小</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ python bin/chr_size.py hg38.fa &gt; hg38_chr_size.txt</div><div class="line">$ wc -l hg38_chr_size.txt</div><div class="line">326 hg38_chr_size.txt</div><div class="line">$ head hg38_chr_size.txt</div><div class="line">chr20_GL383577v2_alt 128386</div><div class="line">chr17_KI270861v1_alt 196688</div><div class="line">chr1_KI270713v1_random 40745</div><div class="line">chr9_KI270717v1_random 40062</div><div class="line">chrUn_KI270304v1 2165</div><div class="line">chr9_GL383542v1_alt 60032</div><div class="line">chr2_KI270773v1_alt 70887</div><div class="line">chrUn_GL000219v1 179198</div><div class="line">chr12_GL383551v1_alt 184319</div><div class="line">chr3_GL000221v1_random 155397</div></pre></td></tr></table></figure>
+<p>人类基因组中还有很多其它序列，现在只关注  22 条常染色体、性染色体以及线粒体基因组：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">$ python bin/hg38_chr_size.py hg38.fa</div><div class="line">chr1 <span class="number">248956422</span></div><div class="line">chr2 <span class="number">242193529</span></div><div class="line">chr3 <span class="number">198295559</span></div><div class="line">chr4 <span class="number">190214555</span></div><div class="line">chr5 <span class="number">181538259</span></div><div class="line">chr6 <span class="number">170805979</span></div><div class="line">chr7 <span class="number">159345973</span></div><div class="line">chr8 <span class="number">145138636</span></div><div class="line">chr9 <span class="number">138394717</span></div><div class="line">chr10 <span class="number">133797422</span></div><div class="line">chr11 <span class="number">135086622</span></div><div class="line">chr12 <span class="number">133275309</span></div><div class="line">chr13 <span class="number">114364328</span></div><div class="line">chr14 <span class="number">107043718</span></div><div class="line">chr15 <span class="number">101991189</span></div><div class="line">chr16 <span class="number">90338345</span></div><div class="line">chr17 <span class="number">83257441</span></div><div class="line">chr18 <span class="number">80373285</span></div><div class="line">chr19 <span class="number">58617616</span></div><div class="line">chr20 <span class="number">64444167</span></div><div class="line">chr21 <span class="number">46709983</span></div><div class="line">chr22 <span class="number">50818468</span></div><div class="line">chrX <span class="number">156040895</span></div><div class="line">chrY <span class="number">57227415</span></div><div class="line">chrM <span class="number">16569</span></div></pre></td></tr></table></figure>
+<p> 实现代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">parseFasta</span><span class="params">(filename)</span>:</span></div><div class="line">    fas = &#123;&#125;</div><div class="line">    id = <span class="keyword">None</span></div><div class="line">    <span class="keyword">with</span> open(filename, <span class="string">'r'</span>) <span class="keyword">as</span> fh:</div><div class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fh:</div><div class="line">            <span class="keyword">if</span> line[<span class="number">0</span>] == <span class="string">'&gt;'</span>:</div><div class="line">                header = line[<span class="number">1</span>:].rstrip()</div><div class="line">                id = header.split()[<span class="number">0</span>]</div><div class="line">                fas[id] = []</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                fas[id].append(line.rstrip())</div><div class="line">        <span class="keyword">for</span> id, seq <span class="keyword">in</span> fas.iteritems():</div><div class="line">            fas[id] = <span class="string">''</span>.join(seq)</div><div class="line">        <span class="keyword">return</span> fas</div><div class="line"></div><div class="line">genome = parseFasta(sys.argv[<span class="number">1</span>])</div><div class="line"></div><div class="line">hg38_chrs = list(range(<span class="number">1</span>,<span class="number">23</span>)) + [<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'M'</span>] <span class="comment"># 注意 range(1,23) 表示 1 到 22，不包括 23</span></div><div class="line">hg38_chrs = [<span class="string">"chr"</span> + str(i) <span class="keyword">for</span> i <span class="keyword">in</span> hg38_chrs] <span class="comment"># 这里用到了列表综合表达式</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> chr <span class="keyword">in</span> hg38_chrs:</div><div class="line">    <span class="keyword">print</span> chr, len(genome[chr])</div></pre></td></tr></table></figure>
+<h4 id="基因组染色体-GC-含量"><a href="#基因组染色体-GC-含量" class="headerlink" title="基因组染色体 GC 含量"></a>基因组染色体 GC 含量</h4><ul>
+<li>拟南芥基因组各染色体（或叶绿体基因组、线粒体基因组）的 GC 含量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ python bin/chr_gc.py TAIR10_chr_all.fas</div><div class="line">chloroplast 0.421206839559</div><div class="line">mitochondria 0.470155554602</div><div class="line">1 0.417533393076</div><div class="line">3 0.420498598336</div><div class="line">2 0.417420615206</div><div class="line">5 0.418704339152</div><div class="line">4 0.419433848099</div></pre></td></tr></table></figure>
+<p>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">parseFasta</span><span class="params">(filename)</span>:</span></div><div class="line">    fas = &#123;&#125;</div><div class="line">    id = <span class="keyword">None</span></div><div class="line">    <span class="keyword">with</span> open(filename, <span class="string">'r'</span>) <span class="keyword">as</span> fh:</div><div class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fh:</div><div class="line">            <span class="keyword">if</span> line[<span class="number">0</span>] == <span class="string">'&gt;'</span>:</div><div class="line">                header = line[<span class="number">1</span>:].rstrip()</div><div class="line">                id = header.split()[<span class="number">0</span>]</div><div class="line">                fas[id] = []</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                fas[id].append(line.rstrip())</div><div class="line">        <span class="keyword">for</span> id, seq <span class="keyword">in</span> fas.iteritems():</div><div class="line">            fas[id] = <span class="string">''</span>.join(seq)</div><div class="line">        <span class="keyword">return</span> fas</div><div class="line"></div><div class="line">genome = parseFasta(sys.argv[<span class="number">1</span>])</div><div class="line"></div><div class="line"><span class="keyword">for</span> chr, seq <span class="keyword">in</span> genome.iteritems():</div><div class="line">    G = seq.count(<span class="string">"C"</span>) + seq.count(<span class="string">"c"</span>)</div><div class="line">    C = seq.count(<span class="string">"G"</span>) + seq.count(<span class="string">"g"</span>)</div><div class="line">    A = seq.count(<span class="string">"A"</span>) + seq.count(<span class="string">"a"</span>)</div><div class="line">    T = seq.count(<span class="string">"T"</span>) + seq.count(<span class="string">"t"</span>)</div><div class="line">    <span class="keyword">print</span> chr, (G + C) / float(G + C + A + G)</div></pre></td></tr></table></figure>
+<ul>
+<li>人类基因组各个染色体（或线粒体及其它片段）GC 含量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ python bin/hg38_chr_gc.py hg38.fa</div><div class="line">chr1 0.455136117836</div><div class="line">chr2 0.446190349475</div><div class="line">chr3 0.442690716111</div><div class="line">chr4 0.433588116139</div><div class="line">chr5 0.441930413978</div><div class="line">chr6 0.442133594052</div><div class="line">chr7 0.449055751743</div><div class="line">chr8 0.445478935512</div><div class="line">chr9 0.452452573638</div><div class="line">chr10 0.454231966953</div><div class="line">chr11 0.454073025121</div><div class="line">chr12 0.449529596613</div><div class="line">chr13 0.435875506003</div><div class="line">chr14 0.450570263408</div><div class="line">chr15 0.457073952832</div><div class="line">chr16 0.472421408284</div><div class="line">chr17 0.476006762041</div><div class="line">chr18 0.444289464948</div><div class="line">chr19 0.490534826956</div><div class="line">chr20 0.468451893087</div><div class="line">chr21 0.450651750628</div><div class="line">chr22 0.485032452427</div><div class="line">chrX 0.44203229791</div><div class="line">chrY 0.445265639472</div><div class="line">chrM 0.416312659303</div></pre></td></tr></table></figure>
+<p>实现代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">parseFasta</span><span class="params">(filename)</span>:</span></div><div class="line">    fas = &#123;&#125;</div><div class="line">    id = <span class="keyword">None</span></div><div class="line">    <span class="keyword">with</span> open(filename, <span class="string">'r'</span>) <span class="keyword">as</span> fh:</div><div class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fh:</div><div class="line">            <span class="keyword">if</span> line[<span class="number">0</span>] == <span class="string">'&gt;'</span>:</div><div class="line">                header = line[<span class="number">1</span>:].rstrip()</div><div class="line">                id = header.split()[<span class="number">0</span>]</div><div class="line">                fas[id] = []</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                fas[id].append(line.rstrip())</div><div class="line">        <span class="keyword">for</span> id, seq <span class="keyword">in</span> fas.iteritems():</div><div class="line">            fas[id] = <span class="string">''</span>.join(seq)</div><div class="line">        <span class="keyword">return</span> fas</div><div class="line"></div><div class="line">genome = parseFasta(sys.argv[<span class="number">1</span>])</div><div class="line"></div><div class="line">hg38_chrs = list(range(<span class="number">1</span>,<span class="number">23</span>)) + [<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'M'</span>]</div><div class="line">hg38_chrs = [<span class="string">"chr"</span> + str(i) <span class="keyword">for</span> i <span class="keyword">in</span> hg38_chrs]</div><div class="line"></div><div class="line"><span class="keyword">for</span> chr <span class="keyword">in</span> hg38_chrs:</div><div class="line">    seq = genome[chr]</div><div class="line">    G = seq.count(<span class="string">"C"</span>) + seq.count(<span class="string">"c"</span>)</div><div class="line">    C = seq.count(<span class="string">"G"</span>) + seq.count(<span class="string">"g"</span>)</div><div class="line">    A = seq.count(<span class="string">"A"</span>) + seq.count(<span class="string">"a"</span>)</div><div class="line">    T = seq.count(<span class="string">"T"</span>) + seq.count(<span class="string">"t"</span>)</div><div class="line">    <span class="keyword">print</span> chr, (G + C) / float(G + C + A + G)</div></pre></td></tr></table></figure>
+<h4 id="基因组染色体-GC-含量可视化"><a href="#基因组染色体-GC-含量可视化" class="headerlink" title="基因组染色体 GC 含量可视化"></a>基因组染色体 GC 含量可视化</h4><ul>
+<li>人类基因组染色体 GC 含量可视化</li>
+</ul>
+<p><img src="/blog/基因组大小和GC含量-二/hg38_chr_gc.png" alt="test"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ python bin/hg38_chr_gc.py hg38.fa &gt; hg38_gc.txt</div><div class="line">$ python bin/barplot.py hg38_gc.txt</div></pre></td></tr></table></figure>
+<p><code>barplot.py</code> 的代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div><div class="line"><span class="keyword">from</span> matplotlib.ticker <span class="keyword">import</span> FormatStrFormatter</div><div class="line"></div><div class="line">counts = []</div><div class="line"><span class="keyword">with</span> open(sys.argv[<span class="number">1</span>], <span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</div><div class="line">        lsplit = line.split()</div><div class="line">        counts.append(float(<span class="string">"%.2f"</span> % float(lsplit[<span class="number">1</span>])))</div><div class="line"></div><div class="line"></div><div class="line">xtick = list(range(<span class="number">1</span>,<span class="number">23</span>)) + [<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'M'</span>]</div><div class="line"></div><div class="line">fig, ax = plt.subplots()</div><div class="line">plt.title(<span class="string">'Chromosome GC content'</span>)</div><div class="line">ax.yaxis.set_major_formatter(FormatStrFormatter(<span class="string">'%.2f'</span>)) <span class="comment"># y 轴的值为两位有效数字</span></div><div class="line">plt.ylim(<span class="number">0.30</span>, <span class="number">0.50</span>)</div><div class="line">plt.xlabel(<span class="string">"Chromosome"</span>, fontsize = <span class="number">12</span>)</div><div class="line">plt.ylabel(<span class="string">"gc content"</span>, fontsize = <span class="number">12</span>)</div><div class="line"><span class="comment">#</span></div><div class="line">plt.bar(range(<span class="number">25</span>), counts)</div><div class="line">plt.xticks(range(<span class="number">25</span>), xtick)</div><div class="line"></div><div class="line">plt.savefig(<span class="string">"hg38_chr_gc.png"</span>)</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/Linux文本处理三剑客之sed/" rel="next" title="Linux文本处理三剑客之sed">
+                <i class="fa fa-chevron-left"></i> Linux文本处理三剑客之sed
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/基因组大小和GC含量-一/" rel="prev" title="基因组大小和GC含量(一)">
+                基因组大小和GC含量(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/headportrait.jpg"
+               alt="Hui Liu" />
+          <p class="site-author-name" itemprop="name">Hui Liu</p>
+           
+              <p class="site-description motion-element" itemprop="description">北京林业大学在读硕士<br>liuhui@bjfu.edu.cn</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hui-liu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/liuhui0622" target="_blank" title="cnblogs">
+                  
+                    <i class="fa fa-fw fa-博客园"></i>
+                  
+                  cnblogs
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.researchgate.net/profile/Liu_Hui35" target="_blank" title="researchgate">
+                  
+                    <i class="fa fa-fw fa-researchgate"></i>
+                  
+                  researchgate
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#基因组染色体大小"><span class="nav-text">基因组染色体大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基因组染色体-GC-含量"><span class="nav-text">基因组染色体 GC 含量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基因组染色体-GC-含量可视化"><span class="nav-text">基因组染色体 GC 含量可视化</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hui Liu</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
