@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-05-21T02:53:59.414Z</updated>
+  <updated>2017-05-21T03:20:02.669Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -20,73 +20,31 @@
     <link href="https://hui-liu.github.io/blog/%E6%89%B9%E9%87%8F%E6%8F%90%E5%8F%96%E5%BA%8F%E5%88%97%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     <id>https://hui-liu.github.io/blog/批量提取序列小程序/</id>
     <published>2017-05-20T12:11:06.000Z</published>
-    <updated>2017-05-21T02:53:59.414Z</updated>
+    <updated>2017-05-21T03:20:02.669Z</updated>
     
     <content type="html"><![CDATA[<p>linux 系统自带有 python 2.7，在 windows 上需要自己安装。</p>
 <p>windows 用户安装 python 需要两个步骤：</p>
-<h3 id="第一步：下载及安装-python"><a href="#第一步：下载及安装-python" class="headerlink" title="第一步：下载及安装 python"></a>第一步：下载及安装 python</h3><blockquote>
-<ol>
-<li>到这个网址里：<a href="https://www.python.org/downloads/" target="_blank" rel="external">https://www.python.org/downloads/</a></li>
-<li>点击<img src="/blog/批量提取序列小程序/2.png" alt="1"></li>
-</ol>
-</blockquote>
+<h3 id="第一步：下载及安装-python"><a href="#第一步：下载及安装-python" class="headerlink" title="第一步：下载及安装 python"></a>第一步：下载及安装 python</h3><p><strong>1 到这个网址里：<a href="https://www.python.org/downloads/" target="_blank" rel="external">https://www.python.org/downloads/</a></strong></p>
+<p><strong>2 点击：Download Python 2.7.13</strong></p>
 <p><img src="/blog/批量提取序列小程序/3.png" alt="1"></p>
-<ol>
-<li><blockquote>
-<ol>
-<li>下载到了这个文件后，双击，按默认安装即可</li>
-</ol>
-</blockquote>
-</li>
-</ol>
-<h3 id="第二步：配置-python-环境变量"><a href="#第二步：配置-python-环境变量" class="headerlink" title="第二步：配置 python 环境变量"></a>第二步：配置 python 环境变量</h3><ol>
-<li><blockquote>
-<ol>
-<li>右键 =&gt; 属性</li>
-</ol>
-</blockquote>
-</li>
-</ol>
+<p><strong>3 下载到了这个文件后，双击并按默认安装即可</strong></p>
+<h3 id="第二步：配置-python-环境变量"><a href="#第二步：配置-python-环境变量" class="headerlink" title="第二步：配置 python 环境变量"></a>第二步：配置 python 环境变量</h3><p><strong>1 右键 =&gt; 属性</strong></p>
 <p><img src="/blog/批量提取序列小程序/4.png" alt="4"></p>
-<blockquote>
-<ol>
-<li>点击：高级系统设置</li>
-</ol>
-</blockquote>
+<p><strong>2 点击：高级系统设置</strong></p>
 <p><img src="/blog/批量提取序列小程序/5.png" alt="5"></p>
-<blockquote>
-<ol>
-<li>选：环境变量</li>
-</ol>
-</blockquote>
+<p><strong>3 选：环境变量</strong></p>
 <p><img src="/blog/批量提取序列小程序/6.png" alt="6"></p>
-<blockquote>
-<ol>
-<li>双击箭头处的 <code>Path</code></li>
-</ol>
-</blockquote>
+<p><strong>4 双击箭头处的 <code>Path</code></strong></p>
 <p><img src="/blog/批量提取序列小程序/7.png" alt="7"></p>
-<blockquote>
-<ol>
-<li>点击：新建</li>
-</ol>
-</blockquote>
+<p><strong>5 点击：新建</strong></p>
 <p><img src="/blog/批量提取序列小程序/8.png" alt="8"></p>
-<blockquote>
-<ol>
-<li>将 <code>C:\Python27</code> 复制到箭头处</li>
-</ol>
-</blockquote>
+<p><strong>6 将 <code>C:\Python27</code> 复制到箭头处</strong></p>
 <p><img src="/blog/批量提取序列小程序/9.png" alt="9"></p>
-<blockquote>
-<ol>
-<li>同 <code>5</code> 和 <code>6</code>，将 <code>C:\Python27\Scripts</code> 复制到箭头处</li>
-</ol>
-</blockquote>
+<p><strong>7 同 <code>5</code> 和 <code>6</code>，将 <code>C:\Python27\Scripts</code> 复制到箭头处</strong></p>
 <p>点击确定即可：</p>
 <p><img src="/blog/批量提取序列小程序/10.png" alt="10"></p>
 <hr>
-<p>安装好 python 后，接下来将今天的主题，根据 ID 号，批量提取序列；用到的程序便是 python 脚本。</p>
+<h3 id="运行-python"><a href="#运行-python" class="headerlink" title="运行 python"></a>运行 python</h3><p>安装好 python 后，接下来将今天的主题，根据 ID 号，批量提取序列；用到的程序便是 python 脚本。</p>
 <blockquote>
 <p>程序的名称是：<code>extract_seqs_by_ids.py</code></p>
 </blockquote>
@@ -99,32 +57,18 @@
 <p><strong>上述文件都在一个叫 <code>shengxinbaike</code> 文件夹里。</strong></p>
 <p>到这个文件夹外面，按以下步骤进行操作：</p>
 <blockquote>
-<ol>
-<li>选中文件夹 <code>shengxinbaike</code></li>
-<li>按住 <code>shift</code> 键</li>
-<li>单击右键；会出现如下图所示的菜单：</li>
-</ol>
-</blockquote>
+<p><strong>1 选中文件夹 <code>shengxinbaike</code></strong></p>
+<p><strong>2 按住 <code>shift</code> 键</strong></p>
+<p><strong>3 单击右键；会出现如下图所示的菜单：</strong></p>
 <p><img src="/blog/批量提取序列小程序/13.png" alt="13"></p>
-<blockquote>
-<ol>
-<li>点击：在此处打开命令窗口</li>
-</ol>
-</blockquote>
+<p><strong>4 点击：在此处打开命令窗口</strong></p>
 <p><img src="/blog/批量提取序列小程序/14.png" alt="14"></p>
-<blockquote>
-<ol>
-<li>输入：dir；并回车</li>
-</ol>
-</blockquote>
+<p><strong>5 输入：dir；并回车</strong></p>
 <p><img src="/blog/批量提取序列小程序/15.png" alt="15"></p>
 <p>可以看到 python 脚本和两个输入文件。</p>
-<blockquote>
-<ol>
-<li>输入：<code>python extract_seqs_by_ids.py TAIR10_pep_20110103.fas id_list out.fasta</code></li>
-</ol>
-</blockquote>
+<p><strong>6 输入：<code>python extract_seqs_by_ids.py TAIR10_pep_20110103.fas id_list out.fasta</code></strong></p>
 <p><img src="/blog/批量提取序列小程序/16.png" alt="16"></p>
+</blockquote>
 <p><strong>out.fasta 是输出文件的名称，自己定义。</strong></p>
 <p>python 脚本的代码如下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line">USAGE = <span class="string">"\nusage: python  %s sequences.fasta id_list out.fasta\n"</span> % sys.argv[<span class="number">0</span>]</div><div class="line"></div><div class="line"><span class="keyword">if</span> len(sys.argv) != <span class="number">4</span>:</div><div class="line">    <span class="keyword">print</span> USAGE</div><div class="line">    sys.exit()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">parseFasta</span><span class="params">(filename)</span>:</span></div><div class="line">    fas = &#123;&#125;</div><div class="line">    id = <span class="keyword">None</span></div><div class="line">    <span class="keyword">with</span> open(filename, <span class="string">'r'</span>) <span class="keyword">as</span> fh:</div><div class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fh:</div><div class="line">            <span class="keyword">if</span> line[<span class="number">0</span>] == <span class="string">'&gt;'</span>:</div><div class="line">                header = line[<span class="number">1</span>:].rstrip()</div><div class="line">                id = header.split()[<span class="number">0</span>]</div><div class="line">                fas[id] = []</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                fas[id].append(line.rstrip())</div><div class="line">        <span class="keyword">for</span> id, seq <span class="keyword">in</span> fas.iteritems():</div><div class="line">            fas[id] = <span class="string">''</span>.join(seq)</div><div class="line">    <span class="keyword">return</span> fas</div><div class="line"></div><div class="line"></div><div class="line">fas = parseFasta(sys.argv[<span class="number">1</span>])</div><div class="line">IDs = open(sys.argv[<span class="number">2</span>], <span class="string">'r'</span>)</div><div class="line">OUT = open(sys.argv[<span class="number">3</span>], <span class="string">'w'</span>)</div><div class="line"></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> IDs:</div><div class="line">     id = line.rstrip(<span class="string">"\n"</span>)</div><div class="line">     OUT.write(<span class="string">"&gt;"</span> + id + <span class="string">"\n"</span> + fas[id] + <span class="string">"\n"</span>) </div><div class="line"></div><div class="line">IDs.close()</div><div class="line">OUT.close()</div></pre></td></tr></table></figure>]]></content>
