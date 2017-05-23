@@ -117,7 +117,7 @@
 <meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/16.png">
 <meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/17.png">
 <meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/18.png">
-<meta property="og:updated_time" content="2017-04-09T03:54:25.856Z">
+<meta property="og:updated_time" content="2017-05-23T12:38:31.927Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="生信入门系列之 linux 入门（三）：基础命令（中）">
 <meta name="twitter:description" content="这次接着讲 linux 基础命令。上次讲到了一些文件及目录操作相关的命令，这次接着讲。
@@ -431,7 +431,7 @@
 <p>假如 <code>sample_data</code> 目录下有两个子目录 <code>test</code> 和 <code>transcriptome</code> （还记得怎么判断它们时文件还是目录吗？）：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data$ ls -lh</div><div class="line">total 0</div><div class="line">drwxrwxrwx 2 root root 0 Apr  8 17:34 test</div><div class="line">drwxrwxrwx 2 root root 0 Apr  8 17:34 transcriptome</div></pre></td></tr></table></figure>
 <p>也可以指定查看指定目录的属性：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data$ ls -lh test/</div><div class="line">total 0</div><div class="line">liuhui@ginkgo:~/sample_data$ ls -lh *</div><div class="line"> ls -lh transcriptome/</div><div class="line">total 208K</div><div class="line">-rwxrwxrwx 1 root root 206K Apr  8 17:37 Trinity.fasta</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data$ ls -lh test/</div><div class="line">total 0</div><div class="line">liuhui@ginkgo:~/sample_data$ ls -lh transcriptome/*</div><div class="line">total 208K</div><div class="line">-rwxrwxrwx 1 root root 206K Apr  8 17:37 Trinity.fasta</div></pre></td></tr></table></figure>
 <p>也可以这样看，（* 是通配符，代表任意字符，即 0 到 多个）：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data$ ls -lh *</div><div class="line">test:</div><div class="line">total 0</div><div class="line"></div><div class="line">transcriptome:</div><div class="line">total 208K</div><div class="line">-rwxrwxrwx 1 root root 206K Apr  8 17:37 Trinity.fasta</div></pre></td></tr></table></figure>
 <p>这样就知道每个目录下有什么文件或子目录了。</p>
