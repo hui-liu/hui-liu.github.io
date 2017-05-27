@@ -1,0 +1,1146 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="liuhui | 刘辉" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="这次接着讲 linux 基础命令。上次讲到了一些文件及目录操作相关的命令，这次接着讲。
+首先要讲的一个命令是 ln，它的功能是为某一个文件建立一个同步的链接。当我们需要在不同的目录，用到相同的文件时，我们不需要在每一个需要的目录下都放一个必须相同的文件，我们只要在某个固定的目录，放上该文件，然后在其它的目录下用 ln 命令链接它就可以，这样就不会重复地占用磁盘空间了。它又分为软链接和硬链接。
+注意">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生信入门系列之 linux 入门（三）：基础命令（中）">
+<meta property="og:url" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/index.html">
+<meta property="og:site_name" content="liuhui | 刘辉">
+<meta property="og:description" content="这次接着讲 linux 基础命令。上次讲到了一些文件及目录操作相关的命令，这次接着讲。
+首先要讲的一个命令是 ln，它的功能是为某一个文件建立一个同步的链接。当我们需要在不同的目录，用到相同的文件时，我们不需要在每一个需要的目录下都放一个必须相同的文件，我们只要在某个固定的目录，放上该文件，然后在其它的目录下用 ln 命令链接它就可以，这样就不会重复地占用磁盘空间了。它又分为软链接和硬链接。
+注意">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/1.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/2.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/3.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/4.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/5.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/6.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/7.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/8.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/9.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/10.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/11.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/12.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/13.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/14.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/15.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/16.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/17.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/18.png">
+<meta property="og:updated_time" content="2017-05-23T12:38:31.927Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="生信入门系列之 linux 入门（三）：基础命令（中）">
+<meta name="twitter:description" content="这次接着讲 linux 基础命令。上次讲到了一些文件及目录操作相关的命令，这次接着讲。
+首先要讲的一个命令是 ln，它的功能是为某一个文件建立一个同步的链接。当我们需要在不同的目录，用到相同的文件时，我们不需要在每一个需要的目录下都放一个必须相同的文件，我们只要在某个固定的目录，放上该文件，然后在其它的目录下用 ln 命令链接它就可以，这样就不会重复地占用磁盘空间了。它又分为软链接和硬链接。
+注意">
+<meta name="twitter:image" content="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/"/>
+
+
+
+
+
+  <title> 生信入门系列之 linux 入门（三）：基础命令（中） | liuhui | 刘辉 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">liuhui | 刘辉</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不忘初心</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/生信入门系列之-linux-入门（三）：基础命令（中）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hui Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/headportrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuhui | 刘辉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                生信入门系列之 linux 入门（三）：基础命令（中）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-08T10:40:40+08:00">
+                2017-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/生信/" itemprop="url" rel="index">
+                    <span itemprop="name">生信</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这次接着讲 linux 基础命令。上次讲到了一些文件及目录操作相关的命令，这次接着讲。</p>
+<p>首先要讲的一个命令是 <code>ln</code>，它的功能是为某一个文件建立一个<strong>同步的链接</strong>。当我们需要在不同的目录，用到相同的文件时，我们不需要在每一个需要的目录下都放一个必须相同的文件，我们只要在某个固定的目录，放上该文件，然后在其它的目录下用 <code>ln</code> 命令链接它就可以，这样就<strong>不会重复地占用磁盘空间</strong>了。它又分为<strong>软链接</strong>和<strong>硬链接</strong>。</p>
+<p><strong>注意：</strong>由于链接的同步性，当链接或源文件被修改时，其它的链接和源文件也发生相应的改动。不希望这样，就用命令 <code>cp</code> 代替，当然，代价是占用磁盘空间。</p>
+<p>假如 <code>sample_data</code> 目录下有两个子目录 <code>test</code> 和 <code>transcriptome</code> （还记得怎么判断它们时文件还是目录吗？）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data$ ls -lh</div><div class="line">total 0</div><div class="line">drwxrwxrwx 2 root root 0 Apr  8 17:34 test</div><div class="line">drwxrwxrwx 2 root root 0 Apr  8 17:34 transcriptome</div></pre></td></tr></table></figure>
+<p>也可以指定查看指定目录的属性：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data$ ls -lh test/</div><div class="line">total 0</div><div class="line">liuhui@ginkgo:~/sample_data$ ls -lh transcriptome/*</div><div class="line">total 208K</div><div class="line">-rwxrwxrwx 1 root root 206K Apr  8 17:37 Trinity.fasta</div></pre></td></tr></table></figure>
+<p>也可以这样看，（* 是通配符，代表任意字符，即 0 到 多个）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data$ ls -lh *</div><div class="line">test:</div><div class="line">total 0</div><div class="line"></div><div class="line">transcriptome:</div><div class="line">total 208K</div><div class="line">-rwxrwxrwx 1 root root 206K Apr  8 17:37 Trinity.fasta</div></pre></td></tr></table></figure>
+<p>这样就知道每个目录下有什么文件或子目录了。</p>
+<p>回到正题，首先讲软链接，软链接有如下属性：</p>
+<p>1.软链接，以路径的形式存在。类似于 windows 中的快捷方式；所以，当移动源文件的位置或修改源文件名称时，软链接会失效。</p>
+<p>2.软链接可以对一个不存在的文件名进行链接；</p>
+<p>3.<strong>软链接可以对目录进行链接</strong>；</p>
+<p>4.软链接可以 跨文件系统 ，硬链接不可以；</p>
+<p>5.不增加源文件的链接数。</p>
+<p>用法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ln -s file1 file2</div></pre></td></tr></table></figure>
+<p>其中 <code>file1</code> 是源文件，<code>file2</code> 是软链接文件。如图：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/1.png" alt="1"></p>
+<p>一般给源文件加上绝对路径，或者相对路径，但要类似这样：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/2.png" alt="2"></p>
+<p>因为软链接文件本质上就是一个指向源文件的路径；无论怎样操作，都要使得在软链接文件位置，能通过这个路径访问到源文件。</p>
+<p>和软链接不同，<strong>硬链接</strong>有如下属性：<br>1.硬链接，与源文件名称互为别名，不占用实际空间，直接指向文件在磁盘上的物理地址；所以无论怎样移动源文件或修改其名称，硬链接都不会失效。</p>
+<p>2.<strong>不允许给目录创建硬链接</strong></p>
+<p>3.硬链接只有在同一个文件系统中才能创建</p>
+<p>4.增加源文件的链接数。</p>
+<p>用法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ln file1 file2</div></pre></td></tr></table></figure>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/3.png" alt="3"></p>
+<p>之前提到过文件或目录的权限，但没有细讲，这里把它讲清楚：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/4.png" alt="4"></p>
+<p>在上图文件或目录权限那一列信息中，权限分为三组，分别是：所有者权限、所属组权限以及其它用户的权限。其中的 <code>r</code>、<code>w</code> 以及<code>x</code> 分别代表文件的<strong>“读权限”</strong>，<strong>“写权限“</strong>以及<strong>”执行权限“</strong>，<strong>”-“</strong>指没有相应的权限。更详细的信息，请看以下表格：</p>
+<table>
+<thead>
+<tr>
+<th>代表字符</th>
+<th>权限</th>
+<th>数字</th>
+<th>对文件的含义</th>
+<th>对目录的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>读权限</td>
+<td>4</td>
+<td>可以查看文件内容</td>
+<td>可以查看目录中的内容</td>
+</tr>
+<tr>
+<td>w</td>
+<td>写权限</td>
+<td>2</td>
+<td>可以修改文件内容</td>
+<td>可以在目录中创建、删除文件或目录</td>
+</tr>
+<tr>
+<td>x</td>
+<td>执行权限</td>
+<td>1</td>
+<td>可以执行文件</td>
+<td>可以进入目录</td>
+</tr>
+</tbody>
+</table>
+<p>用数字代表相应的字符，可方便的用命令行修改某个文件或目录的权限（三个数字的组合在一起，相加的和是唯一的）。要修改权限，需要用到命令 <code>chmod</code>，用法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">chmod [mode] file</div></pre></td></tr></table></figure>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ ls -lh</div><div class="line">total 208K</div><div class="line">-rw-rw-r-- 2 liuhui liuhui 206K Apr  8 17:05 Trinity.fasta</div><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ chmod +x Trinity.fasta</div><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ ls -lh</div><div class="line">total 208K</div><div class="line">-rwxrwxr-x 2 liuhui liuhui 206K Apr  8 17:05 Trinity.fasta</div></pre></td></tr></table></figure>
+<p>也可以通过数字：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ ls -lh</div><div class="line">total 208K</div><div class="line">-rwxrwxr-x 2 liuhui liuhui 206K Apr  8 17:05 Trinity.fasta</div><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ chmod 555 Trinity.fasta</div><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ ls -lh</div><div class="line">total 208K</div><div class="line">-r-xr-xr-x 2 liuhui liuhui 206K Apr  8 17:05 Trinity.fasta</div></pre></td></tr></table></figure>
+<p>有时，我们需要找一个文件在哪，这时可以用命令 <code>find</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">find [path...] [expression]</div></pre></td></tr></table></figure>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data$ find . -name Trinity.fasta</div><div class="line">./transcriptome/Trinity.fasta</div></pre></td></tr></table></figure>
+<p><strong><code>.</code> 代表当前目录</strong>，即在当前目录这个路径下，搜索名为”Trinity.fasta“的文件。当不太记得文件名时，可以用通配符 <code>*</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data$ find . -name *fasta</div><div class="line">./test/Trinity_hard.fasta</div><div class="line">./test/Trinity_soft_1.fasta</div><div class="line">./test/Trinity_soft.fasta</div><div class="line">./transcriptome/Trinity.fasta</div></pre></td></tr></table></figure>
+<p>当要搜索的文件在<strong>环境变量</strong>里时，可以用命令 <code>which</code> 来搜索：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">which filename</div></pre></td></tr></table></figure>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data$ which chmod</div><div class="line">/bin/chmod</div><div class="line">liuhui@ginkgo:~/sample_data$ which find</div><div class="line">/usr/bin/find</div><div class="line">liuhui@ginkgo:~/sample_data$ which ln</div><div class="line">/bin/ln</div><div class="line">liuhui@ginkgo:~/sample_data$ which ls</div><div class="line">/bin/ls</div><div class="line">liuhui@ginkgo:~/sample_data$ which vcftools</div><div class="line">/home/liuhui/bin/vcftools_0.1.13/bin/vcftools</div><div class="line">liuhui@ginkgo:~/sample_data$ which samtools</div><div class="line">/home/liuhui/bin/samtools/samtools-0.1.19/samtools</div></pre></td></tr></table></figure>
+<p>注意：如有有童鞋不知道环境变量是什么的话，请先看本系列第一篇文章，<strong>“初识 linux 系统”</strong>。</p>
+<p>如果我们想在文件中查找特定的内容时，可以用命令 <code>grep</code> 来实现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">grep [参数] file</div></pre></td></tr></table></figure>
+<p>我们知道，<code>fasta</code> 文件的序列号以 <code>&gt;</code> 开头（不是重定向操作符），如果想讲序列号提取出来，可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">grep &quot;&gt;&quot; Trinity.fasta</div></pre></td></tr></table></figure>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/5.png" alt="5"></p>
+<p>显然，直接将搜索到的序列号打印到屏幕上不是一个明智的做法，所以，应该这样做：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/6.png" alt="6"></p>
+<p>即是将输出的结果重定向到一个文件里，然后可以这样查看：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">less -S Trinity.fasta</div></pre></td></tr></table></figure>
+<p>如果只想查看一下，可以这样做：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">grep &quot;&gt;&quot; Trinity.fasta | less -S</div></pre></td></tr></table></figure>
+<p>上述命令用到了一个在 linux 中很重要的操作：管道，即 <code>|</code>。它的作用是<strong>把一个命令的输出直接连接到另一个命令的输入</strong>。<strong>管道在 linux 中是重中之重</strong>。可以这样想象：前一个命令对文件操作所产生的信息流，从管道的前端流入，然后从管道的后端流出，这时后一个命令会接住这些信息流，并可以对这些信息流进行操作。</p>
+<p>以上述命令为例，<code>grep &quot;&gt;&quot; Trinity.fasta</code> 中，<code>grep</code>  提取 <code>Trinity.fasta</code> 文件中含有 “&gt;” 的行，则所有包含有 “&gt;” 的行所组成的集合就会形成一股信息流，如果没有其它操作，这股信息流就会输出到屏幕上；当然了，也可以讲这股信息流保存到一个文件里，即重定向；还可以将其”灌输到“一个管道里 <code>|</code>，似的这股信息流在管道里流通，知道有另个以命令来”接收“这股信息，并做相应的处理，如这里是用 <code>less -S</code> 来进行不换行地分页浏览这股信息流。</p>
+<p>也可以查看前几行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">grep &quot;&gt;&quot; Trinity.fasta | head</div></pre></td></tr></table></figure>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/7.png" alt="7"></p>
+<p>在这里，我们指关心序列号，气后地那一串数字往往不是我们关心的，那有什么办法能将其剔除掉吗？看：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ grep &quot;&gt;&quot; Trinity.fasta | cut -d &quot; &quot; -f 1 | head</div><div class="line">&gt;TRINITY_DN63_c0_g1_i1</div><div class="line">&gt;TRINITY_DN66_c0_g1_i1</div><div class="line">&gt;TRINITY_DN66_c0_g2_i1</div><div class="line">&gt;TRINITY_DN66_c0_g2_i2</div><div class="line">&gt;TRINITY_DN68_c0_g1_i1</div><div class="line">&gt;TRINITY_DN68_c0_g1_i2</div><div class="line">&gt;TRINITY_DN68_c0_g2_i1</div><div class="line">&gt;TRINITY_DN68_c0_g3_i1</div><div class="line">&gt;TRINITY_DN68_c0_g4_i1</div><div class="line">&gt;TRINITY_DN42_c0_g1_i1</div></pre></td></tr></table></figure>
+<p>这里用到了命令 <code>cut</code>，将多余的部分 ”cut“ 掉了；怎么实现的，首先，序列号及其后面的那些数字串间的间隔，是有空格来分割的（即<strong><code>分隔符</code>是</strong>空格）。<code>cut</code> 命令通过参数 <code>-d</code> 指定分隔符，即空格，用引号引住；然后再加一个参数 <code>-f</code>，指定前面由空格作为分隔符，所产生的很多列中的第一列（术语往往是说<strong>”域“</strong>）。如果这样，</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ grep &quot;&gt;&quot; Trinity.fasta | cut -d &quot; &quot; -f 1,2 | head</div><div class="line">&gt;TRINITY_DN63_c0_g1_i1 len=484</div><div class="line">&gt;TRINITY_DN66_c0_g1_i1 len=709</div><div class="line">&gt;TRINITY_DN66_c0_g2_i1 len=316</div><div class="line">&gt;TRINITY_DN66_c0_g2_i2 len=292</div><div class="line">&gt;TRINITY_DN68_c0_g1_i1 len=7194</div><div class="line">&gt;TRINITY_DN68_c0_g1_i2 len=7076</div><div class="line">&gt;TRINITY_DN68_c0_g2_i1 len=520</div><div class="line">&gt;TRINITY_DN68_c0_g3_i1 len=508</div><div class="line">&gt;TRINITY_DN68_c0_g4_i1 len=542</div><div class="line">&gt;TRINITY_DN42_c0_g1_i1 len=280</div><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ grep &quot;&gt;&quot; Trinity.fasta | cut -d &quot; &quot; -f 1-2 | head</div><div class="line">&gt;TRINITY_DN63_c0_g1_i1 len=484</div><div class="line">&gt;TRINITY_DN66_c0_g1_i1 len=709</div><div class="line">&gt;TRINITY_DN66_c0_g2_i1 len=316</div><div class="line">&gt;TRINITY_DN66_c0_g2_i2 len=292</div><div class="line">&gt;TRINITY_DN68_c0_g1_i1 len=7194</div><div class="line">&gt;TRINITY_DN68_c0_g1_i2 len=7076</div><div class="line">&gt;TRINITY_DN68_c0_g2_i1 len=520</div><div class="line">&gt;TRINITY_DN68_c0_g3_i1 len=508</div><div class="line">&gt;TRINITY_DN68_c0_g4_i1 len=542</div><div class="line">&gt;TRINITY_DN42_c0_g1_i1 len=280</div></pre></td></tr></table></figure>
+<p>则取出第一和第二列，这里用逗号或横杠连接 ”1“ 和 ”2“，其中横杠用于链接连续的列，而逗号都行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 横杠</div><div class="line">cut -f 1-10</div><div class="line"># 逗号</div><div class="line">cut -f 1,2,3,4,5,6,7,8,9,10</div><div class="line"># 当然逗号也有优势</div><div class="line">cut -f 1,3,5,8,10</div><div class="line"># 逗号与横杠混用</div><div class="line">cut -f 1,3,5,8-10</div><div class="line"># 这样不行哈</div><div class="line">cut -f 1-3-5-8-10</div></pre></td></tr></table></figure>
+<p>可能由同学想问，<code>grep &quot;&gt;&quot; Trinity.fasta | cut -d &quot; &quot; -f 1 | head</code> 的输出结果还有 ”&gt;” 啊，怎么去除呢？其实命令你学过啦，就是 <code>cut</code>：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/8.png" alt="8"></p>
+<p>这时，你这样操作：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">grep &quot;&gt;&quot; Trinity.fasta | cut -d &quot; &quot; -f 1 | cut -d &quot;&gt;&quot; -f 2 &gt; Trinity_ID</div></pre></td></tr></table></figure>
+<p>就得到你想要地序列号了。</p>
+<p>对了，我想数一下”Trinity.fasta“ 文件中有几条序列，怎么做。这样做：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ grep -c &quot;&gt;&quot; Trinity.fasta</div><div class="line">107</div></pre></td></tr></table></figure>
+<p>我只有序列号的那个文件呢？可以用命令 <code>wc</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">wc -l file</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ wc -l Trinity_ID</div><div class="line">107 Trinity_ID</div></pre></td></tr></table></figure>
+<p>接着讲其它命令的用法。假如我有一个文件，其内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data/test2$ cat file</div><div class="line">aa 1</div><div class="line">ac 3</div><div class="line">ab 2</div><div class="line">ba 2</div><div class="line">ad 4</div><div class="line">ba 2</div><div class="line">ca 9</div><div class="line">da 10</div></pre></td></tr></table></figure>
+<p>我想按第一列排序，可以这样做：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data/test2$ sort file</div><div class="line">aa 1</div><div class="line">ab 2</div><div class="line">ac 3</div><div class="line">ad 4</div><div class="line">ba 2</div><div class="line">ba 2</div><div class="line">ca 9</div><div class="line">da 10</div></pre></td></tr></table></figure>
+<p>我想按第二列排序，那可以学学 <code>cut</code>，指定按第几列排序嘛，这样？</p>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><div class="line">liuhui<span class="variable">@ginkgo</span><span class="symbol">:~/sample_data/test2</span><span class="variable">$ </span>sort -k <span class="number">2</span> file</div><div class="line">aa <span class="number">1</span></div><div class="line">da <span class="number">10</span></div><div class="line">ab <span class="number">2</span></div><div class="line">ba <span class="number">2</span></div><div class="line">ba <span class="number">2</span></div><div class="line">ac <span class="number">3</span></div><div class="line">ad <span class="number">4</span></div><div class="line">ca <span class="number">9</span></div></pre></td></tr></table></figure>
+<p>实际上没有错，只是不是我们想要的，所以，得加个参数：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data/test2$ sort -k 2 -n file</div><div class="line">aa 1</div><div class="line">ab 2</div><div class="line">ba 2</div><div class="line">ba 2</div><div class="line">ac 3</div><div class="line">ad 4</div><div class="line">ca 9</div><div class="line">da 10</div></pre></td></tr></table></figure>
+<p>这里 <code>-n</code> 指按数值大小排列。</p>
+<p>也可以按第二列逆序：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data/test2$ sort -k 2 -n -r file</div><div class="line">da 10</div><div class="line">ca 9</div><div class="line">ad 4</div><div class="line">ac 3</div><div class="line">ba 2</div><div class="line">ba 2</div><div class="line">ab 2</div><div class="line">aa 1</div></pre></td></tr></table></figure>
+<p>很明显，在上述文件中有一个重复项，可以这样删除：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sort -u file</div></pre></td></tr></table></figure>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/9.png" alt="9"></p>
+<p><code>sort</code> 命令可以和 <code>uniq</code> 命令结合起来用，</p>
+<p>去重（等同于 <code>sort -u file</code>）：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/10.png" alt="10"></p>
+<p>指显示重复行：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/11.png" alt="11"></p>
+<p>统计每行出现的次数：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/12.png" alt="12"></p>
+<p>如果只关心第二列的重复情况，可以这样：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/13.png" alt="13"></p>
+<p>接下来要讲的内容是文件的压缩或解压。但需要注意的是，不能对有硬链接的源文件或硬链接文件进行压缩或解压：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/14.png" alt="14"></p>
+<p>压缩命令可以用 <code>gzip</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">gzip file</div></pre></td></tr></table></figure>
+<p>直接对文件进行压缩：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ ls -lh</div><div class="line">total 208K</div><div class="line">-r-xr-xr-x 1 liuhui liuhui 206K Apr  8 17:05 Trinity.fasta</div><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ gzip Trinity.fasta</div><div class="line">liuhui@ginkgo:~/sample_data/transcriptome$ ls -lh</div><div class="line">total 44K</div><div class="line">-r-xr-xr-x 1 liuhui liuhui 43K Apr  8 17:05 Trinity.fasta.gz</div></pre></td></tr></table></figure>
+<p>也可以加上参数 <code>-c</code>，这样可以保存原来的文件了。</p>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><div class="line">liuhui<span class="variable">@ginkgo</span><span class="symbol">:~/sample_data/transcriptome</span><span class="variable">$ </span>ls -lh</div><div class="line">total <span class="number">208</span>K</div><div class="line">-r-xr-xr-x <span class="number">1</span> liuhui liuhui <span class="number">206</span>K Apr  <span class="number">8</span> <span class="number">17</span><span class="symbol">:</span><span class="number">05</span> Trinity.fasta</div><div class="line">liuhui<span class="variable">@ginkgo</span><span class="symbol">:~/sample_data/transcriptome</span><span class="variable">$ </span>gzip -c Trinity.fasta &gt; Trinity.fasta.gz</div><div class="line">liuhui<span class="variable">@ginkgo</span><span class="symbol">:~/sample_data/transcriptome</span><span class="variable">$ </span>ls -lh</div><div class="line">total <span class="number">252</span>K</div><div class="line">-r-xr-xr-x <span class="number">1</span> liuhui liuhui <span class="number">206</span>K Apr  <span class="number">8</span> <span class="number">17</span><span class="symbol">:</span><span class="number">05</span> Trinity.fasta</div><div class="line">-rw-rw-r-- <span class="number">1</span> liuhui liuhui  <span class="number">43</span>K Apr  <span class="number">9</span> <span class="number">10</span><span class="symbol">:</span><span class="number">13</span> Trinity.fasta.gz</div></pre></td></tr></table></figure>
+<p>解压命令用 <code>gunzip</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">gunzip file.gz</div></pre></td></tr></table></figure>
+<p>如图所示：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/15.png" alt="15"></p>
+<p>参数 <code>-c</code> 对 <code>gunzip</code> 同样适用：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/16.png" alt="16"></p>
+<p>可以这样查看压缩文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">zcat Trinity.fasta.gz | less -S</div></pre></td></tr></table></figure>
+<p>还有其它的压缩或解压命令，如 <code>zip/unzip</code>，<code>bzip2/bunzip2</code> 等，限于篇幅，在这里就不一一讲述了。</p>
+<p>最后再讲一个命令，<code>tar</code>。这个命令的功能是将一个目录打包：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/17.png" alt="17"></p>
+<p><code>-c</code> 表示压缩，<code>-v</code> 表示显示压缩过程，<code>-f</code> 表示指定压缩文件，<code>-z</code> 表示用 <code>gzip</code> 压缩文件。</p>
+<p>其逆向操作，只需改变一个参数，<code>-z</code> 变为 <code>-x</code>，后者表示从压缩的文件中提取文件：</p>
+<p><img src="/blog/生信入门系列之-linux-入门（三）：基础命令（中）/18.png" alt="18"></p>
+<p><strong>命令及简单描述</strong></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ln</td>
+<td>创建软链接或硬链接</td>
+</tr>
+<tr>
+<td>chmod</td>
+<td>修改文件权限</td>
+</tr>
+<tr>
+<td>find</td>
+<td>查找文件</td>
+</tr>
+<tr>
+<td>which</td>
+<td>查找再环境变量中的文件</td>
+</tr>
+<tr>
+<td>grep</td>
+<td>利用关键字符进行文本搜索</td>
+</tr>
+<tr>
+<td>cut</td>
+<td>提取文件指定的列</td>
+</tr>
+<tr>
+<td>wc</td>
+<td>统计文件行数</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>文件内容排序</td>
+</tr>
+<tr>
+<td>uniq</td>
+<td>对文本内容进行去重计数</td>
+</tr>
+<tr>
+<td>gzip/gunzip</td>
+<td>压缩或解压</td>
+</tr>
+<tr>
+<td>zcat</td>
+<td>查看 gzip 压缩的文件</td>
+</tr>
+<tr>
+<td>tar</td>
+<td>压缩或解压目录</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/" rel="next" title="生信入门系列之 linux 入门（一）：基础命令（上）">
+                <i class="fa fa-chevron-left"></i> 生信入门系列之 linux 入门（一）：基础命令（上）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/生信入门系列之-linux-入门（四）：基础命令（下）/" rel="prev" title="生信入门系列之-linux-入门（四）：基础命令（下）">
+                生信入门系列之-linux-入门（四）：基础命令（下） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/headportrait.jpg"
+               alt="Hui Liu" />
+          <p class="site-author-name" itemprop="name">Hui Liu</p>
+           
+              <p class="site-description motion-element" itemprop="description">北京林业大学在读硕士<br>liuhui@bjfu.edu.cn</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hui-liu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/liuhui0622" target="_blank" title="cnblogs">
+                  
+                    <i class="fa fa-fw fa-博客园"></i>
+                  
+                  cnblogs
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.researchgate.net/profile/Liu_Hui35" target="_blank" title="researchgate">
+                  
+                    <i class="fa fa-fw fa-researchgate"></i>
+                  
+                  researchgate
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://yihenghu.github.io/" target="_blank" title="Yi-heng Hu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Yi-heng Hu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hui Liu</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+  
+
+  
+  
+</body>
+</html>

@@ -1,0 +1,1018 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="liuhui | 刘辉" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="生信入门系列之 linux 入门（一）：初识 linux 系统​        Linux 是一个免费的操作系统，是生物信息分析中必不可少的工具。在 linux 系统中，所有的管理任务均可以在一个叫终端（terminal）的控制面板里完成，包括文件处理，软件安装以及用户管理。这个终端是交互的，即你运行特定的命令，相应的结果会在这个终端上显示出来。运行命令的方式是：在终端上输入你希望运行的命令，然后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux 入门（一）：初识 linux 系统">
+<meta property="og:url" content="https://hui-liu.github.io/blog/linux-入门（一）：初识-linux-系统/index.html">
+<meta property="og:site_name" content="liuhui | 刘辉">
+<meta property="og:description" content="生信入门系列之 linux 入门（一）：初识 linux 系统​        Linux 是一个免费的操作系统，是生物信息分析中必不可少的工具。在 linux 系统中，所有的管理任务均可以在一个叫终端（terminal）的控制面板里完成，包括文件处理，软件安装以及用户管理。这个终端是交互的，即你运行特定的命令，相应的结果会在这个终端上显示出来。运行命令的方式是：在终端上输入你希望运行的命令，然后">
+<meta property="og:image" content="https://hui-liu.github.io/blog/linux-入门（一）：初识-linux-系统/Standard-unix-filesystem-hierarchy.png">
+<meta property="og:image" content="https://hui-liu.github.io/blog/linux-入门（一）：初识-linux-系统/putty.png">
+<meta property="og:updated_time" content="2017-04-03T04:50:55.320Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux 入门（一）：初识 linux 系统">
+<meta name="twitter:description" content="生信入门系列之 linux 入门（一）：初识 linux 系统​        Linux 是一个免费的操作系统，是生物信息分析中必不可少的工具。在 linux 系统中，所有的管理任务均可以在一个叫终端（terminal）的控制面板里完成，包括文件处理，软件安装以及用户管理。这个终端是交互的，即你运行特定的命令，相应的结果会在这个终端上显示出来。运行命令的方式是：在终端上输入你希望运行的命令，然后">
+<meta name="twitter:image" content="https://hui-liu.github.io/blog/linux-入门（一）：初识-linux-系统/Standard-unix-filesystem-hierarchy.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hui-liu.github.io/blog/linux-入门（一）：初识-linux-系统/"/>
+
+
+
+
+
+  <title> linux 入门（一）：初识 linux 系统 | liuhui | 刘辉 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">liuhui | 刘辉</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不忘初心</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/linux-入门（一）：初识-linux-系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hui Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/headportrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuhui | 刘辉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                linux 入门（一）：初识 linux 系统
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-01T23:08:56+08:00">
+                2017-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/生信/" itemprop="url" rel="index">
+                    <span itemprop="name">生信</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="生信入门系列之-linux-入门（一）：初识-linux-系统"><a href="#生信入门系列之-linux-入门（一）：初识-linux-系统" class="headerlink" title="生信入门系列之 linux 入门（一）：初识 linux 系统"></a>生信入门系列之 linux 入门（一）：初识 linux 系统</h2><p>​        <a href="http://www.linux.org/" target="_blank" rel="external">Linux</a> 是一个免费的操作系统，是生物信息分析中必不可少的工具。在 linux 系统中，所有的管理任务均可以在一个叫终端<code>（terminal）</code>的控制面板里完成，包括文件处理，软件安装以及用户管理。这个终端是交互的，即你运行特定的命令，相应的结果会在这个终端上显示出来。运行命令的方式是：在终端上输入你希望运行的命令，然后按回车键<code>（Enter）</code>。如果你想终止正在运行的命令，可以按 <code>Chrl  + C</code>。</p>
+<p>​        不同于 windows 系统，linux 的文件系统是一个目录树（directory tree）；如<a href="https://en.wikipedia.org/wiki/Unix_filesystem" target="_blank" rel="external">下图</a> 所示，其文件系统为一个树状结构。最顶端 “root”，用斜杠 “<code>/</code>” 表示。一般来说，普通用户，无论是直接打开终端还是远程登陆服务器，所在的位置一般是在 <code>/home/foo</code> 下，其中的 <code>foo</code> 在这里指代用户名。</p>
+<p><img src="/blog/linux-入门（一）：初识-linux-系统/Standard-unix-filesystem-hierarchy.png" alt="img"></p>
+<p>​                                                     linux 的树状文件系统（图片来自<a href="https://en.wikipedia.org/wiki/Unix_filesystem" target="_blank" rel="external">维基百科</a>）</p>
+<p>​       对于 windows 用户来说，可以通过一个轻量级的软件 <strong>putty</strong> （约 500 kb；百度可下载；双击软件即可使用，无需安装）来远程登陆服务器，登陆方法如下图，图中的序号为操作顺序：</p>
+<ol>
+<li>首先在 Host Name（or IP address）下方的框框中输入服务器的的 ID 地址，并单击 “Open” 选项；</li>
+<li>putty 会弹出一个警告框，点击否；</li>
+<li>最后最出现下图 3 中的界面，在 “login as：“ 后输入你的用户名，回车后输入登陆密码（直接输入就行了，是看不到显示的）。</li>
+</ol>
+<p><img src="/blog/linux-入门（一）：初识-linux-系统/putty.png" alt="putty"></p>
+<p>​       打开终端或是远程登陆服务器时，如果你想查看当前所在的位置，可以在终端输入如下命令，并按回车键：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pwd</div></pre></td></tr></table></figure>
+<p>​        这个 linux 命令意思是“打印当前工作目录”，是 “print working directory” 的英文缩写；其返回结果是一个<strong>绝对路径</strong>（就是从根目录开始，依次将各级子目录的名字组合起来），应该类似这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/home/foo</div></pre></td></tr></table></figure>
+<p>​        与上述的树状文件系统相互比照，是不是立马清楚自己到底在哪里了？就好像 windows 下，到底在哪个盘的哪个文件夹里一样。这个<strong>绝对路径</strong>很有用，它不仅让我们知道自己在哪儿，同时还可以告诉系统某个软件在哪儿，以及告诉软件要操作的文件在哪儿。举个例子吧，比如说我想调用一个软件，叫 <a href="http://vcftools.sourceforge.net/documentation.html" target="_blank" rel="external"><strong>vcftools</strong></a>，那么，我要运行它，只需要在终端输入如下命令并回车：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vcftools --vcf input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        就可以轻轻松松算出  <strong>variants</strong>  的数目和 <strong>individuals</strong> 的数目。但很不幸的是，你也有可能得到如下结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">bash: vcftools: command not found</div></pre></td></tr></table></figure>
+<p>​        大概意思就是，系统找不到这个命令在哪儿。可能有人会问了，既然是一个命令，为什么系统会找不到呢？其实，在linux 系统中，有一个非常核心的概念：<a href="http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/lsof.html" target="_blank" rel="external"><strong>一切皆文件</strong></a>！即在linux环境下，任何事物都以文件的形式存在。所以，如果你的从 <code>vcftools</code> 安装在 <code>/home/foo/biosoft/vcftool-0.1.13/bin</code> 这个<strong>绝对路径</strong>下，那么，你就可以这样运行它：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/home/foo/biosoft/vcftool-0.1.13/bin/vcftools --vcf input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        就可以的结果啦。但也有可能得到如下结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">VCFtools - v0.1.13</div><div class="line">(C) Adam Auton and Anthony Marcketta 2009</div><div class="line"></div><div class="line">Parameters as interpreted:</div><div class="line">        --vcf input_data.vcf</div><div class="line"></div><div class="line">stat error: No such file or directory</div><div class="line">Error: Can&apos;t determine file type of input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        这时也不要慌，只要在输入文件前加上绝对路径即可。加入 <code>input_data.vcf</code> 文件在 <code>/home/foo/vcffile</code> 下，可以这样运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/home/foo/biosoft/vcftool-0.1.13/bin/vcftools --vcf /home/foo/vcffile/input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        这时，如无意外，就可以得到如下结果了：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">VCFtools - v0.1.13</div><div class="line">(C) Adam Auton and Anthony Marcketta 2009</div><div class="line"></div><div class="line">Parameters as interpreted:</div><div class="line">        --vcf /home/foo/vcffile/input_data.vcf</div><div class="line"></div><div class="line">Using zlib version: 1.2.3.4</div><div class="line">Versions of zlib &gt;= 1.2.4 will be *much* faster when reading zipped VCF files.</div><div class="line">After filtering, kept 16 out of 16 Individuals</div><div class="line">After filtering, kept 1116595 out of a possible 1116595 Sites</div><div class="line">Run Time = 5.00 seconds</div></pre></td></tr></table></figure>
+<p>​        如果还报出一些奇奇怪怪的错误提示，那就首先检查一下您的输入法中是否为纯英文状态，中文和全角状态下的输入的空格都是会报错的。同时，linux 里，软件对字母大小写是敏感的，即 linux 认为 <strong>A</strong> 和 <strong>a</strong> 是两个不同的事物；也就是说大小写也是会造成错误的。</p>
+<p>​       前面，我多次提到了<strong>绝对路径</strong>这个概念，不少心思敏捷的童鞋就会想了，有没有<strong>相对路径</strong>？有的。</p>
+<p>​       举例说明，假如我们在 <code>/home/foo</code> 这个路径下，并且我们知道该路径下有 <code>vcffile</code> 和 <code>biosoft</code> 这两个目录；那么，我们可以这样运行上述的命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">biosoft/vcftool-0.1.13/bin/vcftools --vcf vcffile/input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        可以看到，<code>biosoft/vcftool-0.1.13/bin</code> 和 <code>vcffile</code> 这两个路径都不是以斜杠 <strong><code>/</code> </strong> 开头的，所以这两个路径都是相对路径。当然了，你也可也这样运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">biosoft/vcftool-0.1.13/bin/vcftools --vcf /home/foo/vcffile/input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        亦或这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">biosoft/vcftool-0.1.13/bin/vcftools --vcf vcffile/input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        也可以进到 <code>vcffile</code> 这个目录里，这样运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/home/foo/biosoft/vcftool-0.1.13/bin/vcftools --vcf input_data.vcf</div></pre></td></tr></table></figure>
+<p>​         或者这样（ “<strong>..</strong>” 在这里代表上级目录，相应的，”<strong>../..</strong>“ 代表上级目录的上级目录）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">../biosoft/vcftool-0.1.13/bin/vcftools --vcf input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        总之，想怎么运行，看心情！</p>
+<p>​        相信看到这里，会有记忆力超好的童鞋会问了，我该如何像运行 <code>pwd</code> 那样运行 <code>vcftools</code> 呢？而不是在它前面加上一大串绝对路径或是相对路径！</p>
+<p>​        要回答这个问题，小编先给大家展示两个命令（不深入讲解）：</p>
+<p>​        第一个是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">which pwd</div></pre></td></tr></table></figure>
+<p>​        返回的应该是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/bin/pwd</div></pre></td></tr></table></figure>
+<p>​        第二个是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">echo $PATH</div></pre></td></tr></table></figure>
+<p>​        会返回类似下面的结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/foo/biosoft/vcftool-0.1.13/bin</div></pre></td></tr></table></figure>
+<p>​        眼尖的童鞋会发现，上面一串结果其实就是许多绝对路径通过 “<strong>:</strong>” 连接在一起的（叫做<strong>环境变量</strong>），其中有一个路径 “<strong>/bin</strong>” ；而 <code>which pwd</code> 返回的结果是 <code>/bin/pwd</code>。这两个有什么关系呢？其实不必深究，我们只需要知道，linux 把 <code>pwd</code> 看作一个文件（还记得前面说的“一切皆文件”吗），linux 系统会在上述的<strong>环境变量</strong>中从左往右<strong>依次</strong>查找，看某个路径下是否有 <code>pwd</code> 这个文件，然后执行这个命令。并且，<strong>环境变量</strong>是可以编辑的， 即可在环境变量  “<strong>PATH</strong>” 中添加特定的路径。同理，如果我们的 <code>vcftools</code> 软件（其实就是个文件）的路径也在上述的路径中，就可以在终端直接输入  <code>vcftools</code>  就可以运行了。</p>
+<p>​        那么问题来了，我们该如何将特定软件的路径发到上述的环境变量 “<strong>PATH</strong>” 中呢？</p>
+<p>​        只需要通过 <code>export</code> 命令，在终端中输入以下内容，回车后，就可以将  <code>vcftools</code> 的路径导入到上述的环境变量中：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># vcftools （井号后的内容 linux 系统不会读取，可以做注释）</div><div class="line">export PATH=$PATH:&apos;/home/foo/biosoft/vcftool-0.1.13/bin&apos; # 添加这一行就行了，export 后要加空格，不要换行。</div></pre></td></tr></table></figure>
+<p>​        就会得到类似这样的结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/foo/biosoft/vcftool-0.1.13/bin</div></pre></td></tr></table></figure>
+<p>​        当然，如果你是这样输入的，</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">export PATH=&apos;/home/foo/biosoft/vcftool-0.1.13/bin&apos;:$PATH</div></pre></td></tr></table></figure>
+<p>​        那就应该得到类似这样的结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/home/foo/biosoft/vcftool-0.1.13/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</div></pre></td></tr></table></figure>
+<p>​        就可以不加绝对路径运行  <code>vcftools</code> 了。像这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vcftools --vcf input_data.vcf</div></pre></td></tr></table></figure>
+<p>​        但上述做法有一个弊端，就是这个做法是暂时性的，就是说每次打开或登陆终端时，都要运行一下这个命令才行，非常麻烦。所以怎么办呢？</p>
+<p>​        其实不难，在每个用户的家目录下，即上述的 <code>/home/foo</code> 下，都有一个非常重要的隐藏文件 “<strong>.bashrc</strong>”，里面有许多我们每次启动或登陆终端时，linux 系统都会默认自动运行的命令。所以，只需将</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">export PATH=$PATH:&apos;/home/foo/biosoft/vcftool-0.1.13/bin&apos;</div></pre></td></tr></table></figure>
+<p>添加到 “<strong>.bashrc</strong>” 文件的最后一行即可。这样我们每次启动或登陆终端时，系统就会自动运行这个命令了，这样就免去可多次手动添加的麻烦。如果不想重启终端，可以执行这个命令（相当于让系统执行一遍 “<strong>.bashrc</strong>”  中的命令）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">source .bashrc</div></pre></td></tr></table></figure>
+<p>​ 怎么加呢？可以在家目录下，运行一个文本编辑命令 <code>vim</code> 或 <code>nano</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vim .bashrc</div></pre></td></tr></table></figure>
+<p>对于 vim 怎么使用，可以自行百度，有详细教程，这里不做赘诉（使用起来比较复杂）。</p>
+<p>或另一个命令 <code>nano</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">nano .bashrc</div></pre></td></tr></table></figure>
+<p>​ 这个比较简单，只需回车后：</p>
+<ol>
+<li>按向下箭头（一直到文件最底部）</li>
+<li>黏贴 <code>export PATH=$PATH:&#39;/home/foo/biosoft/vcftool-0.1.13/bin&#39;</code></li>
+<li>依次按 <code>ctrl + x</code>，<code>y</code>，<code>Enter</code>（即保存退出）</li>
+</ol>
+<p><strong>注意1</strong>：<code>/home/foo/biosoft/vcftool-0.1.13/bin</code> 要做根据自己的实际路径做相应地改动。</p>
+<p><strong>注意2</strong>： 在 linux 系统里，通过 nano 或是 vim 一般是通过上下左右等方向键或其它快捷方式移动光标。</p>
+<h5 id="重要知识点回顾："><a href="#重要知识点回顾：" class="headerlink" title="重要知识点回顾："></a>重要知识点回顾：</h5><ol>
+<li>终端</li>
+<li>目录树</li>
+<li>家目录</li>
+<li>大小写敏感</li>
+<li>绝对路径和相对路径</li>
+<li>一切皆文件</li>
+<li>环境变量及其编辑</li>
+</ol>
+<h5 id="​下期预告：linux-基础命令"><a href="#​下期预告：linux-基础命令" class="headerlink" title="​下期预告：linux 基础命令"></a>​下期预告：linux 基础命令</h5>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/python-学习笔记/" rel="next" title="python 学习笔记">
+                <i class="fa fa-chevron-left"></i> python 学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/生信入门系列之-linux-入门（一）：基础命令（上）/" rel="prev" title="生信入门系列之 linux 入门（一）：基础命令（上）">
+                生信入门系列之 linux 入门（一）：基础命令（上） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/headportrait.jpg"
+               alt="Hui Liu" />
+          <p class="site-author-name" itemprop="name">Hui Liu</p>
+           
+              <p class="site-description motion-element" itemprop="description">北京林业大学在读硕士<br>liuhui@bjfu.edu.cn</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hui-liu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/liuhui0622" target="_blank" title="cnblogs">
+                  
+                    <i class="fa fa-fw fa-博客园"></i>
+                  
+                  cnblogs
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.researchgate.net/profile/Liu_Hui35" target="_blank" title="researchgate">
+                  
+                    <i class="fa fa-fw fa-researchgate"></i>
+                  
+                  researchgate
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://yihenghu.github.io/" target="_blank" title="Yi-heng Hu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Yi-heng Hu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生信入门系列之-linux-入门（一）：初识-linux-系统"><span class="nav-text">生信入门系列之 linux 入门（一）：初识 linux 系统</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#重要知识点回顾："><span class="nav-text">重要知识点回顾：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#​下期预告：linux-基础命令"><span class="nav-text">​下期预告：linux 基础命令</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hui Liu</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+  
+
+  
+  
+</body>
+</html>
