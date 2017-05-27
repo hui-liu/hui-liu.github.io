@@ -89,19 +89,28 @@
 
 
 
-<meta name="description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
-正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
+<meta name="description" content="给定 chromosome 或 scaffold 的坐标（起始和终止位置），如何将对应序列提取出来？
+这个问题需要分类讨论，以下面的数据为例：
+1 18870555 188725671 14014796 140150291 14015227 140155051 27611499 276121791 6053214 6053029
+a. 如果起始坐标小于终止位置，则直接提取
+如 1 18870555">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在遍历时，正确删除列表中的 items">
-<meta property="og:url" content="https://hui-liu.github.io/blog/如何在遍历时，正确删除列表中的-items/index.html">
+<meta property="og:title" content="笔记本上的生信分析：根据区间批量提取序列">
+<meta property="og:url" content="https://hui-liu.github.io/blog/笔记本上的生信分析：根据区间批量提取序列/index.html">
 <meta property="og:site_name" content="liuhui | 刘辉">
-<meta property="og:description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
-正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
-<meta property="og:updated_time" content="2017-03-08T09:22:48.197Z">
+<meta property="og:description" content="给定 chromosome 或 scaffold 的坐标（起始和终止位置），如何将对应序列提取出来？
+这个问题需要分类讨论，以下面的数据为例：
+1 18870555 188725671 14014796 140150291 14015227 140155051 27611499 276121791 6053214 6053029
+a. 如果起始坐标小于终止位置，则直接提取
+如 1 18870555">
+<meta property="og:updated_time" content="2017-05-27T14:20:57.725Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何在遍历时，正确删除列表中的 items">
-<meta name="twitter:description" content="错误的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x:    if i in y:        x.remove(i)print x-----------------[&apos;a&apos;, &apos;c&apos;, &apos;d&apos;]
-正确的代码x = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]y = [&apos;b&apos;, &apos;c&apos;]for i in x[:]:    if i in y:">
+<meta name="twitter:title" content="笔记本上的生信分析：根据区间批量提取序列">
+<meta name="twitter:description" content="给定 chromosome 或 scaffold 的坐标（起始和终止位置），如何将对应序列提取出来？
+这个问题需要分类讨论，以下面的数据为例：
+1 18870555 188725671 14014796 140150291 14015227 140155051 27611499 276121791 6053214 6053029
+a. 如果起始坐标小于终止位置，则直接提取
+如 1 18870555">
 
 
 
@@ -129,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="https://hui-liu.github.io/blog/如何在遍历时，正确删除列表中的-items/"/>
+  <link rel="canonical" href="https://hui-liu.github.io/blog/笔记本上的生信分析：根据区间批量提取序列/"/>
 
 
 
 
 
-  <title> 如何在遍历时，正确删除列表中的 items | liuhui | 刘辉 </title>
+  <title> 笔记本上的生信分析：根据区间批量提取序列 | liuhui | 刘辉 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -309,7 +318,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/如何在遍历时，正确删除列表中的-items/">
+    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/笔记本上的生信分析：根据区间批量提取序列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hui Liu">
@@ -330,7 +339,7 @@
             
             
               
-                如何在遍历时，正确删除列表中的 items
+                笔记本上的生信分析：根据区间批量提取序列
               
             
           </h1>
@@ -345,8 +354,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-08T17:21:23+08:00">
-                2017-03-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-27T16:56:14+08:00">
+                2017-05-27
               </time>
             
 
@@ -368,8 +377,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/code/" itemprop="url" rel="index">
-                    <span itemprop="name">code</span>
+                  <a href="/categories/生信/" itemprop="url" rel="index">
+                    <span itemprop="name">生信</span>
                   </a>
                 </span>
 
@@ -403,9 +412,46 @@
       
 
       
-        <h3 id="错误的代码"><a href="#错误的代码" class="headerlink" title="错误的代码"></a>错误的代码</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">x = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line">y = [<span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> x:</div><div class="line">    <span class="keyword">if</span> <span class="selector-tag">i</span> <span class="keyword">in</span> y:</div><div class="line">        x.remove(i)</div><div class="line">print x</div><div class="line">-----------------</div><div class="line"></div><div class="line">[<span class="string">'a'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
-<h3 id="正确的代码"><a href="#正确的代码" class="headerlink" title="正确的代码"></a>正确的代码</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">x = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line">y = [<span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> x[:]:</div><div class="line">    <span class="keyword">if</span> <span class="selector-tag">i</span> <span class="keyword">in</span> y:</div><div class="line">        x.remove(i)</div><div class="line">print x</div><div class="line">-----------------</div><div class="line"></div><div class="line">[<span class="string">'a'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
-<p>实际上，<code>id(x)</code>与<code>id(x[:])</code>是不同的，所以只有在<code>x</code>的副本（<code>x[:]</code>）中遍历，然后在<code>x</code>中删除，才不会造成错误。</p>
+        <p>给定 chromosome 或 scaffold 的坐标（起始和终止位置），如何将对应序列提取出来？</p>
+<p>这个问题需要分类讨论，以下面的数据为例：</p>
+<figure class="highlight basic"><table><tr><td class="code"><pre><div class="line"><span class="symbol">1 </span><span class="number">18870555</span> <span class="number">18872567</span></div><div class="line"><span class="symbol">1 </span><span class="number">14014796</span> <span class="number">14015029</span></div><div class="line"><span class="symbol">1 </span><span class="number">14015227</span> <span class="number">14015505</span></div><div class="line"><span class="symbol">1 </span><span class="number">27611499</span> <span class="number">27612179</span></div><div class="line"><span class="symbol">1 </span><span class="number">6053214</span> <span class="number">6053029</span></div></pre></td></tr></table></figure>
+<p><strong>a. 如果起始坐标小于终止位置，则直接提取</strong></p>
+<p>如 <code>1 18870555 18872567</code> 表示 <code>1</code> 号染色体的 <code>18870555</code> 到 <code>18872567</code> 这个区间的序列（包括起始）。</p>
+<p>提取方法是应用 <code>python</code> 的序列切片语法；用 <code>chr1</code> 表示一号染色体的序列，则这样提取这个区间的序列：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">chr1[<span class="number">18870555</span><span class="number">-1</span>: <span class="number">18872567</span>]</div></pre></td></tr></table></figure>
+<p>起始坐标减 1，是因为 <code>python</code> 的计数是从 0 开始的；终止位置不减 1，是因为 <code>python</code> 的序列切片语法遵循<strong>左闭右开</strong>的原则，即切片时包括起始坐标，但不包括终止坐标。</p>
+<p><strong>b. 如果起始位置大于终止位置，则提取其反向互补序列</strong> </p>
+<p>以<code>1 6053214 6053029</code> 为例。</p>
+<p>这个情况，实现方法分两步：</p>
+<p><strong>b1. 首先互换起始和终止坐标，并提取这个区间的序列</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">seq = chr1[<span class="number">6053029</span><span class="number">-1</span>: <span class="number">6053214</span>]</div></pre></td></tr></table></figure>
+<p><strong>b2. 然后， 用一个函数，将 seq 转成其反向互补的序列</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">revcomp(seq)</div></pre></td></tr></table></figure>
+<p>那么，应该如何写这个函数呢？看下边例子</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">revcomp</span><span class="params">(dna)</span>:</span></div><div class="line">    bases = <span class="string">'ATGCTACG'</span></div><div class="line">    complement_dict = &#123;bases[i]:bases[i+<span class="number">4</span>] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>)&#125;</div><div class="line">    dna = reversed(dna)</div><div class="line">    result = [complement_dict[base] <span class="keyword">for</span> base <span class="keyword">in</span> dna]</div><div class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(result)</div><div class="line"></div><div class="line">my_dna = <span class="string">'AAATTTCGCGCG'</span></div><div class="line"><span class="keyword">print</span> revcomp(my_dna)</div></pre></td></tr></table></figure>
+<p>结果是：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><div class="line"><span class="attribute">CGCGCGAAATTT</span></div></pre></td></tr></table></figure>
+<p>其实现步骤分两步：</p>
+<p><strong>第一步：反向</strong></p>
+<p>这步直接用 <code>python</code> 的内置函数：<code>reversed</code>。可以将 <code>AAATTTCGCGCG</code> 的顺序反过来：<code>GCGCGCTTTAAA</code>。</p>
+<p><strong>第二步：互补</strong></p>
+<p>这一步的思路是，首先构建一个互补的字典，如 <code>{&quot;A&quot; : &quot;T&quot;}</code> ，而 <code>complement_dict</code> 则内容如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">&#123;<span class="string">'A'</span>: <span class="string">'T'</span>, <span class="string">'C'</span>: <span class="string">'G'</span>, <span class="string">'T'</span>: <span class="string">'A'</span>, <span class="string">'G'</span>: <span class="string">'C'</span>&#125;</div></pre></td></tr></table></figure>
+<p>所以，当对序列 <code>GCGCGCTTTAAA</code> 进行遍历时，可以通过 <code>complement_dict</code>，转换成相应的互补碱基，如 <code>G</code> 转换成 <code>C</code>。</p>
+<hr>
+<p>好了，上面讲的是思路，下面的程序的实现了上面思路。运行方法是：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">python extract_seqs_by_coordinates.py sequences.fasta regions.txt out.fasta</div></pre></td></tr></table></figure>
+<p>其中，</p>
+<ul>
+<li><code>extract_seqs_by_coordinates.py</code> 为 <code>python</code> 程序，其中的的代码在后面贴出来；</li>
+<li><code>sequences.fasta</code> 是啥，大家应该知道了；<code>regions.txt</code> 的数据格式前面已经给出来了，通过 <code>awk</code> 等 linux 命令，可以很容易地从 <code>blast</code> 等软件地结果中提取出来，这里不再赘述（如果软件跑出来的数据格式比较复杂，那就是另外一个问题了）；</li>
+<li><code>out.fasta</code> 是输出文件，自己定义。</li>
+</ul>
+<p><strong><code>extract_seqs_by_coordinates.py</code>  程序的代码如下：</strong></p>
+<p>其中，<code>coortoDict</code> 函数将 <code>regions.txt</code> 文件内容转换成 <code>python</code> 的字典，如 </p>
+<p><code>{&#39;2&#39;: [[9025486, 9025542, &#39;-&#39;], [180481, 180543, &#39;-&#39;]}</code></p>
+<hr>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line">USAGE = <span class="string">"\nusage: python  %s sequences.fasta regions.txt out.fasta\n"</span> % sys.argv[<span class="number">0</span>]</div><div class="line"></div><div class="line"><span class="keyword">if</span> len(sys.argv) != <span class="number">4</span>:</div><div class="line">    <span class="keyword">print</span> USAGE</div><div class="line">    sys.exit()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">parseFasta</span><span class="params">(filename)</span>:</span></div><div class="line">    fas = &#123;&#125;</div><div class="line">    id = <span class="keyword">None</span></div><div class="line">    <span class="keyword">with</span> open(filename, <span class="string">'r'</span>) <span class="keyword">as</span> fh:</div><div class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fh:</div><div class="line">            <span class="keyword">if</span> line[<span class="number">0</span>] == <span class="string">'&gt;'</span>:</div><div class="line">                header = line[<span class="number">1</span>:].rstrip()</div><div class="line">                id = header.split()[<span class="number">0</span>]</div><div class="line">                fas[id] = []</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                fas[id].append(line.rstrip())</div><div class="line">        <span class="keyword">for</span> id, seq <span class="keyword">in</span> fas.iteritems():</div><div class="line">            fas[id] = <span class="string">''</span>.join(seq)</div><div class="line">    <span class="keyword">return</span> fas</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">coortoDict</span><span class="params">(filename)</span>:</span></div><div class="line">    coor = &#123;&#125;</div><div class="line">    <span class="keyword">with</span> open(filename, <span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</div><div class="line">            lsplit = line.split()</div><div class="line">            strand = <span class="string">"+"</span></div><div class="line">            <span class="keyword">if</span> int(lsplit[<span class="number">1</span>]) &gt; int(lsplit[<span class="number">2</span>]):</div><div class="line">                lsplit[<span class="number">1</span>], lsplit[<span class="number">2</span>] = lsplit[<span class="number">2</span>], lsplit[<span class="number">1</span>]</div><div class="line">                strand = <span class="string">"-"</span></div><div class="line">            coor.setdefault(lsplit[<span class="number">0</span>],[]).append([int(lsplit[<span class="number">1</span>]), int(lsplit[<span class="number">2</span>]), strand])</div><div class="line">    <span class="keyword">return</span> coor            </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">revcomp</span><span class="params">(seq)</span>:</span></div><div class="line">    bases = <span class="string">'ABCDGHMNRSTUVWXYabcdghmnrstuvwxyTVGHCDKNYSAABWXRtvghcdknysaabwxr'</span></div><div class="line">    complement_dict = &#123;bases[i]:bases[i+<span class="number">32</span>] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">32</span>)&#125;</div><div class="line">    seq = reversed(seq)</div><div class="line">    result = [complement_dict[base] <span class="keyword">for</span> base <span class="keyword">in</span> seq]</div><div class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(result)</div><div class="line"></div><div class="line"></div><div class="line">fas = parseFasta(sys.argv[<span class="number">1</span>])</div><div class="line">coors = coortoDict(sys.argv[<span class="number">2</span>])</div><div class="line">OUT = open(sys.argv[<span class="number">3</span>], <span class="string">'w'</span>)</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> coors:</div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> coors[i]:</div><div class="line">        <span class="keyword">if</span> j[<span class="number">2</span>] ==<span class="string">"-"</span>:</div><div class="line">            seq = revcomp(fas[i][j[<span class="number">0</span>]<span class="number">-1</span>: j[<span class="number">1</span>]])</div><div class="line">            OUT.write(<span class="string">"&gt;"</span> + i + <span class="string">":"</span> + str(j[<span class="number">0</span>]) + <span class="string">"-"</span> + str(j[<span class="number">1</span>]) + <span class="string">"\n"</span> + seq + <span class="string">"\n"</span>)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            seq = fas[i][j[<span class="number">0</span>]<span class="number">-1</span>: j[<span class="number">1</span>]]</div><div class="line">            OUT.write(<span class="string">"&gt;"</span> + i + <span class="string">":"</span> + str(j[<span class="number">0</span>]) + <span class="string">"-"</span> + str(j[<span class="number">1</span>]) + <span class="string">"\n"</span> + seq + <span class="string">"\n"</span>)</div><div class="line">OUT.close()</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -442,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/根据一个list文件生成一个组合/" rel="next" title="根据一个list文件生成一个组合">
-                <i class="fa fa-chevron-left"></i> 根据一个list文件生成一个组合
+              <a href="/blog/批量提取序列小程序/" rel="next" title="批量提取序列小程序">
+                <i class="fa fa-chevron-left"></i> 批量提取序列小程序
               </a>
             
           </div>
@@ -451,10 +497,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/networkx-笔记/" rel="prev" title="networkx 笔记">
-                networkx 笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,17 +543,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/headportrait.jpg"
@@ -618,22 +651,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#错误的代码"><span class="nav-text">错误的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正确的代码"><span class="nav-text">正确的代码</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
