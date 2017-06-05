@@ -89,17 +89,21 @@
 
 
 
-<meta name="description" content="BLAST 的简单介绍BLAST 是 NCBI 开发的一个基于序列相似性的数据库搜索程序。BLAST 是 Basic Local Alignment Search Tool 的缩写。而 BLAST+ 可以说是 BLAST 的升级版，核心算法是一样的，但在运行速度上有了较大的提升。BLAST+ 的下载地址为：ftp://ftp.ncbi.nlm.nih.gov/blast/executables/b">
+<meta name="description" content="BLAST 的简单介绍BLAST 是 NCBI 开发的一个基于序列相似性的数据库搜索程序。BLAST 是 Basic Local Alignment Search Tool 的缩写。而 BLAST+ 可以说是 BLAST 的升级版，核心算法是一样的，但在运行速度上有了较大的提升。由于 BLAST 和 BLAST+ 核心算法一样，为了方便，文章统一用 BLAST。
+BLAST+ 的下载地址为：ftp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="blast知多少">
 <meta property="og:url" content="https://hui-liu.github.io/blog/blast知多少/index.html">
 <meta property="og:site_name" content="liuhui | 刘辉">
-<meta property="og:description" content="BLAST 的简单介绍BLAST 是 NCBI 开发的一个基于序列相似性的数据库搜索程序。BLAST 是 Basic Local Alignment Search Tool 的缩写。而 BLAST+ 可以说是 BLAST 的升级版，核心算法是一样的，但在运行速度上有了较大的提升。BLAST+ 的下载地址为：ftp://ftp.ncbi.nlm.nih.gov/blast/executables/b">
+<meta property="og:description" content="BLAST 的简单介绍BLAST 是 NCBI 开发的一个基于序列相似性的数据库搜索程序。BLAST 是 Basic Local Alignment Search Tool 的缩写。而 BLAST+ 可以说是 BLAST 的升级版，核心算法是一样的，但在运行速度上有了较大的提升。由于 BLAST 和 BLAST+ 核心算法一样，为了方便，文章统一用 BLAST。
+BLAST+ 的下载地址为：ftp">
 <meta property="og:image" content="https://hui-liu.github.io/blog/blast知多少/1.png">
-<meta property="og:updated_time" content="2017-06-05T02:40:56.532Z">
+<meta property="og:image" content="https://hui-liu.github.io/blog/blast知多少/2.png">
+<meta property="og:updated_time" content="2017-06-05T06:43:30.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="blast知多少">
-<meta name="twitter:description" content="BLAST 的简单介绍BLAST 是 NCBI 开发的一个基于序列相似性的数据库搜索程序。BLAST 是 Basic Local Alignment Search Tool 的缩写。而 BLAST+ 可以说是 BLAST 的升级版，核心算法是一样的，但在运行速度上有了较大的提升。BLAST+ 的下载地址为：ftp://ftp.ncbi.nlm.nih.gov/blast/executables/b">
+<meta name="twitter:description" content="BLAST 的简单介绍BLAST 是 NCBI 开发的一个基于序列相似性的数据库搜索程序。BLAST 是 Basic Local Alignment Search Tool 的缩写。而 BLAST+ 可以说是 BLAST 的升级版，核心算法是一样的，但在运行速度上有了较大的提升。由于 BLAST 和 BLAST+ 核心算法一样，为了方便，文章统一用 BLAST。
+BLAST+ 的下载地址为：ftp">
 <meta name="twitter:image" content="https://hui-liu.github.io/blog/blast知多少/1.png">
 
 
@@ -402,8 +406,8 @@
       
 
       
-        <h2 id="BLAST-的简单介绍"><a href="#BLAST-的简单介绍" class="headerlink" title="BLAST 的简单介绍"></a>BLAST 的简单介绍</h2><p>BLAST 是 NCBI 开发的一个基于序列相似性的数据库搜索程序。BLAST 是 <strong>Basic Local Alignment Search Tool</strong> 的缩写。而 BLAST+ 可以说是 BLAST 的升级版，核心算法是一样的，但在运行速度上有了较大的提升。BLAST+ 的下载地址为：ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.31/，有 linux 版和 windows 版。对于 linux 版，解压即可使用，对于 windows，双击，按默认设置安装即可。 </p>
-<p>由于 BLAST 和 BLAST+ 核心算法一样，下文统一用 BLAST。</p>
+        <h2 id="BLAST-的简单介绍"><a href="#BLAST-的简单介绍" class="headerlink" title="BLAST 的简单介绍"></a>BLAST 的简单介绍</h2><p>BLAST 是 NCBI 开发的一个基于序列相似性的数据库搜索程序。BLAST 是 <strong>Basic Local Alignment Search Tool</strong> 的缩写。而 BLAST+ 可以说是 BLAST 的升级版，核心算法是一样的，但在运行速度上有了较大的提升。<strong>由于 BLAST 和 BLAST+ 核心算法一样，为了方便，文章统一用 BLAST</strong>。</p>
+<p>BLAST+ 的下载地址为：ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.31/，有 linux 版和 windows 版。对于 linux 版，解压即可使用，对于 windows，双击，按默认设置安装即可。 </p>
 <p>BLAST 比对，所需要的数据分为两部分：</p>
 <ul>
 <li>query sequence，自己感兴趣的序列，一般以 fasta 格式存储。</li>
@@ -465,24 +469,93 @@
 </table>
 <p><strong>blastx 、tblastn 和 tblastx 中的 核酸序列按 six reading frames 的原则翻译成蛋白值序列，然后进行比对</strong></p>
 <h2 id="BLAST-的简单使用"><a href="#BLAST-的简单使用" class="headerlink" title="BLAST 的简单使用"></a>BLAST 的简单使用</h2><p>这里讲 BLAST+ 的用法，分两步，第一步是建库：</p>
-<figure class="highlight elm"><table><tr><td class="code"><pre><div class="line"><span class="title">makeblast</span> -<span class="keyword">in</span> genome.fasta -db<span class="keyword">type</span> nucl</div></pre></td></tr></table></figure>
+<figure class="highlight elm"><table><tr><td class="code"><pre><div class="line"><span class="title">makeblastdb</span> -<span class="keyword">in</span> genome.fasta -db<span class="keyword">type</span> nucl</div></pre></td></tr></table></figure>
 <p>这里的 genome.fasta 就是上面说的 datatase；参数 <code>-dbtype</code>：指定数据库的类型，<strong>nucl</strong> 指的是核苷酸序列，如果是蛋白质序列，则用 <strong>prot</strong> 代替。</p>
 <p>第二步是比对：</p>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">tblastn -query query_pep<span class="selector-class">.fasta</span> -db genome<span class="selector-class">.fasta</span> -evalue <span class="number">1</span>e-<span class="number">5</span> -num_threads <span class="number">20</span> -max_target_seqs <span class="number">5</span> -out query_pep<span class="selector-class">.outfmt6</span> -outfmt <span class="string">"6 qseqid sseqid pident qcovs mismatch gapopen qstart qend sstart send evalue bitscore"</span></div></pre></td></tr></table></figure>
 <ul>
-<li><code>-evalue</code> 指定 E-value的值，该值越小，片段的相似性越高，一般近缘物种，该值可以设置小一些，远缘物种则设置大一些。</li>
+<li><code>-evalue</code> 指定 E-value的值，E-value 用于评价 bitscore （输出文件 query_pep.outfmt6 的第12列）的可靠性，该值越小可靠性越高。</li>
 <li><code>-num_threads</code> 指定线程数，根据自己的计算机资源调整。</li>
 <li><code>-num_threads</code>指定保留多少个结果，例子表示保留最好的 5 个比对结果。</li>
 <li><code>-outfmt</code> 指定输出格式，如下</li>
 </ul>
 <figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line"> <span class="number">0</span> = pairwise,</div><div class="line"> <span class="number">1</span> = query-anchored showing identities,</div><div class="line"> <span class="number">2</span> = query-anchored no identities,</div><div class="line"> <span class="number">3</span> = flat query-anchored, show identities,</div><div class="line"> <span class="number">4</span> = flat query-anchored, no identities,</div><div class="line"> <span class="number">5</span> = XML Blast output,</div><div class="line"> <span class="number">6</span> = tabular,</div><div class="line"> <span class="number">7</span> = tabular with comment lines,</div><div class="line"> <span class="number">8</span> = Text ASN<span class="number">.1</span>,</div><div class="line"> <span class="number">9</span> = Binary ASN<span class="number">.1</span>,</div><div class="line"><span class="number">10</span> = Comma-separated values,</div><div class="line"><span class="number">11</span> = BLAST archive format (ASN<span class="number">.1</span>)</div></pre></td></tr></table></figure>
-<p>6 表示以列表的方式输出，而每一列的意义按引号的内容指定：</p>
+<p>6 表示以列表的方式输出，而每一列的含义，按引号中的字符指定：</p>
 <figure class="highlight autoit"><table><tr><td class="code"><pre><div class="line">qseqid sseqid pident qcovs mismatch gapopen qstart qend sstart <span class="built_in">send</span> evalue bitscore</div></pre></td></tr></table></figure>
+<p>依次表示：</p>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>qseqid</td>
+<td>query sequence  的 id</td>
+</tr>
+<tr>
+<td>sseqid</td>
+<td>database sequence 的 id</td>
+</tr>
+<tr>
+<td>pident</td>
+<td>相似度</td>
+</tr>
+<tr>
+<td>qcovs</td>
+<td>覆盖度（比对上的片段占query sequence长度的百分比），</td>
+</tr>
+<tr>
+<td>mismatch</td>
+<td>错配数</td>
+</tr>
+<tr>
+<td>gapopen</td>
+<td>gap 数</td>
+</tr>
+<tr>
+<td>qstart</td>
+<td>query sequence 比对的起始位置</td>
+</tr>
+<tr>
+<td>qend</td>
+<td>query sequence 比对的终止位置</td>
+</tr>
+<tr>
+<td>sstart</td>
+<td>database sequence 比对的起始位置</td>
+</tr>
+<tr>
+<td>send</td>
+<td>database sequence 比对的终止位置</td>
+</tr>
+<tr>
+<td>evalue</td>
+<td>评价 bitscore 的可靠性，值越小越好</td>
+</tr>
+<tr>
+<td>bitscore</td>
+<td>比对得分，越高越好</td>
+</tr>
+</tbody>
+</table>
 <p>格式  6, 7, 和 10 支持输出的列及含义如下：</p>
 <figure class="highlight stata"><table><tr><td class="code"><pre><div class="line">  qseqid <span class="keyword">means</span> <span class="keyword">Query</span> Seq-id</div><div class="line">       qgi <span class="keyword">means</span> <span class="keyword">Query</span> GI</div><div class="line">      qacc <span class="keyword">means</span> <span class="keyword">Query</span> accesion</div><div class="line">   qaccver <span class="keyword">means</span> <span class="keyword">Query</span> accesion.<span class="keyword">version</span></div><div class="line">      qlen <span class="keyword">means</span> <span class="keyword">Query</span> sequence <span class="built_in">length</span></div><div class="line">    sseqid <span class="keyword">means</span> Subject Seq-id</div><div class="line"> sallseqid <span class="keyword">means</span> All subject Seq-id(s), separated <span class="keyword">by</span> a ';'</div><div class="line">       sgi <span class="keyword">means</span> Subject GI</div><div class="line">    sallgi <span class="keyword">means</span> All subject GIs</div><div class="line">      sacc <span class="keyword">means</span> Subject accession</div><div class="line">   saccver <span class="keyword">means</span> Subject accession.<span class="keyword">version</span></div><div class="line">   sallacc <span class="keyword">means</span> All subject accessions</div><div class="line">      slen <span class="keyword">means</span> Subject sequence <span class="built_in">length</span></div><div class="line">    qstart <span class="keyword">means</span> Start of alignment <span class="keyword">in</span> <span class="keyword">query</span></div><div class="line">      qend <span class="keyword">means</span> End of alignment <span class="keyword">in</span> <span class="keyword">query</span></div><div class="line">    sstart <span class="keyword">means</span> Start of alignment <span class="keyword">in</span> subject</div><div class="line">      send <span class="keyword">means</span> End of alignment <span class="keyword">in</span> subject</div><div class="line">      qseq <span class="keyword">means</span> Aligned part of <span class="keyword">query</span> sequence</div><div class="line">      sseq <span class="keyword">means</span> Aligned part of subject sequence</div><div class="line">    evalue <span class="keyword">means</span> Expect value</div><div class="line">  bitscore <span class="keyword">means</span> Bit <span class="keyword">score</span></div><div class="line">     <span class="keyword">score</span> <span class="keyword">means</span> Raw <span class="keyword">score</span></div><div class="line">    length <span class="keyword">means</span> Alignment <span class="built_in">length</span></div><div class="line">    pident <span class="keyword">means</span> Percentage of identical matches</div><div class="line">    nident <span class="keyword">means</span> Number of identical matches</div><div class="line">  mismatch <span class="keyword">means</span> Number of mismatches</div><div class="line">  positive <span class="keyword">means</span> Number of positive-scoring matches</div><div class="line">   gapopen <span class="keyword">means</span> Number of gap openings</div><div class="line">      gaps <span class="keyword">means</span> <span class="keyword">Total</span> number of gaps</div><div class="line">      ppos <span class="keyword">means</span> Percentage of positive-scoring matches</div><div class="line">    frames <span class="keyword">means</span> <span class="keyword">Query</span> and subject frames separated <span class="keyword">by</span> a '/'</div><div class="line">    qframe <span class="keyword">means</span> <span class="keyword">Query</span> frame</div><div class="line">    sframe <span class="keyword">means</span> Subject frame</div><div class="line">      btop <span class="keyword">means</span> Blast traceback operations (BTOP)</div><div class="line">   staxids <span class="keyword">means</span> unique Subject Taxonomy ID(s), separated <span class="keyword">by</span> a ';'</div><div class="line">                 (<span class="keyword">in</span> numerical <span class="keyword">order</span>)</div><div class="line"> sscinames <span class="keyword">means</span> unique Subject Scientific Name(s), separated <span class="keyword">by</span> a ';'</div><div class="line"> scomnames <span class="keyword">means</span> unique Subject Common Name(s), separated <span class="keyword">by</span> a ';'</div><div class="line">sblastnames <span class="keyword">means</span> unique Subject Blast Name(s), separated <span class="keyword">by</span> a ';'</div><div class="line">                 (<span class="keyword">in</span> alphabetical <span class="keyword">order</span>)</div><div class="line">sskingdoms <span class="keyword">means</span> unique Subject Super Kingdom(s), separated <span class="keyword">by</span> a ';'</div><div class="line">                 (<span class="keyword">in</span> alphabetical <span class="keyword">order</span>)</div><div class="line">    stitle <span class="keyword">means</span> Subject Title</div><div class="line">salltitles <span class="keyword">means</span> All Subject Title(s), separated <span class="keyword">by</span> a '&lt;&gt;'</div><div class="line">   sstrand <span class="keyword">means</span> Subject Strand</div><div class="line">     qcovs <span class="keyword">means</span> <span class="keyword">Query</span> Coverage Per Subject</div><div class="line">   qcovhsp <span class="keyword">means</span> <span class="keyword">Query</span> Coverage Per HSP</div></pre></td></tr></table></figure>
 <p>可以运行：</p>
 <figure class="highlight dos"><table><tr><td class="code"><pre><div class="line">tblastn -<span class="built_in">help</span></div></pre></td></tr></table></figure>
 <p>查看 tblastn 的所有参数。</p>
+<h2 id="如何设定阈值"><a href="#如何设定阈值" class="headerlink" title="如何设定阈值"></a>如何设定阈值</h2><p>需要考虑的值有三个</p>
+<ul>
+<li><p>E-value：做功能注释时，通常将序列比对到 swiss-prot 数据库和 NCBI 的 Nr 数据库，这时，设置 E-value 为 1e-5（10的-5次幂）就可以了；如果是其他较小的数据库，如拟南芥基因组，建议将 E-value 设置为 1e-10。因为 E-value 的大小与数据库的大小有关（公式如下），其中 n 代表数据库大小，S 为 bitscore 值。当然 E-value 值设置的大小应按不同的研究，设置不同的大小，可以按特定研究的文献进行设置。</p>
+<p><img src="/blog/blast知多少/2.png" alt="2"></p>
+</li>
+<li><p>相似度：即 pident。在氨基酸水平上，相似度可以设置为 30，严格一些可以设置为 70；在核苷酸水上，可以设置 70 或 90。没有统一的标准，还是以特定研究的参考文献为准。</p>
+</li>
+<li><p>覆盖度：即 qcovs。由于 BLAST 是局部相似性比对，即考虑 query sequence 中的某个片段与 database sequence 中的某个片段的相似性，而 <strong>E-value和相似度都是评价这些片段的相似性，是一个局部评价体系</strong>，所以，还要有一个全局的评价体系，如覆盖度。因此，想要查找某个基因在 database 中的相似序列，还需要做一个全局覆盖度不能太低；可以按特定要求，设置为 50，70 或 90。</p>
+</li>
+</ul>
 <p><strong>无论如何，需要记住的一点是，相似性并不能证明同源性。</strong></p>
 
       
@@ -702,7 +775,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BLAST-的简单介绍"><span class="nav-text">BLAST 的简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BLAST-比对基于生物学原理"><span class="nav-text">BLAST 比对基于生物学原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BLAST-算法的简单介绍"><span class="nav-text">BLAST 算法的简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BLAST-的分类"><span class="nav-text">BLAST 的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BLAST-的简单使用"><span class="nav-text">BLAST 的简单使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BLAST-的简单介绍"><span class="nav-text">BLAST 的简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BLAST-比对基于生物学原理"><span class="nav-text">BLAST 比对基于生物学原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BLAST-算法的简单介绍"><span class="nav-text">BLAST 算法的简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BLAST-的分类"><span class="nav-text">BLAST 的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BLAST-的简单使用"><span class="nav-text">BLAST 的简单使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何设定阈值"><span class="nav-text">如何设定阈值</span></a></li></ol></div>
             
 
           </div>
