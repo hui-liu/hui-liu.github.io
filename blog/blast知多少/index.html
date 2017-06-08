@@ -99,7 +99,7 @@ BLAST+ 的下载地址为：ftp">
 BLAST+ 的下载地址为：ftp">
 <meta property="og:image" content="https://hui-liu.github.io/blog/blast知多少/1.png">
 <meta property="og:image" content="https://hui-liu.github.io/blog/blast知多少/2.png">
-<meta property="og:updated_time" content="2017-06-05T13:09:22.443Z">
+<meta property="og:updated_time" content="2017-06-08T13:27:05.341Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="blast知多少">
 <meta name="twitter:description" content="BLAST 的简单介绍BLAST 是 NCBI 开发的一个基于序列相似性的数据库搜索程序。BLAST 是 Basic Local Alignment Search Tool 的缩写。而 BLAST+ 可以说是 BLAST 的升级版，核心算法是一样的，但在运行速度上有了较大的提升。由于 BLAST 和 BLAST+ 核心算法一样，为了方便，文章统一用 BLAST。
@@ -476,7 +476,7 @@ BLAST+ 的下载地址为：ftp">
 <ul>
 <li><code>-evalue</code> 指定 E-value的值，E-value 用于评价 bitscore （输出文件 query_pep.outfmt6 的第12列）的可靠性，该值越小可靠性越高。</li>
 <li><code>-num_threads</code> 指定线程数，根据自己的计算机资源调整。</li>
-<li><code>-num_threads</code>指定保留多少个结果，例子表示保留最好的 5 个比对结果。</li>
+<li><code>-max_target_seqs</code> 指定保留多少个结果，例子表示保留最好的 5 个比对结果。</li>
 <li><code>-outfmt</code> 指定输出格式，如下</li>
 </ul>
 <figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line"> <span class="number">0</span> = pairwise,</div><div class="line"> <span class="number">1</span> = query-anchored showing identities,</div><div class="line"> <span class="number">2</span> = query-anchored no identities,</div><div class="line"> <span class="number">3</span> = flat query-anchored, show identities,</div><div class="line"> <span class="number">4</span> = flat query-anchored, no identities,</div><div class="line"> <span class="number">5</span> = XML Blast output,</div><div class="line"> <span class="number">6</span> = tabular,</div><div class="line"> <span class="number">7</span> = tabular with comment lines,</div><div class="line"> <span class="number">8</span> = Text ASN<span class="number">.1</span>,</div><div class="line"> <span class="number">9</span> = Binary ASN<span class="number">.1</span>,</div><div class="line"><span class="number">10</span> = Comma-separated values,</div><div class="line"><span class="number">11</span> = BLAST archive format (ASN<span class="number">.1</span>)</div></pre></td></tr></table></figure>
