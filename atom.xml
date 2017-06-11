@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-06-11T08:04:51.852Z</updated>
+  <updated>2017-06-11T08:12:02.597Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://hui-liu.github.io/blog/Gene-Ontology-GO-%E6%B3%A8%E9%87%8A/"/>
     <id>https://hui-liu.github.io/blog/Gene-Ontology-GO-注释/</id>
     <published>2017-06-11T03:26:36.000Z</published>
-    <updated>2017-06-11T08:04:51.852Z</updated>
+    <updated>2017-06-11T08:12:02.597Z</updated>
     
     <content type="html"><![CDATA[<p>相似的基因在不同物种中，其功能往往保守的。显然，需要一个<strong>统一的术语</strong>用于描述这些跨物种的同源基因及其基因产物的功能，否则，不同的实验室对相同的基因的功能的描述不同，将极大限制学术的交流。而 Gene Ontology (GO) 项目正是为了能够使对各种数据库中基因获基因产物功能描述相一致的努力结果。</p>
 <p>所谓的 GO，是生物学功能注释的一个标准词汇表术语（GO term），将基因的功能分为三部分：</p>
@@ -30,7 +30,7 @@
 <li>基因以及参与的<strong>生物学过程（Biological Process）</strong></li>
 </ul>
 <p>不同的 GO term 通过有向无环图关联起来，如下图所示：</p>
-<p><img src="/blog/Gene-Ontology-GO-注释/Gene-Ontology-GO-简介/1.png" alt="1"></p>
+<p><img src="/blog/Gene-Ontology-GO-注释/1.png" alt="1"></p>
 <p>可以看出，不同的 GO term 间的关系由三类：<code>is_a</code>、<code>part_of</code> 和 <code>regulates</code>。</p>
 <p>如 <code>regulation of cell projection assembly</code> 是一种生物学过程，是 <code>regulation of cell projection organization</code> 中的一类（<code>is_a</code>），还调节（<code>regulates</code>）<code>cell projection assembly</code>；又如 <code>cellular component assembly</code> 是 <code>celluar component biogenesis</code> 的一部分（<code>part_of</code>）。值得注意的是，这些关系都是又方向的，即反过来不成了，因而叫做有向无环图。</p>
 <p>目前，GO 注释主要有两种方法：</p>
