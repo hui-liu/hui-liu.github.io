@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-06-18T11:54:59.838Z</updated>
+  <updated>2017-07-03T02:21:02.116Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -16,11 +16,79 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>meme本地版的使用</title>
+    <link href="https://hui-liu.github.io/blog/meme%E6%9C%AC%E5%9C%B0%E7%89%88%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://hui-liu.github.io/blog/meme本地版的使用/</id>
+    <published>2017-07-01T07:44:56.000Z</published>
+    <updated>2017-07-03T02:21:02.116Z</updated>
+    
+    <content type="html"><![CDATA[<p>序列 motif 就是一段有功能的、特定模式的序列，它之所以可以具有生物学功能，是因为它可以和调控蛋白结合，如转录因子、核糖体等。</p>
+<p>软件 meme（<a href="http://meme-suite.org/tools/meme）" target="_blank" rel="external">http://meme-suite.org/tools/meme）</a> 可以从序列中找到新的、没有 gap 的 motifs，其输入文件可以是 DNA、RNA 或蛋白质序列。该软件的在线版限制序列大小为 <strong>60,000 bp</strong> ，在使用上有一定的局限性，这里介绍其本地版的用法。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>meme 的安装方法如下：</p>
+<ul>
+<li>下载 <a href="http://meme-suite.org/doc/download.html" target="_blank" rel="external">http://meme-suite.org/doc/download.html/</a></li>
+<li>安装命令</li>
+</ul>
+<figure class="highlight brainfuck"><table><tr><td class="code"><pre><div class="line"><span class="comment">tar</span> <span class="comment">zxf</span> <span class="comment">meme_4</span><span class="string">.</span><span class="comment">12</span><span class="string">.</span><span class="comment">0</span><span class="string">.</span><span class="comment">tar</span><span class="string">.</span><span class="comment">gz</span></div><div class="line"><span class="comment">cd</span> <span class="comment">meme_4</span><span class="string">.</span><span class="comment">12</span><span class="string">.</span><span class="comment">0</span></div><div class="line"><span class="comment">#</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prefix</span> <span class="comment">指定</span> <span class="comment">meme</span> <span class="comment">的安装路径，路径可自行修改</span></div><div class="line"><span class="string">.</span><span class="comment">/configure</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prefix=$HOME/meme</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">url=http://meme</span><span class="literal">-</span><span class="comment">suite</span><span class="string">.</span><span class="comment">org</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">build</span><span class="literal">-</span><span class="comment">libxml2</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">build</span><span class="literal">-</span><span class="comment">libxslt</span></div><div class="line"><span class="comment">make</span></div><div class="line"><span class="comment">make</span> <span class="comment">test</span></div><div class="line"><span class="comment">make</span> <span class="comment">install</span></div></pre></td></tr></table></figure>
+<ul>
+<li>添加环境变量到 <code>.bashrc</code> 中</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">export PATH=<span class="variable">$HOME</span><span class="regexp">/meme/</span>bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure>
+<p>更具体的细节请查看安装文档：<a href="http://meme-suite.org/doc/install.html?man_type=web#prereq_commonutils。" target="_blank" rel="external">http://meme-suite.org/doc/install.html?man_type=web#prereq_commonutils。</a></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">meme <span class="selector-tag">input</span><span class="selector-class">.fasta</span> -protein -oc . -mod zoops -nmotifs <span class="number">3</span> -minw <span class="number">6</span> -maxw <span class="number">50</span></div></pre></td></tr></table></figure>
+<p>其中，</p>
+<ul>
+<li><code>input.fasta</code> 可以是 DNA、RNA 或 蛋白质序列。</li>
+<li><code>-protein</code> 指定 <code>input.fasta</code> 的类型。</li>
+<li><code>-oc</code> 指定输出文件路径，<code>.</code> 即为当前目录。</li>
+<li><code>-mod</code> 假定 motif 的分布模式，详见 <a href="http://meme-suite.org/doc/meme.html。" target="_blank" rel="external">http://meme-suite.org/doc/meme.html。</a></li>
+<li><code>-minw</code> motif 的最小宽度。</li>
+<li><code>-maxw</code> motif 的最大宽度。</li>
+</ul>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p>有两个图，一个图是 <strong>Motif Locations</strong>，用于描述 motif 在序列上的分布情况。在这个例子中，找到三个 motif。</p>
+<p><img src="/blog/meme本地版的使用/1.png" alt="1"></p>
+<p>另一个图称为 <strong>Discovered Motifs</strong>，用于描述碱基或氨基酸的频率和保守性。</p>
+<p><img src="/blog/meme本地版的使用/2.png" alt="2"></p>
+<p>该图依次描述  <strong>Motif Locations</strong> 中，每个 motif 的每个位点氨基酸的频率和保守性，字母越大，说明该位点这个氨基酸出现次数越多，同时，也更加保守。</p>
+<p>可能图  <strong>Discovered Motifs</strong> 不太好理解，下面举例说明。</p>
+<ul>
+<li><p>假如有以下 8 条序列，认为这 8 条序列为同一个 motif：</p>
+<p><img src="/blog/meme本地版的使用/3.png" alt="3"></p>
+</li>
+</ul>
+<ul>
+<li><p>显然，该 motif 共有 12 个位点，每个位点碱基的频数如下表：</p>
+<p><img src="/blog/meme本地版的使用/4.png" alt="4"></p>
+</li>
+<li><p>将上面的表格绘制成图，如下：</p>
+<p><img src="/blog/meme本地版的使用/5.png" alt="5"></p>
+</li>
+<li><p>显然，字母越大，其频数越大；但有一个缺点是，每个位点的保守性不能很好的凸显出来。如第 1 个位点和第 3 个位点的 <strong>C</strong> 虽然均出现了 <strong>4</strong> 次，但是由于第 3 个位点有三种碱基，而第 1 个 位点有两种碱基，显然，第一个位点较第三个位点更加保守。所以，再进一步计算，得到下图。</p>
+<p><img src="/blog/meme本地版的使用/6.png" alt="6"></p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;序列 motif 就是一段有功能的、特定模式的序列，它之所以可以具有生物学功能，是因为它可以和调控蛋白结合，如转录因子、核糖体等。&lt;/p&gt;
+&lt;p&gt;软件 meme（&lt;a href=&quot;http://meme-suite.org/tools/meme）&quot; target=&quot;_bla
+    
+    </summary>
+    
+      <category term="生信" scheme="https://hui-liu.github.io/categories/%E7%94%9F%E4%BF%A1/"/>
+    
+    
+      <category term="功能注释" scheme="https://hui-liu.github.io/tags/%E5%8A%9F%E8%83%BD%E6%B3%A8%E9%87%8A/"/>
+    
+  </entry>
+  
+  <entry>
     <title>KEGG注释</title>
     <link href="https://hui-liu.github.io/blog/KEGG%E6%B3%A8%E9%87%8A/"/>
     <id>https://hui-liu.github.io/blog/KEGG注释/</id>
     <published>2017-06-17T11:53:33.000Z</published>
-    <updated>2017-06-18T11:54:59.838Z</updated>
+    <updated>2017-06-19T02:18:47.635Z</updated>
     
     <content type="html"><![CDATA[<p>在 KEGG 数据库中，把功能相似的蛋白质归为同一组，然后标上 KO 号。通过相似性比对，可以为未知功能的蛋白序列注释上 KO 号。</p>
 <p>截止到 2015 年 6 月 12 日，KEGG 数据库中共收录了 3,904 个完整的基因组。其中 304 个为真核生物，3,600 个为原核生物。在真核生物中，共有 299 个物种（一个物种可能不止一个基因组），分为 172 科，227 属；在原核生物中，共有 1,858 个物种，分为 809 属。</p>
@@ -1824,31 +1892,6 @@
     </summary>
     
       <category term="notes" scheme="https://hui-liu.github.io/categories/notes/"/>
-    
-    
-      <category term="python" scheme="https://hui-liu.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何在遍历时，正确删除列表中的 items</title>
-    <link href="https://hui-liu.github.io/blog/%E5%A6%82%E4%BD%95%E5%9C%A8%E9%81%8D%E5%8E%86%E6%97%B6%EF%BC%8C%E6%AD%A3%E7%A1%AE%E5%88%A0%E9%99%A4%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84-items/"/>
-    <id>https://hui-liu.github.io/blog/如何在遍历时，正确删除列表中的-items/</id>
-    <published>2017-03-08T09:21:23.000Z</published>
-    <updated>2017-03-08T09:22:48.197Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="错误的代码"><a href="#错误的代码" class="headerlink" title="错误的代码"></a>错误的代码</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">x = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line">y = [<span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> x:</div><div class="line">    <span class="keyword">if</span> <span class="selector-tag">i</span> <span class="keyword">in</span> y:</div><div class="line">        x.remove(i)</div><div class="line">print x</div><div class="line">-----------------</div><div class="line"></div><div class="line">[<span class="string">'a'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
-<h3 id="正确的代码"><a href="#正确的代码" class="headerlink" title="正确的代码"></a>正确的代码</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">x = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>]</div><div class="line">y = [<span class="string">'b'</span>, <span class="string">'c'</span>]</div><div class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> x[:]:</div><div class="line">    <span class="keyword">if</span> <span class="selector-tag">i</span> <span class="keyword">in</span> y:</div><div class="line">        x.remove(i)</div><div class="line">print x</div><div class="line">-----------------</div><div class="line"></div><div class="line">[<span class="string">'a'</span>, <span class="string">'d'</span>]</div></pre></td></tr></table></figure>
-<p>实际上，<code>id(x)</code>与<code>id(x[:])</code>是不同的，所以只有在<code>x</code>的副本（<code>x[:]</code>）中遍历，然后在<code>x</code>中删除，才不会造成错误。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;错误的代码&quot;&gt;&lt;a href=&quot;#错误的代码&quot; class=&quot;headerlink&quot; title=&quot;错误的代码&quot;&gt;&lt;/a&gt;错误的代码&lt;/h3&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;
-    
-    </summary>
-    
-      <category term="code" scheme="https://hui-liu.github.io/categories/code/"/>
     
     
       <category term="python" scheme="https://hui-liu.github.io/tags/python/"/>
