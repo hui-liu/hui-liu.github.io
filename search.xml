@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[MSA 格式转换：protein MSAs to codon-based DNA MSA]]></title>
+      <url>%2Fblog%2FMSA-%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%EF%BC%9Aprotein-MSAs-to-codon-based-DNA-MSA%2F</url>
+      <content type="text"><![CDATA[下载与安装wget http://www.bork.embl-heidelberg.de/pal2nal/distribution/pal2nal.v14.tar.gztar -zxvf pal2nal.v14.tar.gzexport PATH=$PATH:'/home/liuhui/bin/pal2nal.v14' # 按实际情况改成自己计算机上的路径 运行 MSA mafft-linsi HLA_DQB1.aa.fasta &gt; HLA_DQB1.aa.mafft.fasta protein MSA to codon-based MSA perl pal2nal.pl HLA_DQB1.aa.mafft.fasta HLA_DQB1.cds.fasta -output fasta &gt; HLA_DQB1.cds.mafft.fasta]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[多序列比对]]></title>
       <url>%2Fblog%2F%E5%A4%9A%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9%2F</url>
       <content type="text"><![CDATA[多序列比对（或多序列联配，multiple sequence alignment，MSA），是指把多条（3 条或以上）有系统进化关系的蛋白质或核酸序列进行比对，尽可能地把相同的碱基或氨基酸残基排在同一列上。这样做的意义是，对齐的碱基或氨基酸残基在进化上是同源的，即来自共同祖先（common ancestor）。下图是一个 MSA 的例子。 MSA 有许多用途，如构建系统发育树，选择压分析，基因家族的保守结构域分析，motif 分析等。 MSA 分析的软件有很多，如 mafft（http://mafft.cbrc.jp/alignment/software/），muscle（http://www.drive5.com/muscle/downloads.htm），probcons（http://probcons.stanford.edu/），T-coffee（http://tcoffee.crg.cat/），clustalw（http://clustalw.ddbj.nig.ac.jp/）等。 从软件的速度和准确性出发，mafft 和 muscle 是不错的选择。这里介绍 mafft 的使用方法。 mafft 安装（非 root） 下载 wget http://mafft.cbrc.jp/alignment/software/mafft-7.310-with-extensions-src.tgz 解压 tar -zxvf mafft-7.310-with-extensions-src.tgz 编辑 Makefile 文件的第一行 cd mafft-7.310-with-extensions/core/vim Makefile (或用 nano 等进行编辑)编辑：PREFIX = /usr/local为:PREFIX = /home/your_home/somewhere（如：PREFIX = /home/liuhui/bin/mafft-7.310） 编译和安装 makemake install 安装最后安装在 /home/liuhui/bin/mafft-7.310/bin 下，将这个路径放到 .bashrc 中即可。 mafft 使用方法mafft 的一般用法为： mafft [arguments] input &gt; output input 可以是 fasta 格式的蛋白质或核苷酸序列。 对于 200 条序列以内且序列长度小于 2,000 bp 或 aa 的文件，可以使用 mafft-linsi mafft-linsi input &gt; output 文件较小时，也可以使用在线版：http://mafft.cbrc.jp/alignment/server/]]></content>
