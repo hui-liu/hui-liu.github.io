@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-07-17T03:06:26.063Z</updated>
+  <updated>2017-07-17T03:26:24.906Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>MSA 格式转换：protein MSAs to codon-based DNA MSA</title>
+    <title>MSA 格式转换：protein MSA to codon-based DNA MSA</title>
     <link href="https://hui-liu.github.io/blog/MSA-%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%EF%BC%9Aprotein-MSAs-to-codon-based-DNA-MSA/"/>
     <id>https://hui-liu.github.io/blog/MSA-格式转换：protein-MSAs-to-codon-based-DNA-MSA/</id>
     <published>2017-07-17T02:57:04.000Z</published>
-    <updated>2017-07-17T03:06:26.063Z</updated>
+    <updated>2017-07-17T03:26:24.906Z</updated>
     
     <content type="html"><![CDATA[<h3 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h3><figure class="highlight nginx"><table><tr><td class="code"><pre><div class="line"><span class="attribute">wget</span> http://www.bork.embl-heidelberg.de/pal2nal/distribution/pal2nal.v14.tar.gz</div><div class="line"></div><div class="line">tar -zxvf pal2nal.v14.tar.gz</div><div class="line"></div><div class="line">export PATH=<span class="variable">$PATH</span>:<span class="string">'/home/liuhui/bin/pal2nal.v14'</span> <span class="comment"># 按实际情况改成自己计算机上的路径</span></div></pre></td></tr></table></figure>
 <h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><ul>

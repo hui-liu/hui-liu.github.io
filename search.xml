@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title><![CDATA[MSA 格式转换：protein MSAs to codon-based DNA MSA]]></title>
+      <title><![CDATA[MSA 格式转换：protein MSA to codon-based DNA MSA]]></title>
       <url>%2Fblog%2FMSA-%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%EF%BC%9Aprotein-MSAs-to-codon-based-DNA-MSA%2F</url>
       <content type="text"><![CDATA[下载与安装wget http://www.bork.embl-heidelberg.de/pal2nal/distribution/pal2nal.v14.tar.gztar -zxvf pal2nal.v14.tar.gzexport PATH=$PATH:'/home/liuhui/bin/pal2nal.v14' # 按实际情况改成自己计算机上的路径 运行 MSA mafft-linsi HLA_DQB1.aa.fasta &gt; HLA_DQB1.aa.mafft.fasta protein MSA to codon-based MSA perl pal2nal.pl HLA_DQB1.aa.mafft.fasta HLA_DQB1.cds.fasta -output fasta &gt; HLA_DQB1.cds.mafft.fasta]]></content>
     </entry>
