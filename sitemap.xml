@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hui-liu.github.io/about/index.html</loc>
+    
+    <lastmod>2017-07-17T08:51:10.732Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hui-liu.github.io/blog/MSA-%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%EF%BC%9Aprotein-MSAs-to-codon-based-DNA-MSA/</loc>
     
     <lastmod>2017-07-17T03:26:24.906Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://hui-liu.github.io/blog/Gene-Ontology-GO-%E6%B3%A8%E9%87%8A/</loc>
     
     <lastmod>2017-06-12T02:24:49.128Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hui-liu.github.io/about/index.html</loc>
-    
-    <lastmod>2017-06-08T13:37:56.812Z</lastmod>
     
   </url>
   
