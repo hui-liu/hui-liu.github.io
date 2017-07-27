@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[生信资料]]></title>
+      <url>%2Fblog%2F%E7%94%9F%E4%BF%A1%E8%B5%84%E6%96%99%2F</url>
+      <content type="text"><![CDATA[小伙伴们，福利来了！ 还在为手中没有合适的资料发愁吗？公众号内容复杂无从下手？信息量太大不知如何学习？好啦，福利来啦，今天我们赠送系统的生信学习资料给大家，附赠珍藏版生信学习方法！ 是不是心动了！稍等，我们有个小小要求，也希望大家能够积极为公众号的发展壮大贡献自己的一份力量，因为我们都是生信小圈的一份子。 怎么获得资料呢，分享公众号任何文章（非本条消息）到朋友圈，手机截图，到生信百科QQ群 575383226 发给管理员，即可获得相应学习资料。 10个赞以上附赠以下基础版资料： Perl语言入门 Python基础教程 Linux 教程 华大内部生信培训教程一份 Perl脚本示例 Python 脚本示例 生信学习方法精华 生信组学数据库及在线工具整理 20个赞以上赠送基础版 + R语言学习资料 + python 视频资料： R绘图学习（附赠各章练习题以及绘图脚本） R视频教程 R在生态学、生物多样性中的应用（附赠全套课件以及学习资料，做多样性的童鞋有福了） R统计建模（附赠10章内容、脚本及练习题） R语言基础及绘图 python学习视频资料 ​ 先来饱饱眼福：]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[MSA 格式转换：protein MSA to codon-based DNA MSA]]></title>
       <url>%2Fblog%2FMSA-%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%EF%BC%9Aprotein-MSAs-to-codon-based-DNA-MSA%2F</url>
       <content type="text"><![CDATA[下载与安装wget http://www.bork.embl-heidelberg.de/pal2nal/distribution/pal2nal.v14.tar.gztar -zxvf pal2nal.v14.tar.gzexport PATH=$PATH:'/home/liuhui/bin/pal2nal.v14' # 按实际情况改成自己计算机上的路径 运行 MSA mafft-linsi HLA_DQB1.aa.fasta &gt; HLA_DQB1.aa.mafft.fasta protein MSA to codon-based MSA perl pal2nal.pl HLA_DQB1.aa.mafft.fasta HLA_DQB1.cds.fasta -output fasta &gt; HLA_DQB1.cds.mafft.fasta]]></content>
