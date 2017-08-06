@@ -99,7 +99,7 @@ $ cat example.txtMA_100472g0010  MA_100472       91.67   492     0       1      
 <meta property="og:description" content="按照指定的列去除重复awk &apos;!a[$1]++&apos; file
 上述命令的意思是，如果第一列有重复，则保留最先出现的值；如果没有重复，则保留该值。（$1表示第一列，如果想对第二列进行处理，则$2，以此类推）如：
 $ cat example.txtMA_100472g0010  MA_100472       91.67   492     0       1       1       451">
-<meta property="og:updated_time" content="2017-08-05T06:59:14.704Z">
+<meta property="og:updated_time" content="2017-08-06T02:33:01.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="awk使用技巧">
 <meta name="twitter:description" content="按照指定的列去除重复awk &apos;!a[$1]++&apos; file
@@ -427,6 +427,11 @@ $ cat example.txtMA_100472g0010  MA_100472       91.67   492     0       1      
 <p>即将文件 <code>pta_go.annot</code> 的格式转成文件 <code>pta_go.txt</code> 的格式</p>
 <p>这里用到了三目运算符<code>?:</code>，<code>?</code> 代表<code>是</code>，而<code>:</code> 代表<code>否</code>。如：</p>
 <figure class="highlight golo"><table><tr><td class="code"><pre><div class="line">$ awk 'BEGIN&#123;a=<span class="string">"b"</span>;<span class="keyword">print</span> a==<span class="string">"b"</span> ? <span class="string">"ok"</span> : <span class="string">"err"</span>&#125;' <span class="comment"># 变量 a 与字符“b”相同</span></div><div class="line">ok</div><div class="line">$ awk 'BEGIN&#123;a=<span class="string">"b"</span>;<span class="keyword">print</span> a==<span class="string">"c"</span> ? <span class="string">"ok"</span> : <span class="string">"err"</span>&#125;' <span class="comment"># 变量 a 与字符“c”不相同</span></div><div class="line">err</div></pre></td></tr></table></figure>
+<p>所以，语句</p>
+<figure class="highlight autoit"><table><tr><td class="code"><pre><div class="line">a[$1]=($1 <span class="keyword">in</span> a ? a[$1]<span class="string">","</span>$2 : $0)</div></pre></td></tr></table></figure>
+<p>的含义是：<code>$1</code> 如果是第一次出现，将<code>$0</code>存入数组<code>a</code>中，数组的下标是<code>$1</code>；如果<code>$1</code>在数组 <code>a</code> 中，表明其出现两次或以上时，则将<code>a[$1]</code>（代表之前的 <code>$0</code>）和 <code>$2</code> 存入数组 <code>a</code> 中（即更新数组）。</p>
+<p>当该语句执行完毕后，执行 <code>END</code> 语句块，将数组<code>a</code>的结果打印出来。</p>
+
       
     </div>
 
