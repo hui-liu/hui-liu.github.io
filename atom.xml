@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-08-12T06:45:45.264Z</updated>
+  <updated>2017-08-12T13:13:21.384Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TE对基因组的影响</title>
+    <link href="https://hui-liu.github.io/blog/TE%E5%AF%B9%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%9A%84%E5%BD%B1%E5%93%8D/"/>
+    <id>https://hui-liu.github.io/blog/TE对基因组的影响/</id>
+    <published>2017-08-12T12:44:51.000Z</published>
+    <updated>2017-08-12T13:13:21.384Z</updated>
+    
+    <content type="html"><![CDATA[<p>TE 对基因组的影响有以下几个方面（Kazazian 2004）：</p>
+<ul>
+<li><p>插入编码区时，它们通常会引起移码突变或改变简介模式，从而改变（大多数情况下是破坏）蛋白质功能。</p>
+</li>
+<li><p>插入或靠近调控区时，它们可以改变基因表达（如转录时序或转录量），或充当增强子或其它调控因子的角色。</p>
+</li>
+<li><p>它们会增加宿主基因的突变率。</p>
+</li>
+<li><p>位于不同位点的同一 TE 的两个拷贝之间的重组能够导致宿主基因组内的重排。正如两个重复序列之间的不等交换可产生重复和缺失一样，位于非同源位置的同一 TE 的两个拷贝之间的重组也具有类似的效应。具有相同序列极性的两个 TE 拷贝的重组可导致它们之间的区段缺失，而极性相反的两个 TE 拷贝的重组则会导致它们之间的区段反转。（Lewin 1985）</p>
+</li>
+<li><p>编码反转录酶的 TE 有时不仅能将它们自己 RNA 的 DNA 拷贝（cDNA）插入到宿主基因组内，还能将其它基因的 RNA 转录物也插入到宿主基因组内，这些 RNA 的 cDNA 拷贝（反转录序列，retrosequence）类似于基因组内其它位置的祖先基因的外显子，只是它们没有调控区和内含子。大部分反转录序列是已加工假基因，并不产生有功能的基因产物。</p>
+</li>
+<li><p>通过转录和不等交换，TE 数量可增加或减少，从而改变基因组大小。约 10% 的人类基因组由超过 100 万个反转录因子 <em>Alu</em> 的拷贝组成，它们可能经过约 6,000 万年才逐渐形成（Petrov and Wendel 2006）。</p>
+<p>​</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;TE 对基因组的影响有以下几个方面（Kazazian 2004）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;插入编码区时，它们通常会引起移码突变或改变简介模式，从而改变（大多数情况下是破坏）蛋白质功能。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;插入或靠近调控区时，它们可以改变基因表达（如
+    
+    </summary>
+    
+      <category term="notes" scheme="https://hui-liu.github.io/categories/notes/"/>
+    
+    
+      <category term="其它" scheme="https://hui-liu.github.io/tags/%E5%85%B6%E5%AE%83/"/>
+    
+  </entry>
   
   <entry>
     <title>植物的体细胞到生殖细胞</title>
@@ -1267,30 +1309,6 @@
     
     
       <category term="python" scheme="https://hui-liu.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R 抓取 plantrgdb 信息</title>
-    <link href="https://hui-liu.github.io/blog/R-%E6%8A%93%E5%8F%96-plantrgdb-%E4%BF%A1%E6%81%AF/"/>
-    <id>https://hui-liu.github.io/blog/R-抓取-plantrgdb-信息/</id>
-    <published>2017-04-14T13:51:21.000Z</published>
-    <updated>2017-04-14T15:01:51.930Z</updated>
-    
-    <content type="html"><![CDATA[<p>尚未理解 <code>htmlTreeParse</code> 和 <code>xpathSApply</code> 的用法，有机会再研究。</p>
-<figure class="highlight r"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># 载入包</span></div><div class="line"><span class="keyword">library</span>(XML)</div><div class="line"></div><div class="line">species &lt;- <span class="string">"http://aegilops.wheat.ucdavis.edu/plantrgdb/download.php"</span></div><div class="line"><span class="comment"># 解析网页</span></div><div class="line">doc &lt;- htmlTreeParse(species, useInternal=<span class="literal">TRUE</span>, encoding=<span class="string">"UTF-8"</span>)</div><div class="line"><span class="comment"># 抓取有用信息</span></div><div class="line">species &lt;- xpathSApply(doc, <span class="string">"//a"</span>, xmlGetAttr, <span class="string">'href'</span>)</div><div class="line"><span class="comment"># 物种的数量</span></div><div class="line">sp_num &lt;- length(species[grep(<span class="string">"download"</span>,species)][-<span class="number">1</span>])</div><div class="line"></div><div class="line"><span class="comment"># 对所有的物种进行循环</span></div><div class="line"><span class="keyword">for</span> (sp <span class="keyword">in</span> <span class="number">1</span>:sp_num)&#123;</div><div class="line">    <span class="comment"># 获取物种名</span></div><div class="line">    sp_name &lt;- strsplit(species[grep(<span class="string">"download"</span>,species)][-<span class="number">1</span>], <span class="string">"/"</span>)[[sp]][<span class="number">2</span>]</div><div class="line">	print(sp_name)</div><div class="line">    <span class="comment"># 需要的信息有 9 列，先创建一个 9 列的空数组</span></div><div class="line">	sp_array &lt;- array(<span class="literal">NA</span>, c(<span class="number">0</span>, <span class="number">9</span>))</div><div class="line">    <span class="comment"># 为空数组列名重命名</span></div><div class="line">	colnames(sp_array) &lt;- c(<span class="string">"Species"</span>, <span class="string">"Coordinates"</span>, <span class="string">"Strand"</span>, <span class="string">"Lost intron"</span>, <span class="string">"Parent coverage"</span>, <span class="string">"Parent identity"</span>, <span class="string">"Ka"</span>, <span class="string">"Ks"</span>, <span class="string">"Ka/Ks"</span>)</div><div class="line">	sp_url &lt;- paste(<span class="string">"http://aegilops.wheat.ucdavis.edu/plantrgdb/browse_result.php?type=total&amp;species="</span>, sp_name, sep=<span class="string">""</span>)</div><div class="line">    <span class="comment"># 对每一物种的网页进行解析</span></div><div class="line">	sp_doc &lt;- htmlTreeParse(sp_url, useInternal=<span class="literal">TRUE</span>, encoding=<span class="string">"UTF-8"</span>)</div><div class="line">	temp &lt;- xpathSApply(sp_doc, <span class="string">"//a"</span>, xmlGetAttr, <span class="string">'href'</span>)</div><div class="line">    <span class="comment"># 获取 retrocopies 数量</span></div><div class="line">	retro_num &lt;- length(grep(<span class="string">"="</span>,temp))</div><div class="line">    <span class="comment"># 对每一个 retrocopy 依次进行解析，并将结果写进 sp_array 这个数组里</span></div><div class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:retro_num)&#123;</div><div class="line">	    retro_id &lt;- strsplit(temp[grep(<span class="string">"="</span>,temp)],<span class="string">"="</span>)[[i]][<span class="number">2</span>]</div><div class="line">		print(retro_id)</div><div class="line">		retro_id_url &lt;- paste(<span class="string">"http://aegilops.wheat.ucdavis.edu/plantrgdb/retrocopy_info.php?retrocopyID="</span>, retro_id, sep = <span class="string">""</span>)</div><div class="line">		sp_array &lt;- rbind(sp_array, t(readHTMLTable(retro_id_url, which = <span class="number">1</span>)[retro_id]))</div><div class="line">    &#125;</div><div class="line">    <span class="comment"># 将 sp_array 中的信息写出到 csv 文件中</span></div><div class="line">    write.csv(sp_array, paste(sp_name, <span class="string">".csv"</span>, sep = <span class="string">""</span>))</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;尚未理解 &lt;code&gt;htmlTreeParse&lt;/code&gt; 和 &lt;code&gt;xpathSApply&lt;/code&gt; 的用法，有机会再研究。&lt;/p&gt;
-&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;
-    
-    </summary>
-    
-      <category term="生信" scheme="https://hui-liu.github.io/categories/%E7%94%9F%E4%BF%A1/"/>
-    
-    
-      <category term="R" scheme="https://hui-liu.github.io/tags/R/"/>
     
   </entry>
   
