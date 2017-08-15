@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-08-13T14:29:53.483Z</updated>
+  <updated>2017-08-15T09:10:02.774Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -14,6 +14,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>适合度与选择系数</title>
+    <link href="https://hui-liu.github.io/blog/%E9%80%82%E5%90%88%E5%BA%A6%E4%B8%8E%E9%80%89%E6%8B%A9%E7%B3%BB%E6%95%B0/"/>
+    <id>https://hui-liu.github.io/blog/适合度与选择系数/</id>
+    <published>2017-08-15T09:08:45.000Z</published>
+    <updated>2017-08-15T09:10:02.774Z</updated>
+    
+    <content type="html"><![CDATA[<p>适合度（fitness，<em>f</em>）：某个基因型长生后代的<strong>相对生存和繁殖能力</strong>，即被自然所“选留”的程度，<em>f</em> = 1 ~ 0。</p>
+<p>选择系数（selection coefficient，<em>s</em>）：与适和度相反，用来衡量自然选择对某种基因型的后代的淘汰的作用，<em>s</em> = 0 ~ 1。</p>
+<p>适合度（<em>f</em>） = 1 - 选择系数（<em>s</em>）</p>
+<p>例如：</p>
+<p><strong>Nigeria 携带正常红细胞以及镰刀型红细胞基因的人数统计</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Genotype</th>
+<th style="text-align:center">Observed Adult Frequency (O)</th>
+<th style="text-align:center">Expected Hardy-Weinberg Frequency (E)</th>
+<th style="text-align:center">Ratio O/E</th>
+<th style="text-align:center">Fitness</th>
+<th>selection coefficient</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">SS</td>
+<td style="text-align:center">29</td>
+<td style="text-align:center">187.4</td>
+<td style="text-align:center">0.155</td>
+<td style="text-align:center">0.155/1.12 = 0.14</td>
+<td>0.86</td>
+</tr>
+<tr>
+<td style="text-align:center">SA</td>
+<td style="text-align:center">2993</td>
+<td style="text-align:center">2672.4</td>
+<td style="text-align:center">1.12</td>
+<td style="text-align:center">1.22/1.12 = 1.00</td>
+<td>0</td>
+</tr>
+<tr>
+<td style="text-align:center">AA</td>
+<td style="text-align:center">9365</td>
+<td style="text-align:center">9527.2</td>
+<td style="text-align:center">0.983</td>
+<td style="text-align:center">0.983/1.12 = 0.88</td>
+<td>0.12</td>
+</tr>
+<tr>
+<td style="text-align:center">Total</td>
+<td style="text-align:center">12,387</td>
+<td style="text-align:center">12,378</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p>S 基因的频率 = (29 + 2993/2)/12387 = 0.123</p>
+<p>A 基因的频率 = 1 - 0.123 = 0.877</p>
+<p>SS = 0.123^2 * 12387 = 187.4</p>
+<p>SA = 2 <em> 0.123 </em> 0.877 * 12387 = 2672.4</p>
+<p>AA = 0.877^2 * 12387 = 9527.2</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;适合度（fitness，&lt;em&gt;f&lt;/em&gt;）：某个基因型长生后代的&lt;strong&gt;相对生存和繁殖能力&lt;/strong&gt;，即被自然所“选留”的程度，&lt;em&gt;f&lt;/em&gt; = 1 ~ 0。&lt;/p&gt;
+&lt;p&gt;选择系数（selection coefficient，&lt;em&gt;s&lt;/em
+    
+    </summary>
+    
+      <category term="notes" scheme="https://hui-liu.github.io/categories/notes/"/>
+    
+    
+      <category term="群体遗传学" scheme="https://hui-liu.github.io/tags/%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>fasta文件分割</title>
@@ -1279,55 +1357,6 @@
     
     
       <category term="linux" scheme="https://hui-liu.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>外业-影集</title>
-    <link href="https://hui-liu.github.io/blog/%E5%A4%96%E4%B8%9A-%E5%BD%B1%E9%9B%86/"/>
-    <id>https://hui-liu.github.io/blog/外业-影集/</id>
-    <published>2017-04-21T14:43:58.000Z</published>
-    <updated>2017-04-21T14:54:17.222Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/blog/外业-影集/2017-04-21_18-41-32.jpg" alt="2017-04-21_18-41-32"></p>
-<p><img src="/blog/外业-影集/mmexport1492785448371.jpg" alt="mmexport1492785448371"></p>
-<p><img src="/blog/外业-影集/mmexport1492785449173.jpg" alt="mmexport1492785449173"></p>
-<p><img src="/blog/外业-影集/mmexport1492785451447.jpg" alt="mmexport1492785451447"></p>
-<p><img src="/blog/外业-影集/mmexport1492785451490.jpg" alt="mmexport1492785451490"></p>
-<p><img src="/blog/外业-影集/mmexport1492785451694.jpg" alt="mmexport1492785451694"></p>
-<p><img src="/blog/外业-影集/mmexport1492785451964.jpg" alt="mmexport1492785451964"></p>
-<p><img src="/blog/外业-影集/mmexport1492785452207.jpg" alt="mmexport1492785452207"></p>
-<p><img src="/blog/外业-影集/mmexport1492785453463.jpg" alt="mmexport1492785453463"></p>
-<p><img src="/blog/外业-影集/mmexport1492785453671.jpg" alt="mmexport1492785453671"></p>
-<p><img src="/blog/外业-影集/mmexport1492785455342.jpg" alt="mmexport1492785455342"></p>
-<p><img src="/blog/外业-影集/mmexport1492785455623.jpg" alt="mmexport1492785455623"></p>
-<p><img src="/blog/外业-影集/mmexport1492785455866.jpg" alt="mmexport1492785455866"></p>
-<p><img src="/blog/外业-影集/mmexport1492785456139.jpg" alt="mmexport1492785456139"></p>
-<p><img src="/blog/外业-影集/mmexport1492785456415.jpg" alt="mmexport1492785456415"></p>
-<p><img src="/blog/外业-影集/mmexport1492785456659.jpg" alt="mmexport1492785456659"></p>
-<p><img src="/blog/外业-影集/mmexport1492785457951.jpg" alt="mmexport1492785457951"></p>
-<p><img src="/blog/外业-影集/mmexport1492785458228.jpg" alt="mmexport1492785458228"></p>
-<p><img src="/blog/外业-影集/mmexport1492785458411.jpg" alt="mmexport1492785458411"></p>
-<p><img src="/blog/外业-影集/mmexport1492785460370.jpg" alt="mmexport1492785460370"></p>
-<p><img src="/blog/外业-影集/mmexport1492785460669.jpg" alt="mmexport1492785460669"></p>
-<p><img src="/blog/外业-影集/mmexport1492785460832.jpg" alt="mmexport1492785460832"></p>
-<p><img src="/blog/外业-影集/mmexport1492785461055.jpg" alt="mmexport1492785461055"></p>
-<p><img src="/blog/外业-影集/mmexport1492785461318.jpg" alt="mmexport1492785461318"></p>
-<p><img src="/blog/外业-影集/mmexport1492785461516.jpg" alt="mmexport1492785461516"></p>
-<p><img src="/blog/外业-影集/mmexport1492785464132.jpg" alt="mmexport1492785464132"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/blog/外业-影集/2017-04-21_18-41-32.jpg&quot; alt=&quot;2017-04-21_18-41-32&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/外业-影集/mmexport1492785448371.jpg&quot; alt=&quot;mm
-    
-    </summary>
-    
-      <category term="maolab" scheme="https://hui-liu.github.io/categories/maolab/"/>
-    
-    
-      <category term="照片" scheme="https://hui-liu.github.io/tags/%E7%85%A7%E7%89%87/"/>
     
   </entry>
   
