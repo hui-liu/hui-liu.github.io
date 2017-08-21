@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Mocular evolution, Population genetic" />
+  <meta name="keywords" content="evolution," />
 
 
 
@@ -89,16 +89,27 @@
 
 
 
-<meta name="description" content="北京林业大学在读硕士liuhui@bjfu.edu.cn">
+<meta name="description" content="phylip 格式如下图所示，第一行的两个数字分别表示序列条数和序列长度（包括 gap，“-”）。
+
+不少进化分析相关的软件要求输入是 phylip 格式，这里提供一个脚本，可迅速便捷地将 fasta 格式的 MSA 转化为 phylip 格式。
+import sys# usageUSAGE = &quot;\nusage: python convert_fasta2phylip.py [input fas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fasta2phylip">
 <meta property="og:url" content="https://hui-liu.github.io/blog/fasta2phylip/index.html">
 <meta property="og:site_name" content="liuhui | 刘辉">
-<meta property="og:description" content="北京林业大学在读硕士liuhui@bjfu.edu.cn">
-<meta property="og:updated_time" content="2017-08-21T07:30:50.235Z">
+<meta property="og:description" content="phylip 格式如下图所示，第一行的两个数字分别表示序列条数和序列长度（包括 gap，“-”）。
+
+不少进化分析相关的软件要求输入是 phylip 格式，这里提供一个脚本，可迅速便捷地将 fasta 格式的 MSA 转化为 phylip 格式。
+import sys# usageUSAGE = &quot;\nusage: python convert_fasta2phylip.py [input fas">
+<meta property="og:image" content="https://hui-liu.github.io/blog/fasta2phylip/1.png">
+<meta property="og:updated_time" content="2017-08-21T08:00:27.722Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fasta2phylip">
-<meta name="twitter:description" content="北京林业大学在读硕士liuhui@bjfu.edu.cn">
+<meta name="twitter:description" content="phylip 格式如下图所示，第一行的两个数字分别表示序列条数和序列长度（包括 gap，“-”）。
+
+不少进化分析相关的软件要求输入是 phylip 格式，这里提供一个脚本，可迅速便捷地将 fasta 格式的 MSA 转化为 phylip 格式。
+import sys# usageUSAGE = &quot;\nusage: python convert_fasta2phylip.py [input fas">
+<meta name="twitter:image" content="https://hui-liu.github.io/blog/fasta2phylip/1.png">
 
 
 
@@ -353,6 +364,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/生信/" itemprop="url" rel="index">
+                    <span itemprop="name">生信</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -378,7 +411,11 @@
       
 
       
-        
+        <p>phylip 格式如下图所示，第一行的两个数字分别表示序列条数和序列长度（包括 gap，“-”）。</p>
+<p><img src="/blog/fasta2phylip/1.png" alt="1"></p>
+<p>不少进化分析相关的软件要求输入是 phylip 格式，这里提供一个脚本，可迅速便捷地将 fasta 格式的 MSA 转化为 phylip 格式。</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line">import sys</div><div class="line"></div><div class="line"># usage</div><div class="line">USAGE = <span class="string">"\nusage: python convert_fasta2phylip.py [input fasta file] [output phy file]\n"</span></div><div class="line"></div><div class="line">def parseFasta(filename):</div><div class="line">    fas = &#123;&#125;</div><div class="line">    id = None</div><div class="line">    with <span class="keyword">open</span>(filename, <span class="string">'r'</span>) <span class="keyword">as</span> fh:</div><div class="line">        <span class="keyword">for</span> <span class="built_in">line</span> in fh:</div><div class="line">            <span class="keyword">if</span> <span class="built_in">line</span>[<span class="number">0</span>] == <span class="string">'&gt;'</span>:</div><div class="line">                header = <span class="built_in">line</span>[<span class="number">1</span>:].rstrip()</div><div class="line">                id = header.<span class="keyword">split</span>()[<span class="number">0</span>]</div><div class="line">                fas[id] = []</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                fas[id].<span class="keyword">append</span>(<span class="built_in">line</span>.rstrip())</div><div class="line">        <span class="keyword">for</span> id, seq in fas.iteritems():</div><div class="line">            fas[id] = <span class="string">''</span>.<span class="keyword">join</span>(seq)</div><div class="line">    <span class="keyword">return</span> fas</div><div class="line"></div><div class="line"><span class="keyword">if</span> <span class="built_in">len</span>(sys.<span class="built_in">argv</span>) !=<span class="number">3</span>:</div><div class="line">    <span class="keyword">print</span> USAGE</div><div class="line">    sys.<span class="keyword">exit</span>()</div><div class="line"></div><div class="line">fas = parseFasta(sys.<span class="built_in">argv</span>[<span class="number">1</span>])</div><div class="line">outfile = sys.<span class="built_in">argv</span>[<span class="number">2</span>]</div><div class="line"></div><div class="line">sequence_list = [] # To keep order of sequence</div><div class="line"></div><div class="line">sequence_dict = &#123;&#125;</div><div class="line"><span class="keyword">for</span> <span class="keyword">rec</span> in fa<span class="variable">s:</span></div><div class="line">    sequence_list.<span class="keyword">append</span>(<span class="keyword">rec</span>)</div><div class="line">    sequence_dict[<span class="keyword">rec</span>] = fas[<span class="keyword">rec</span>]</div><div class="line"></div><div class="line"># Test length of the alignmen<span class="variable">t:</span></div><div class="line">alignment_length = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> gene in sequence_dic<span class="variable">t:</span></div><div class="line">    <span class="keyword">if</span> (alignment_length != <span class="number">0</span>) <span class="built_in">and</span> (<span class="built_in">len</span>(sequence_dict[gene]) != alignment_length):</div><div class="line">        <span class="keyword">print</span> <span class="string">"Error in alignment length, exit on error !!!"</span></div><div class="line">        sys.<span class="keyword">exit</span>()</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        alignment_length = <span class="built_in">len</span>(sequence_dict[gene])</div><div class="line"></div><div class="line">number_of_seq = <span class="built_in">len</span>(sequence_dict)</div><div class="line">longest_id = sorted(sequence_dict.<span class="built_in">keys</span>(), key = lambda <span class="keyword">k</span>: <span class="built_in">len</span>(<span class="keyword">k</span>))[-<span class="number">1</span>]</div><div class="line"></div><div class="line"># Write alignment in Phylip format</div><div class="line">phyfile = <span class="keyword">open</span>(outfile, <span class="string">"w"</span>)</div><div class="line">phyfile.<span class="keyword">write</span>(str(number_of_seq)+<span class="string">" "</span>+str(alignment_length)+<span class="string">"\n"</span>)</div><div class="line"></div><div class="line"><span class="keyword">for</span> gene in sequence_lis<span class="variable">t:</span></div><div class="line">    phyfile.<span class="keyword">write</span>(gene.ljust(<span class="built_in">len</span>(longest_id), <span class="string">' '</span>) + <span class="string">"   "</span> + sequence_dict[gene] + <span class="string">"\n"</span>)</div><div class="line">phyfile.<span class="keyword">close</span>()</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -398,6 +435,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/evolution/" rel="tag"># evolution</a>
+          
+        </div>
       
 
       
