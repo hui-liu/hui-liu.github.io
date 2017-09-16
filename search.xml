@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[绘制误差线]]></title>
+      <url>%2Fblog%2F%E7%BB%98%E5%88%B6%E8%AF%AF%E5%B7%AE%E7%BA%BF%2F</url>
+      <content type="text"><![CDATA[#generate some random numbersset.seed(20170916)a &lt;- runif(30, 0, 20)b &lt;- runif(30, 0, 20)c &lt;- runif(30, 0, 20) # 生成数据框df &lt;- data.frame(a=a, b=b, c=c) # 标准误差公式se &lt;- function(x)&#123; sd(x)/sqrt(length(x))&#125; # 计算平均值my_mean &lt;- apply(df, 2, mean) # 计算标准误差my_se &lt;- apply(df, 2, se) # 绘制柱状图barx &lt;- barplot(my_mean, names.arg=names(df), ylim=c(0,ceiling(max(df))), xlab='Class', ylab="Mean +/- SE") # 添加误差线arrows(barx, my_mean+my_se, barx, my_mean-my_se, angle=90, code=3, length=0.1)]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[fasta2phylip]]></title>
       <url>%2Fblog%2Ffasta2phylip%2F</url>
       <content type="text"><![CDATA[phylip 格式如下图所示，第一行的两个数字分别表示序列条数和序列长度（包括 gap，“-”）。 不少进化分析相关的软件要求输入是 phylip 格式，这里提供一个脚本，可迅速便捷地将 fasta 格式的 MSA 转化为 phylip 格式。 import sys# usageUSAGE = "\nusage: python convert_fasta2phylip.py [input fasta file] [output phy file]\n"def parseFasta(filename): fas = &#123;&#125; id = None with open(filename, 'r') as fh: for line in fh: if line[0] == '&gt;': header = line[1:].rstrip() id = header.split()[0] fas[id] = [] else: fas[id].append(line.rstrip()) for id, seq in fas.iteritems(): fas[id] = ''.join(seq) return fasif len(sys.argv) !=3: print USAGE sys.exit()fas = parseFasta(sys.argv[1])outfile = sys.argv[2]sequence_list = [] # To keep order of sequencesequence_dict = &#123;&#125;for rec in fas: sequence_list.append(rec) sequence_dict[rec] = fas[rec]# Test length of the alignment:alignment_length = 0for gene in sequence_dict: if (alignment_length != 0) and (len(sequence_dict[gene]) != alignment_length): print "Error in alignment length, exit on error !!!" sys.exit() else: alignment_length = len(sequence_dict[gene])number_of_seq = len(sequence_dict)longest_id = sorted(sequence_dict.keys(), key = lambda k: len(k))[-1]# Write alignment in Phylip formatphyfile = open(outfile, "w")phyfile.write(str(number_of_seq)+" "+str(alignment_length)+"\n")for gene in sequence_list: phyfile.write(gene.ljust(len(longest_id), ' ') + " " + sequence_dict[gene] + "\n")phyfile.close() 运行方法： python convert_fasta2phylip.py [input fasta file] [output phy file]]]></content>
