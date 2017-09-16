@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[绘制误差线]]></title>
       <url>%2Fblog%2F%E7%BB%98%E5%88%B6%E8%AF%AF%E5%B7%AE%E7%BA%BF%2F</url>
-      <content type="text"><![CDATA[#generate some random numbersset.seed(20170916)a &lt;- runif(30, 0, 20)b &lt;- runif(30, 0, 20)c &lt;- runif(30, 0, 20) # 生成数据框df &lt;- data.frame(a=a, b=b, c=c) # 标准误差公式se &lt;- function(x)&#123; sd(x)/sqrt(length(x))&#125; # 计算平均值my_mean &lt;- apply(df, 2, mean) # 计算标准误差my_se &lt;- apply(df, 2, se) # 绘制柱状图barx &lt;- barplot(my_mean, names.arg=names(df), ylim=c(0,ceiling(max(df))), xlab='Class', ylab="Mean +/- SE") # 添加误差线arrows(barx, my_mean+my_se, barx, my_mean-my_se, angle=90, code=3, length=0.1)]]></content>
+      <content type="text"><![CDATA[# 生成随机数set.seed(20170916)a &lt;- runif(30, 0, 20)b &lt;- runif(30, 0, 20)c &lt;- runif(30, 0, 20) # 生成数据框df &lt;- data.frame(a=a, b=b, c=c) # 标准误差公式se &lt;- function(x)&#123; sd(x)/sqrt(length(x))&#125; # 计算平均值my_mean &lt;- apply(df, 2, mean) # 计算标准误差my_se &lt;- apply(df, 2, se) # 绘制柱状图barx &lt;- barplot(my_mean, names.arg=names(df), ylim=c(0,ceiling(max(df))), xlab='Class', ylab="Mean +/- SE") # 添加误差线arrows(barx, my_mean+my_se, barx, my_mean-my_se, angle=90, code=3, length=0.1)]]></content>
     </entry>
 
     
