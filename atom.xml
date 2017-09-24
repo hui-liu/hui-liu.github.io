@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hui-liu.github.io/"/>
-  <updated>2017-09-16T06:26:58.860Z</updated>
+  <updated>2017-09-24T07:42:54.270Z</updated>
   <id>https://hui-liu.github.io/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>aspera使用</title>
+    <link href="https://hui-liu.github.io/blog/aspera%E4%BD%BF%E7%94%A8/"/>
+    <id>https://hui-liu.github.io/blog/aspera使用/</id>
+    <published>2017-09-24T07:20:50.000Z</published>
+    <updated>2017-09-24T07:42:54.270Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>wget <a href="http://download.asperasoft.com/download/sw/connect/3.7.4/aspera-connect-3.7.4.147727-linux-64.tar.gz" target="_blank" rel="external">http://download.asperasoft.com/download/sw/connect/3.7.4/aspera-connect-3.7.4.147727-linux-64.tar.gz</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">tar</span> <span class="selector-tag">-zxvf</span> <span class="selector-tag">aspera-connect-3</span><span class="selector-class">.7</span><span class="selector-class">.4</span><span class="selector-class">.147727-linux-64</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></div><div class="line"><span class="selector-tag">sh</span> <span class="selector-tag">aspera-connect-3</span><span class="selector-class">.7</span><span class="selector-class">.4</span><span class="selector-class">.147727-linux-64</span><span class="selector-class">.sh</span></div></pre></td></tr></table></figure>
+<h3 id="环境变量："><a href="#环境变量：" class="headerlink" title="环境变量："></a>环境变量：</h3><p>其中，<strong>username</strong> 改为服务器上的你自己用户名</p>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><div class="line">export PATH=<span class="variable">$PATH</span><span class="symbol">:/home/username/</span>.aspera/connect/bin</div></pre></td></tr></table></figure>
+<h3 id="单个sra下载示例"><a href="#单个sra下载示例" class="headerlink" title="单个sra下载示例"></a>单个sra下载示例</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">ascp -QT -l <span class="number">100</span>M -<span class="selector-tag">i</span> /home/liuhui/.aspera/connect/etc/asperaweb_id_dsa<span class="selector-class">.openssh</span> \</div><div class="line">anonftp@ftp<span class="selector-class">.ncbi</span><span class="selector-class">.nlm</span><span class="selector-class">.nih</span><span class="selector-class">.gov</span>:/sra/sra-instant/reads/ByRun/sra/SRR/SRR292/SRR292241/SRR292241<span class="selector-class">.sra</span> .</div></pre></td></tr></table></figure>
+<h3 id="批量下载示例"><a href="#批量下载示例" class="headerlink" title="批量下载示例"></a>批量下载示例</h3><figure class="highlight dns"><table><tr><td class="code"><pre><div class="line">$ head accession</div><div class="line">SRR<span class="number">3089510</span></div><div class="line">SRR<span class="number">3089511</span></div><div class="line">SRR<span class="number">3089512</span></div><div class="line">SRR<span class="number">3089513</span></div><div class="line">SRR<span class="number">2163235</span></div><div class="line">SRR<span class="number">2163234</span></div><div class="line">SRR<span class="number">2163233</span></div><div class="line">SRR<span class="number">2163232</span></div><div class="line">SRR<span class="number">1734725</span></div><div class="line">SRR<span class="number">1734724</span></div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `cat accession`</div><div class="line"><span class="keyword">do</span></div><div class="line">x=$(echo <span class="variable">$i</span> | cut -b1-<span class="number">6</span>)</div><div class="line">y=$(echo <span class="variable">$i</span> | cut -b1-<span class="number">3</span>)</div><div class="line">ascp -QT -l <span class="number">100</span>M -i <span class="regexp">/home/</span>liuhui<span class="regexp">/bin/</span>aspera<span class="regexp">/connect/</span>etc<span class="regexp">/asperaweb_id_dsa.openssh anonftp@ftp.ncbi.nlm.nih.gov:/</span>sra<span class="regexp">/sra-instant/</span>reads<span class="regexp">/ByRun/</span>sra<span class="regexp">/$y/</span><span class="variable">$x</span><span class="regexp">/$i/</span><span class="variable">$i</span>.sra .</div><div class="line">done</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;下载&lt;/h3&gt;&lt;p&gt;wget &lt;a href=&quot;http://download.asperasoft.com/download/sw/connect/3.7.4
+    
+    </summary>
+    
+      <category term="生信" scheme="https://hui-liu.github.io/categories/%E7%94%9F%E4%BF%A1/"/>
+    
+    
+      <category term="linux" scheme="https://hui-liu.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>绘制误差线</title>
@@ -1148,61 +1177,6 @@
     
     
       <category term="python" scheme="https://hui-liu.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux文本处理三剑客之sed</title>
-    <link href="https://hui-liu.github.io/blog/Linux%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bsed/"/>
-    <id>https://hui-liu.github.io/blog/Linux文本处理三剑客之sed/</id>
-    <published>2017-05-07T11:06:59.000Z</published>
-    <updated>2017-05-07T14:19:46.504Z</updated>
-    
-    <content type="html"><![CDATA[<p><code>sed</code> 是一种流编辑器，它一次处理一行内容。处理时，把当前处理的行存储在称为“模式空间”（pattern space）的临时缓冲区中，接着用 <code>sed</code> 命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。</p>
-<p>以下举例说明其用法。</p>
-<h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ head -n 5 exon.txt</div><div class="line">1       11868   12226   +</div><div class="line">1       12612   12720   +</div><div class="line">1       12974   13051   +</div><div class="line">1       13220   14500   +</div><div class="line">1       15004   15037   -</div><div class="line">$ head -n 5 exon.txt | sed &apos;s/\t/,/&apos;</div><div class="line">1,11868 12226   +</div><div class="line">1,12612 12720   +</div><div class="line">1,12974 13051   +</div><div class="line">1,13220 14500   +</div><div class="line">1,15004 15037   -</div></pre></td></tr></table></figure>
-<p><code>s</code> 表示替换，将制表符 <code>\t</code> 替换为 <code>,</code>；默认只替换第一个匹配的制表符。若想匹配第二个，则：</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">$ head -n <span class="number">5</span> exon.txt | sed 's/\t/,/<span class="number">2</span>'</div><div class="line"><span class="number">1</span>       <span class="number">11868</span>,<span class="number">12226</span>     +</div><div class="line"><span class="number">1</span>       <span class="number">12612</span>,<span class="number">12720</span>     +</div><div class="line"><span class="number">1</span>       <span class="number">12974</span>,<span class="number">13051</span>     +</div><div class="line"><span class="number">1</span>       <span class="number">13220</span>,<span class="number">14500</span>     +</div><div class="line"><span class="number">1</span>       <span class="number">15004</span>,<span class="number">15037</span>     -</div></pre></td></tr></table></figure>
-<p>全部替换：</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">$ head -n <span class="number">5</span> exon.txt | sed 's/\t/,/g'</div><div class="line"><span class="number">1</span>,<span class="number">11868</span>,<span class="number">12226</span>,+</div><div class="line"><span class="number">1</span>,<span class="number">12612</span>,<span class="number">12720</span>,+</div><div class="line"><span class="number">1</span>,<span class="number">12974</span>,<span class="number">13051</span>,+</div><div class="line"><span class="number">1</span>,<span class="number">13220</span>,<span class="number">14500</span>,+</div><div class="line"><span class="number">1</span>,<span class="number">15004</span>,<span class="number">15037</span>,-</div></pre></td></tr></table></figure>
-<p><code>g</code> 即为 global，意为全局替换。</p>
-<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><h5 id="删除特定字符"><a href="#删除特定字符" class="headerlink" title="删除特定字符"></a>删除特定字符</h5><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ grep &quot;&gt;&quot; est_Cadn.fasta | sed &apos;s/&gt;//&apos; | head -n 5</div><div class="line">est_Cadn_9607682</div><div class="line">est_Cadn_14202134</div><div class="line">est_Cadn_14202136</div><div class="line">est_Cadn_17975490</div><div class="line">est_Cadn_9607680</div></pre></td></tr></table></figure>
-<p>将 <code>&gt;</code> 替换为空，即删除。</p>
-<h5 id="删除空行"><a href="#删除空行" class="headerlink" title="删除空行"></a>删除空行</h5><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sed &apos;/^$/d&apos; file</div></pre></td></tr></table></figure>
-<p>这里用到了正则，<code>^$</code> 表示空行，放在 <code>//</code> 中表示在文件中匹配空行；<code>d</code> 为 delete，即删除；所以整体的意思就是将空行删除。</p>
-<h4 id="添加行"><a href="#添加行" class="headerlink" title="添加行"></a>添加行</h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ head -n 5 exon.txt</div><div class="line">1       11868   12226   +</div><div class="line">1       12612   12720   +</div><div class="line">1       12974   13051   +</div><div class="line">1       13220   14500   +</div><div class="line">1       15004   15037   -</div><div class="line">$ head -n 5 exon.txt | sed &apos;1ichr\tstart\tend\tstrand&apos;</div><div class="line">chr     start   end     strand</div><div class="line">1       11868   12226   +</div><div class="line">1       12612   12720   +</div><div class="line">1       12974   13051   +</div><div class="line">1       13220   14500   +</div><div class="line">1       15004   15037   -</div></pre></td></tr></table></figure>
-<p><code>1i</code> 表示在第一行之前插入一行（insertion），<code>\t</code> 表制表符。</p>
-<p>在第一行之后添加一行，则是：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ head -n 5 exon.txt | sed &apos;1achr\tstart\tend\tstrand&apos;</div><div class="line">1       11868   12226   +</div><div class="line">chr     start   end     strand</div><div class="line">1       12612   12720   +</div><div class="line">1       12974   13051   +</div><div class="line">1       13220   14500   +</div><div class="line">1       15004   15037   -</div></pre></td></tr></table></figure>
-<p><code>1a</code> 即在第一行之后追加一行（append）。</p>
-<h4 id="显示指定行"><a href="#显示指定行" class="headerlink" title="显示指定行"></a>显示指定行</h4><h5 id="显示第二行"><a href="#显示第二行" class="headerlink" title="显示第二行"></a>显示第二行</h5><figure class="highlight elixir"><table><tr><td class="code"><pre><div class="line"><span class="variable">$ </span>zcat <span class="number">1_</span>SD_30_1.fq.gz | sed -n <span class="string">'2p'</span></div><div class="line">CAGCATCACATATTAGGCTTTATCCCTTTAAAGCAATATATTTTGAAATATCAATTATCATTTTCATTTATGGCCCGTAGGGCATTGCAGGGCACAACG</div></pre></td></tr></table></figure>
-<p><code>-n</code> 表示，不处理的行，不打印；<code>p</code> 即  print，<code>2p</code> 表示打印第二行。</p>
-<h5 id="显示指定区间内的行"><a href="#显示指定区间内的行" class="headerlink" title="显示指定区间内的行"></a>显示指定区间内的行</h5><figure class="highlight excel"><table><tr><td class="code"><pre><div class="line">s$ zcat <span class="number">1</span>_SD_30_1.fq.gz | sed -<span class="built_in">n</span> '<span class="number">4</span>,<span class="number">8</span>p'</div><div class="line">=DFFFFHHHHHJJJJJJJJJJJJJIJJJJJJJJJJJJJJIJJJJJJJJJJJJJIIJJJJJJJJJJJJJJJJJIFHJJHHFFFFDEEEEEDDDDDDDDDD</div><div class="line">@ERR569754.<span class="number">7</span> <span class="number">9</span>L6V3<span class="symbol">M1:265</span>:C06M9AC<span class="symbol">XX:3</span><span class="symbol">:1101</span><span class="symbol">:10900</span><span class="symbol">:1974</span> length=<span class="number">101</span></div><div class="line">TGCTGTTCATGGTGTTGTTGCTCTTGCTGTTGTTGTTGTTGCCCACGATGGGATCGCCGTTGATGGGGCCGTTAACGGGATTGCCATGAATCTTGGTGT</div><div class="line">+</div><div class="line">=DFFFEHHHHHJEGHHJIJJJJJJJIJJIIIIJJIIIIJJJJJJJIIIJJJJJJJJJJHHFFFEEEDDDDDDDBDCBDDBDDDCDDDDCDEDDDDDCDD</div></pre></td></tr></table></figure>
-<p>打印 4 到 8 行。</p>
-<h5 id="按一定规律显示指定的行"><a href="#按一定规律显示指定的行" class="headerlink" title="按一定规律显示指定的行"></a>按一定规律显示指定的行</h5><figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line">$ zcat <span class="number">1</span>_SD_30_1.fq.gz | sed -n <span class="string">'1~4p'</span> | head -n <span class="number">5</span></div><div class="line"><span class="meta">@ERR</span>569754<span class="number">.4</span> <span class="number">9</span><span class="string">L6V3M1:</span><span class="number">265</span>:<span class="string">C06M9ACXX:</span><span class="number">3</span>:<span class="number">1101</span>:<span class="number">6568</span>:<span class="number">1985</span> length=<span class="number">101</span></div><div class="line"><span class="meta">@ERR</span>569754<span class="number">.7</span> <span class="number">9</span><span class="string">L6V3M1:</span><span class="number">265</span>:<span class="string">C06M9ACXX:</span><span class="number">3</span>:<span class="number">1101</span>:<span class="number">10900</span>:<span class="number">1974</span> length=<span class="number">101</span></div><div class="line"><span class="meta">@ERR</span>569754<span class="number">.18</span> <span class="number">9</span><span class="string">L6V3M1:</span><span class="number">265</span>:<span class="string">C06M9ACXX:</span><span class="number">3</span>:<span class="number">1101</span>:<span class="number">1157</span>:<span class="number">2083</span> length=<span class="number">101</span></div><div class="line"><span class="meta">@ERR</span>569754<span class="number">.19</span> <span class="number">9</span><span class="string">L6V3M1:</span><span class="number">265</span>:<span class="string">C06M9ACXX:</span><span class="number">3</span>:<span class="number">1101</span>:<span class="number">1407</span>:<span class="number">2070</span> length=<span class="number">101</span></div><div class="line"><span class="meta">@ERR</span>569754<span class="number">.20</span> <span class="number">9</span><span class="string">L6V3M1:</span><span class="number">265</span>:<span class="string">C06M9ACXX:</span><span class="number">3</span>:<span class="number">1101</span>:<span class="number">1565</span>:<span class="number">2062</span> length=<span class="number">101</span></div></pre></td></tr></table></figure>
-<p>打印第 1 行，然后跳过 4 行，打印第 5 行；如此循环到最后一行。在 <code>fastq</code> 中即为打印每条序列的 header。</p>
-<p><strong><code>1~4</code> 和 <code>p</code> 之间可以加上替换操作。</strong></p>
-<figure class="highlight dns"><table><tr><td class="code"><pre><div class="line">$ zcat <span class="number">1</span>_SD_30_1.fq.gz | sed -n '<span class="number">1</span>~<span class="number">4</span>s/^@/&gt;/p' | head -n <span class="number">5</span></div><div class="line">&gt;ERR<span class="number">569754.4</span> <span class="number">9L6V3M1</span>:<span class="number">265</span>:C06M9ACXX:<span class="number">3</span>:<span class="number">1101:6568</span>:<span class="number">1985</span> length=<span class="number">101</span></div><div class="line">&gt;ERR<span class="number">569754.7</span> <span class="number">9L6V3M1</span>:<span class="number">265</span>:C06M9ACXX:<span class="number">3</span>:<span class="number">1101:10900</span>:<span class="number">1974</span> length=<span class="number">101</span></div><div class="line">&gt;ERR<span class="number">569754.18</span> <span class="number">9L6V3M1</span>:<span class="number">265</span>:C06M9ACXX:<span class="number">3</span>:<span class="number">1101:1157</span>:<span class="number">2083</span> length=<span class="number">101</span></div><div class="line">&gt;ERR<span class="number">569754.19</span> <span class="number">9L6V3M1</span>:<span class="number">265</span>:C06M9ACXX:<span class="number">3</span>:<span class="number">1101:1407</span>:<span class="number">2070</span> length=<span class="number">101</span></div><div class="line">&gt;ERR<span class="number">569754.20</span> <span class="number">9L6V3M1</span>:<span class="number">265</span>:C06M9ACXX:<span class="number">3</span>:<span class="number">1101:1565</span>:<span class="number">2062</span> length=<span class="number">101</span></div></pre></td></tr></table></figure>
-<p>随便将序列打印出来：</p>
-<figure class="highlight dns"><table><tr><td class="code"><pre><div class="line">$ zcat <span class="number">1</span>_SD_30_1.fq.gz | sed -n '<span class="number">1</span>~<span class="number">4</span>s/^@/&gt;/p<span class="comment">;2~4p' | head -n 5</span></div><div class="line">&gt;ERR<span class="number">569754.4</span> <span class="number">9L6V3M1</span>:<span class="number">265</span>:C06M9ACXX:<span class="number">3</span>:<span class="number">1101:6568</span>:<span class="number">1985</span> length=<span class="number">101</span></div><div class="line">CAGCATCACATATTAGGCTTTATCCCTTTAAAGCAATATATTTTGAAATATCAATTATCATTTTCATTTATGGCCCGTAGGGCATTGCAGGGCACAACG</div><div class="line">&gt;ERR<span class="number">569754.7</span> <span class="number">9L6V3M1</span>:<span class="number">265</span>:C06M9ACXX:<span class="number">3</span>:<span class="number">1101:10900</span>:<span class="number">1974</span> length=<span class="number">101</span></div><div class="line">TGCTGTTCATGGTGTTGTTGCTCTTGCTGTTGTTGTTGTTGCCCACGATGGGATCGCCGTTGATGGGGCCGTTAACGGGATTGCCATGAATCTTGGTGT</div><div class="line">&gt;ERR<span class="number">569754.18</span> <span class="number">9L6V3M1</span>:<span class="number">265</span>:C06M9ACXX:<span class="number">3</span>:<span class="number">1101:1157</span>:<span class="number">2083</span> length=<span class="number">101</span></div></pre></td></tr></table></figure>
-<p>这样即可将 <code>fastq</code> 转成 <code>fasta</code> 格式了。</p>
-<p>删除空格即其后的内容：</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">$ zcat <span class="number">1</span>_SD_30_1.fq.gz | sed -n '<span class="number">1</span>~<span class="number">4</span>s/^@/&gt;/p;<span class="number">2</span>~<span class="number">4</span>p' | sed 's/ .*<span class="comment">//' | head -n 5</span></div><div class="line">&gt;ERR569754<span class="number">.4</span></div><div class="line">CAGCATCACATATTAGGCTTTATCCCTTTAAAGCAATATATTTTGAAATATCAATTATCATTTTCATTTATGGCCCGTAGGGCATTGCAGGGCACAACG</div><div class="line">&gt;ERR569754<span class="number">.7</span></div><div class="line">TGCTGTTCATGGTGTTGTTGCTCTTGCTGTTGTTGTTGTTGCCCACGATGGGATCGCCGTTGATGGGGCCGTTAACGGGATTGCCATGAATCTTGGTGT</div><div class="line">&gt;ERR569754<span class="number">.18</span></div></pre></td></tr></table></figure>
-<p>相信到这里，大家 linux 已经入门了，但由于本人及文章篇幅有限，难免遗漏一些知识点，故推荐给大家两个教程，以查漏补缺：</p>
-<p><a href="https://www.tutorialspoint.com/unix/index.htm" target="_blank" rel="external">https://www.tutorialspoint.com/unix/index.htm</a></p>
-<p><a href="http://kodango.com/article-series" target="_blank" rel="external">http://kodango.com/article-series</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;code&gt;sed&lt;/code&gt; 是一种流编辑器，它一次处理一行内容。处理时，把当前处理的行存储在称为“模式空间”（pattern space）的临时缓冲区中，接着用 &lt;code&gt;sed&lt;/code&gt; 命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一
-    
-    </summary>
-    
-      <category term="生信" scheme="https://hui-liu.github.io/categories/%E7%94%9F%E4%BF%A1/"/>
-    
-    
-      <category term="linux" scheme="https://hui-liu.github.io/tags/linux/"/>
     
   </entry>
   
