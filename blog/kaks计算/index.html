@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="功能注释," />
+  <meta name="keywords" content="生信," />
 
 
 
@@ -89,26 +89,28 @@
 
 
 
-<meta name="description" content="序列 motif 就是一段有功能的、特定模式的序列，它之所以可以具有生物学功能，是因为它可以和调控蛋白结合，如转录因子、核糖体等。
-软件 meme（http://meme-suite.org/tools/meme） 可以从序列中找到新的、没有 gap 的 motifs，其输入文件可以是 DNA、RNA 或蛋白质序列。该软件的在线版限制序列大小为 60,000 bp ，在使用上有一定的局限性，这里介">
+<meta name="description" content="Ka，Ks 的概念和意义Ks（synonymous substitutions）：同义替换，即一个密码子中碱基的突变不改变该密码子编码的氨基酸。
+Ka（nonsynonymous substitutions）：非同义替换，即一个密码子中碱基的突变改变该密码子编码的氨基酸。
+dN/dS 相当于 Ka/Ks，其意义如下（https://www.biostars.org/p/5817/）：
+
+Neutr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="meme本地版的使用">
-<meta property="og:url" content="https://hui-liu.github.io/blog/meme本地版的使用/index.html">
+<meta property="og:title" content="kaks计算">
+<meta property="og:url" content="https://hui-liu.github.io/blog/kaks计算/index.html">
 <meta property="og:site_name" content="liuhui | 刘辉">
-<meta property="og:description" content="序列 motif 就是一段有功能的、特定模式的序列，它之所以可以具有生物学功能，是因为它可以和调控蛋白结合，如转录因子、核糖体等。
-软件 meme（http://meme-suite.org/tools/meme） 可以从序列中找到新的、没有 gap 的 motifs，其输入文件可以是 DNA、RNA 或蛋白质序列。该软件的在线版限制序列大小为 60,000 bp ，在使用上有一定的局限性，这里介">
-<meta property="og:image" content="https://hui-liu.github.io/blog/meme本地版的使用/1.png">
-<meta property="og:image" content="https://hui-liu.github.io/blog/meme本地版的使用/2.png">
-<meta property="og:image" content="https://hui-liu.github.io/blog/meme本地版的使用/3.png">
-<meta property="og:image" content="https://hui-liu.github.io/blog/meme本地版的使用/4.png">
-<meta property="og:image" content="https://hui-liu.github.io/blog/meme本地版的使用/5.png">
-<meta property="og:image" content="https://hui-liu.github.io/blog/meme本地版的使用/6.png">
-<meta property="og:updated_time" content="2017-07-03T02:21:02.116Z">
+<meta property="og:description" content="Ka，Ks 的概念和意义Ks（synonymous substitutions）：同义替换，即一个密码子中碱基的突变不改变该密码子编码的氨基酸。
+Ka（nonsynonymous substitutions）：非同义替换，即一个密码子中碱基的突变改变该密码子编码的氨基酸。
+dN/dS 相当于 Ka/Ks，其意义如下（https://www.biostars.org/p/5817/）：
+
+Neutr">
+<meta property="og:updated_time" content="2017-10-28T06:32:23.447Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="meme本地版的使用">
-<meta name="twitter:description" content="序列 motif 就是一段有功能的、特定模式的序列，它之所以可以具有生物学功能，是因为它可以和调控蛋白结合，如转录因子、核糖体等。
-软件 meme（http://meme-suite.org/tools/meme） 可以从序列中找到新的、没有 gap 的 motifs，其输入文件可以是 DNA、RNA 或蛋白质序列。该软件的在线版限制序列大小为 60,000 bp ，在使用上有一定的局限性，这里介">
-<meta name="twitter:image" content="https://hui-liu.github.io/blog/meme本地版的使用/1.png">
+<meta name="twitter:title" content="kaks计算">
+<meta name="twitter:description" content="Ka，Ks 的概念和意义Ks（synonymous substitutions）：同义替换，即一个密码子中碱基的突变不改变该密码子编码的氨基酸。
+Ka（nonsynonymous substitutions）：非同义替换，即一个密码子中碱基的突变改变该密码子编码的氨基酸。
+dN/dS 相当于 Ka/Ks，其意义如下（https://www.biostars.org/p/5817/）：
+
+Neutr">
 
 
 
@@ -136,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="https://hui-liu.github.io/blog/meme本地版的使用/"/>
+  <link rel="canonical" href="https://hui-liu.github.io/blog/kaks计算/"/>
 
 
 
 
 
-  <title> meme本地版的使用 | liuhui | 刘辉 </title>
+  <title> kaks计算 | liuhui | 刘辉 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -316,7 +318,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/meme本地版的使用/">
+    <link itemprop="mainEntityOfPage" href="https://hui-liu.github.io/blog/kaks计算/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hui Liu">
@@ -337,7 +339,7 @@
             
             
               
-                meme本地版的使用
+                kaks计算
               
             
           </h1>
@@ -352,8 +354,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-01T15:44:56+08:00">
-                2017-07-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-28T14:01:11+08:00">
+                2017-10-28
               </time>
             
 
@@ -410,51 +412,32 @@
       
 
       
-        <p>序列 motif 就是一段有功能的、特定模式的序列，它之所以可以具有生物学功能，是因为它可以和调控蛋白结合，如转录因子、核糖体等。</p>
-<p>软件 meme（<a href="http://meme-suite.org/tools/meme）" target="_blank" rel="external">http://meme-suite.org/tools/meme）</a> 可以从序列中找到新的、没有 gap 的 motifs，其输入文件可以是 DNA、RNA 或蛋白质序列。该软件的在线版限制序列大小为 <strong>60,000 bp</strong> ，在使用上有一定的局限性，这里介绍其本地版的用法。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>meme 的安装方法如下：</p>
-<ul>
-<li>下载 <a href="http://meme-suite.org/doc/download.html" target="_blank" rel="external">http://meme-suite.org/doc/download.html/</a></li>
-<li>安装命令</li>
-</ul>
-<figure class="highlight brainfuck"><table><tr><td class="code"><pre><div class="line"><span class="comment">tar</span> <span class="comment">zxf</span> <span class="comment">meme_4</span><span class="string">.</span><span class="comment">12</span><span class="string">.</span><span class="comment">0</span><span class="string">.</span><span class="comment">tar</span><span class="string">.</span><span class="comment">gz</span></div><div class="line"><span class="comment">cd</span> <span class="comment">meme_4</span><span class="string">.</span><span class="comment">12</span><span class="string">.</span><span class="comment">0</span></div><div class="line"><span class="comment">#</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prefix</span> <span class="comment">指定</span> <span class="comment">meme</span> <span class="comment">的安装路径，路径可自行修改</span></div><div class="line"><span class="string">.</span><span class="comment">/configure</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">prefix=$HOME/meme</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">url=http://meme</span><span class="literal">-</span><span class="comment">suite</span><span class="string">.</span><span class="comment">org</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">build</span><span class="literal">-</span><span class="comment">libxml2</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">build</span><span class="literal">-</span><span class="comment">libxslt</span></div><div class="line"><span class="comment">make</span></div><div class="line"><span class="comment">make</span> <span class="comment">test</span></div><div class="line"><span class="comment">make</span> <span class="comment">install</span></div></pre></td></tr></table></figure>
-<ul>
-<li>添加环境变量到 <code>.bashrc</code> 中</li>
-</ul>
-<figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">export PATH=<span class="variable">$HOME</span><span class="regexp">/meme/</span>bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure>
-<p>更具体的细节请查看安装文档：<a href="http://meme-suite.org/doc/install.html?man_type=web#prereq_commonutils。" target="_blank" rel="external">http://meme-suite.org/doc/install.html?man_type=web#prereq_commonutils。</a></p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">meme <span class="selector-tag">input</span><span class="selector-class">.fasta</span> -protein -oc . -mod zoops -nmotifs <span class="number">3</span> -minw <span class="number">6</span> -maxw <span class="number">50</span></div></pre></td></tr></table></figure>
-<p>其中，</p>
-<ul>
-<li><code>input.fasta</code> 可以是 DNA、RNA 或 蛋白质序列。</li>
-<li><code>-protein</code> 指定 <code>input.fasta</code> 的类型。</li>
-<li><code>-oc</code> 指定输出文件路径，<code>.</code> 即为当前目录。</li>
-<li><code>-mod</code> 假定 motif 的分布模式，详见 <a href="http://meme-suite.org/doc/meme.html。" target="_blank" rel="external">http://meme-suite.org/doc/meme.html。</a></li>
-<li><code>-minw</code> motif 的最小宽度。</li>
-<li><code>-maxw</code> motif 的最大宽度。</li>
-</ul>
-<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p>有两个图，一个图是 <strong>Motif Locations</strong>，用于描述 motif 在序列上的分布情况。在这个例子中，找到三个 motif。</p>
-<p><img src="/blog/meme本地版的使用/1.png" alt="1"></p>
-<p>另一个图称为 <strong>Discovered Motifs</strong>，用于描述碱基或氨基酸的频率和保守性。</p>
-<p><img src="/blog/meme本地版的使用/2.png" alt="2"></p>
-<p>该图依次描述  <strong>Motif Locations</strong> 中，每个 motif 的每个位点氨基酸的频率和保守性，字母越大，说明该位点这个氨基酸出现次数越多，同时，也更加保守。</p>
-<p>可能图  <strong>Discovered Motifs</strong> 不太好理解，下面举例说明。</p>
-<ul>
-<li><p>假如有以下 8 条序列，认为这 8 条序列为同一个 motif：</p>
-<p><img src="/blog/meme本地版的使用/3.png" alt="3"></p>
-</li>
-</ul>
-<ul>
-<li><p>显然，该 motif 共有 12 个位点，每个位点碱基的频数如下表：</p>
-<p><img src="/blog/meme本地版的使用/4.png" alt="4"></p>
-</li>
-<li><p>将上面的表格绘制成图，如下：</p>
-<p><img src="/blog/meme本地版的使用/5.png" alt="5"></p>
-</li>
-<li><p>显然，字母越大，其频数越大；但有一个缺点是，每个位点的保守性不能很好的凸显出来。如第 1 个位点和第 3 个位点的 <strong>C</strong> 虽然均出现了 <strong>4</strong> 次，但是由于第 3 个位点有三种碱基，而第 1 个 位点有两种碱基，显然，第一个位点较第三个位点更加保守。所以，再进一步计算，得到下图。</p>
-<p><img src="/blog/meme本地版的使用/6.png" alt="6"></p>
-</li>
-</ul>
+        <h3 id="Ka，Ks-的概念和意义"><a href="#Ka，Ks-的概念和意义" class="headerlink" title="Ka，Ks 的概念和意义"></a>Ka，Ks 的概念和意义</h3><p>Ks（synonymous substitutions）：同义替换，即一个密码子中碱基的突变不改变该密码子编码的氨基酸。</p>
+<p>Ka（nonsynonymous substitutions）：非同义替换，即一个密码子中碱基的突变改变该密码子编码的氨基酸。</p>
+<p>dN/dS 相当于 Ka/Ks，其意义如下（<a href="https://www.biostars.org/p/5817/）：" target="_blank" rel="external">https://www.biostars.org/p/5817/）：</a></p>
+<blockquote>
+<p><strong>Neutral Evolution (drift):</strong> dN/dS ratio = 1 implies there has been equal numbers of synonymous (dna substitutions that do not affect the protein sequence) and non-synonymous changes (dna substitutions that do affect the protein sequence) during the time between ancestral to the modern versions of the protein.</p>
+<p><strong>Positive Selection (adaptive evolution):</strong> dN/dS ratio &gt; 1 implies there has been more non-synonymous changes than synonymous changes. There has been evolutionary pressure to escape from the ancestral state - i.e. positive selection pressure. This can occur for example in paralogues that are required to serve a novel function, or in proteins of parasites that need to escape host immune recognition (e.g. changes to avoid MHC-1 binding to evade T-cell attack).</p>
+<p><strong>Negative Selection (conservation):</strong> dN/dS ratio &lt; 1 implies there has been more synonymous changes than non-synonymous changes. There has been evolutionary pressure to conserve the ancestral state - i.e. negative selection pressure. This can occur for example in orthologues that are required to maintain (conserve) some function encoded in the protein sequence, since changes from this state would lead to disruption of function.</p>
+</blockquote>
+<h3 id="计算Ka，Ks"><a href="#计算Ka，Ks" class="headerlink" title="计算Ka，Ks"></a>计算Ka，Ks</h3><p>使用软件 <strong>KaKs_Calculator</strong> 进行计算，该软件的输入文件是核酸水平的 <strong>AXT</strong>格式文件。下文讲解 axt 文件的准备和该软件的使用示例。</p>
+<p>假如有如下一对同源基因的蛋白质序列以及其对应的 cds 序列</p>
+<p>蛋白质序列（example_pep.fas）</p>
+<figure class="highlight dns"><table><tr><td class="code"><pre><div class="line">&gt;ENSP<span class="number">00000004982</span></div><div class="line">MEIPVPVQPSWLRRASAPLPGLSAPGRLFDQRFGEGLLEAELAALCPTTLAPYYLRAPSVALPVAQVPTD</div><div class="line">PGHFSVLLDVKHFSPEEIAVKVVGEHVEVHARHEERPDEHGFVAREFHRRYRLPPGVDPAAVTSALSPEG</div><div class="line">VLSIQAAPASAQAPPPAAAK</div><div class="line">&gt;ENSMUSP<span class="number">00000039172</span></div><div class="line">MEIPVPVQPSWLRRASAPLPGFSAPGRLFDQRFGEGLLEAELASLCPAAIAPYYLRAPSVALPTAQVSTD</div><div class="line">SGYFSVLLDVKHFLPEEISVKVVDDHVEVHARHEERPDEHGFIAREFHRRYRLPPGVDPAAVTSALSPEG</div><div class="line">VLSIQATPASAQAQLPSPPAAK</div></pre></td></tr></table></figure>
+<p>cds 序列（example_cds.fas）</p>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><div class="line">&gt;ENSP00000004982</div><div class="line">ATGGAGATCCCTGTGCCTGTGCAGCCGTCTTGGCTGCGCCGCGCCTCGGCCCCGTTGCCCGGACTTTCGG</div><div class="line"><span class="built_in">CGCCCGGACGCCTCTTTGACCAGCGCTTCGGCGAGGGGCTGCTGGAGGCCGAGCTGGCTGCGCTCTGCCC</span></div><div class="line"><span class="built_in">CACCACGCTCGCCCCCTACTACCTGCGCGCACCCAGCGTGGCGCTGCCCGTCGCCCAGGTGCCGACGGAC</span></div><div class="line">CCCGGCCACTTTTCGGTGCTGCTAGACGTGAAGCACTTCTCGCCGGAGGAAATTGCTGTCAAGGTGGTGG</div><div class="line">GCGAACACGTGGAGGTGCACGCGCGCCACGAGGAGCGCCCGGATGAGCACGGATTCGTCGCGCGCGAGTT</div><div class="line">CCACCGTCGCTACCGCCTGCCGCCTGGCGTGGATCCGGCTGCCGTGACGTCCGCGCTGTCCCCCGAGGGC</div><div class="line">GTCCTGTCCATCCAGGCCGCACCAGCGTCGGCCCAGGCCCCACCGCCAGCCGCAGCCAAGTAG</div><div class="line">&gt;ENSMUSP00000039172</div><div class="line">ATGGAGATCCCCGTGCCTGTGCAGCCTTCTTGGCTGCGCCGTGCTTCAGCTCCTTTACCAGGTTTCTCTG</div><div class="line"><span class="built_in">CTCCGGGACGCCTCTTTGACCAGCGTTTCGGCGAAGGGCTGCTTGAGGCAGAGCTGGCTTCACTGTGCCC</span></div><div class="line">TGCTGCGATCGCCCCCTACTATCTGCGCGCCCCCAGTGTGGCGTTACCCACAGCCCAGGTGTCCACGGAC</div><div class="line">TCTGGGTATTTTTCCGTGCTGCTGGATGTGAAGCACTTCTTGCCAGAGGAAATCTCTGTCAAGGTGGTTG</div><div class="line">ACGACCATGTGGAGGTCCATGCTCGGCACGAGGAGCGCCCGGATGAACACGGATTCATTGCTCGAGAGTT</div><div class="line">CCACCGCCGATACCGCCTGCCTCCTGGTGTGGACCCTGCTGCTGTGACCTCAGCACTGTCTCCTGAGGGT</div><div class="line">GTCCTGTCCATCCAGGCCACACCAGCGTCGGCCCAGGCCCAACTTCCGTCACCACCTGCTGCCAAGTAG</div></pre></td></tr></table></figure>
+<h4 id="step-1"><a href="#step-1" class="headerlink" title="step 1:"></a>step 1:</h4><p><strong>蛋白质序列联配（alignment）</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">mafft</span> <span class="selector-tag">--auto</span> <span class="selector-tag">example_pep</span><span class="selector-class">.fas</span> &gt; <span class="selector-tag">example_pep_aln</span><span class="selector-class">.fas</span></div></pre></td></tr></table></figure>
+<h4 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2:"></a>Step 2:</h4><p><strong>将蛋白质序列联配转换成核酸序列联配</strong></p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">perl pal2nal<span class="selector-class">.pl</span> example_pep_aln<span class="selector-class">.fas</span> example_cds<span class="selector-class">.fas</span> -output fasta &gt; example_cds_aln.fas</div></pre></td></tr></table></figure>
+<h4 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3:"></a>Step 3:</h4><p><strong>将核酸序列联配转为 AXT 格式</strong></p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">python FastaIntoAXT<span class="selector-class">.py</span> example_cds_aln<span class="selector-class">.fas</span> &gt; example_cds_aln.axt</div></pre></td></tr></table></figure>
+<p>其中，<code>FastaIntoAXT.py</code> 的内容如下：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line">import sys</div><div class="line"></div><div class="line">def parseFasta(filename):</div><div class="line">    fas = &#123;&#125;</div><div class="line">    idlis = []</div><div class="line">    id = None</div><div class="line">    with <span class="keyword">open</span>(filename, <span class="string">'r'</span>) <span class="keyword">as</span> fh:</div><div class="line">        <span class="keyword">for</span> <span class="built_in">line</span> in fh:</div><div class="line">            <span class="keyword">if</span> <span class="built_in">line</span>[<span class="number">0</span>] == <span class="string">'&gt;'</span>:</div><div class="line">                header = <span class="built_in">line</span>[<span class="number">1</span>:].rstrip()</div><div class="line">                id = header.<span class="keyword">split</span>()[<span class="number">0</span>]</div><div class="line">                idlis.<span class="keyword">append</span>(id)</div><div class="line">                fas[id] = []</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                fas[id].<span class="keyword">append</span>(<span class="built_in">line</span>.rstrip())</div><div class="line">        <span class="keyword">for</span> id, seq in fas.iteritems():</div><div class="line">            fas[id] = <span class="string">''</span>.<span class="keyword">join</span>(seq)</div><div class="line">    <span class="keyword">return</span> fas, idlis</div><div class="line"></div><div class="line">ALN, IDlis = parseFasta(sys.<span class="built_in">argv</span>[<span class="number">1</span>])</div><div class="line"></div><div class="line">outid = <span class="string">"-"</span>.<span class="keyword">join</span>(IDlis)</div><div class="line">outseq = <span class="string">"\n"</span>.<span class="keyword">join</span>([ALN[IDlis[<span class="number">0</span>]],ALN[IDlis[<span class="number">1</span>]]])</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">"&gt;"</span> + outid</div><div class="line"><span class="keyword">print</span> outseq</div></pre></td></tr></table></figure>
+<h4 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4:"></a>Step 4:</h4><p>计算 Ka，Ks</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">KaKs_Calculator -<span class="selector-tag">i</span> example_cds_aln<span class="selector-class">.axt</span> -o example<span class="selector-class">.kaks</span> -m YN</div></pre></td></tr></table></figure>
+<p>其中输出文件是 example.kaks，其内容如下：</p>
+<figure class="highlight oxygene"><table><tr><td class="code"><pre><div class="line"><span class="keyword">Sequence</span>        <span class="function"><span class="keyword">Method</span>  <span class="title">Ka</span>      <span class="title">Ks</span>      <span class="title">Ka</span>/<span class="title">Ks</span>   <span class="title">P</span>-<span class="title">Value</span><span class="params">(Fisher)</span> <span class="title">Length</span>  <span class="title">S</span>-<span class="title">Sites</span> <span class="title">N</span>-<span class="title">Sites</span> <span class="title">Fold</span>-<span class="title">Sites</span><span class="params">(0:2:4)</span>       <span class="title">Substitutions</span>   <span class="title">S</span>-<span class="title">Substitutions</span>   <span class="title">N</span>-<span class="title">Substitutions</span> <span class="title">Fold</span>-<span class="title">S</span>-<span class="title">Substitutions</span><span class="params">(0:2:4)</span>     <span class="title">Fold</span>-<span class="title">N</span>-<span class="title">Substitutions</span><span class="params">(0:2:4)</span>     <span class="title">Divergence</span>-<span class="title">Time</span> <span class="title">Substitution</span>-<span class="title">Rate</span>-<span class="title">Ratio</span><span class="params">(rTC:rAG:rTA:rCG:rTG:rCA/rCA)</span>      <span class="title">GC</span><span class="params">(1:2:3)</span>       <span class="title">ML</span>-<span class="title">Score</span>        <span class="title">AICc</span>    <span class="title">Akaike</span>-<span class="title">Weight</span>   <span class="title">Model</span></span></div><div class="line"><span class="title">ENSP00000004982</span>-<span class="title">ENSMUSP00000039172</span>      <span class="title">YN</span>      0.0571682       0.669484        0.0853913       6.30263<span class="title">e</span>-22     480     150.779 329.221 <span class="title">NA82</span>      64      18      <span class="title">NA</span>      <span class="title">NA</span>      0.249511        6.00228:<span class="number">6.00228</span>:<span class="number">1</span>:<span class="number">1</span>:<span class="number">1</span>:<span class="number">1</span> <span class="number">0.659465</span>(<span class="number">0.759259</span>:<span class="number">0.503086</span>:<span class="number">0.716049</span>)    NA      NA      NANA</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -478,7 +461,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/功能注释/" rel="tag"># 功能注释</a>
+            <a href="/tags/生信/" rel="tag"># 生信</a>
           
         </div>
       
@@ -491,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/KEGG注释/" rel="next" title="KEGG注释">
-                <i class="fa fa-chevron-left"></i> KEGG注释
+              <a href="/blog/非root安装python模块/" rel="next" title="非root安装python模块">
+                <i class="fa fa-chevron-left"></i> 非root安装python模块
               </a>
             
           </div>
@@ -500,10 +483,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blog/GO富集分析/" rel="prev" title="GO富集分析">
-                GO富集分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -677,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结果"><span class="nav-text">结果</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ka，Ks-的概念和意义"><span class="nav-text">Ka，Ks 的概念和意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算Ka，Ks"><span class="nav-text">计算Ka，Ks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#step-1"><span class="nav-text">step 1:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-2"><span class="nav-text">Step 2:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-3"><span class="nav-text">Step 3:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step-4"><span class="nav-text">Step 4:</span></a></li></ol></li></ol></div>
             
 
           </div>
